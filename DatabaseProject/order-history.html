@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <title>订单历史 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7CPoppins:400%7CTeko:300,400">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+
+      /* 用户下拉菜单样式 */
+      .rd-navbar-user {
+        position: relative;
+      }
+
+      .user-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .user-icon:hover {
+        background-color: #f5f5f5;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .user-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        min-width: 150px;
+        z-index: 1000;
+      }
+
+      .user-dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.3s ease;
+      }
+
+      .user-dropdown a:hover {
+        background-color: #f5f5f5;
+        color: #007bff;
+      }
+
+      .user-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      /* 购物车和用户图标对齐调整 */
+      .rd-navbar-user,
+      .rd-navbar-cart {
+        display: flex;
+        align-items: center;
+      }
+
+      .rd-navbar-cart .cart-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        position: relative;
+      }
+
+      .rd-navbar-cart .cart-icon:hover {
+        background-color: #f5f5f5;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .cart-count {
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        min-width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      /* 图标大小调整 */
+      .rd-navbar-user .mdi,
+      .rd-navbar-cart .mdi {
+        font-size: 20px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=business">商业管理</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="category.html">全部图书</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/><img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/></a></div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人资料</a>
+                    <a href="order-history.html">我的订单</a>
+                    <a href="browsing-history.html">浏览历史</a>
+                    <a href="user-preferences.html">偏好设置</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Breadcrumbs-->
+      <section class="breadcrumbs-custom" style="background-image: url(images/breadcrumbs-bg.jpg)">
+        <div class="container">
+          <p class="breadcrumbs-custom-subtitle">我的订单</p>
+          <p class="heading-1 breadcrumbs-custom-title">订单历史</p>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="user-profile.html">个人中心</a></li>
+            <li class="active">订单历史</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Order History Section -->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+              <div class="user-sidebar">
+                <div class="user-avatar text-center mb-4">
+                  <img src="images/user-1-80x80.jpg" alt="用户头像" class="rounded-circle" width="80" height="80">
+                  <h5 class="mt-3" id="sidebarUsername">用户名</h5>
+                  <p class="text-muted" id="sidebarUserEmail">user@example.com</p>
+                </div>
+                <nav class="user-nav">
+                  <ul class="list-unstyled">
+                    <li><a href="user-profile.html" class="nav-link">个人资料</a></li>
+                    <li><a href="order-history.html" class="nav-link active">我的订单</a></li>
+                    <li><a href="browsing-history.html" class="nav-link">浏览历史</a></li>
+                    <li><a href="user-preferences.html" class="nav-link">偏好设置</a></li>
+                    <li><a href="change-password.html" class="nav-link">修改密码</a></li>
+                    <li><a href="#" class="nav-link" onclick="logout()">退出登录</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+              <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <h4>我的订单</h4>
+                  <div class="order-filter">
+                    <select id="statusFilter" class="form-control">
+                      <option value="">全部订单</option>
+                      <option value="pending">待支付</option>
+                      <option value="paid">已支付</option>
+                      <option value="shipped">已发货</option>
+                      <option value="delivered">已送达</option>
+                      <option value="cancelled">已取消</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div id="ordersList">
+                    <!-- 订单列表将在这里动态生成 -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Order History Scripts -->
+    <script>
+      // 模拟订单数据
+      const ordersDatabase = [
+        {
+          id: 'ORD001',
+          date: '2024-01-15',
+          status: 'delivered',
+          total: 89.00,
+          books: [
+            {
+              id: 1,
+              title: '领导力艺术',
+              author: '乔安妮·舒尔茨',
+              price: 25.00,
+              quantity: 1,
+              cover: 'images/book-02-188x246.jpg'
+            },
+            {
+              id: 9,
+              title: '百年孤独',
+              author: '加西亚·马尔克斯',
+              price: 32.00,
+              quantity: 2,
+              cover: 'images/book-02-188x246.jpg'
+            }
+          ],
+          shippingAddress: '北京市朝阳区xxx街道xxx号',
+          trackingNumber: 'SF1234567890',
+          emailSent: true
+        },
+        {
+          id: 'ORD002',
+          date: '2024-01-20',
+          status: 'shipped',
+          total: 42.00,
+          books: [
+            {
+              id: 2,
+              title: '网页设计基础',
+              author: '张明华',
+              price: 21.00,
+              quantity: 2,
+              cover: 'images/book-03-188x246.jpg'
+            }
+          ],
+          shippingAddress: '上海市浦东新区xxx路xxx号',
+          trackingNumber: 'YT9876543210',
+          emailSent: true
+        },
+        {
+          id: 'ORD003',
+          date: '2024-01-25',
+          status: 'paid',
+          total: 58.00,
+          books: [
+            {
+              id: 3,
+              title: '网页设计中的网格系统',
+              author: '李小红',
+              price: 29.00,
+              quantity: 2,
+              cover: 'images/book-04-188x246.jpg'
+            }
+          ],
+          shippingAddress: '广州市天河区xxx大道xxx号',
+          trackingNumber: null,
+          emailSent: true
+        },
+        {
+          id: 'ORD004',
+          date: '2024-01-28',
+          status: 'pending',
+          total: 50.00,
+          books: [
+            {
+              id: 4,
+              title: '揭示用户放弃网站原因的工具',
+              author: '王大伟',
+              price: 25.00,
+              quantity: 2,
+              cover: 'images/book-05-188x246.jpg'
+            }
+          ],
+          shippingAddress: '深圳市南山区xxx路xxx号',
+          trackingNumber: null,
+          emailSent: false
+        }
+      ];
+
+      // 状态文本映射
+      const statusText = {
+        'pending': '待支付',
+        'paid': '已支付',
+        'shipped': '已发货',
+        'delivered': '已送达',
+        'cancelled': '已取消'
+      };
+
+      // 显示订单列表
+      function displayOrders(orders = ordersDatabase) {
+        const ordersList = document.getElementById('ordersList');
+
+        if (orders.length === 0) {
+          ordersList.innerHTML = `
+            <div class="empty-orders">
+              <i class="mdi mdi-package-variant"></i>
+              <h5>暂无订单</h5>
+              <p>您还没有任何订单，快去选购心仪的图书吧！</p>
+              <a href="category.html" class="btn-primary btn-sm">开始购物</a>
+            </div>
+          `;
+          return;
+        }
+
+        const ordersHTML = orders.map(order => `
+          <div class="order-item">
+            <div class="order-header">
+              <div class="order-info">
+                <strong>订单号：${order.id}</strong>
+                <span style="margin-left: 20px; color: #666;">下单时间：${order.date}</span>
+                <span style="margin-left: 20px; color: #666;">总金额：￥${order.total.toFixed(2)}</span>
+              </div>
+              <div class="order-status status-${order.status}">
+                ${statusText[order.status]}
+              </div>
+            </div>
+            <div class="order-body">
+              ${order.books.map(book => `
+                <div class="order-book">
+                  <img src="${book.cover}" alt="${book.title}" class="book-cover">
+                  <div class="book-info">
+                    <div class="book-title">${book.title}</div>
+                    <div class="book-author">${book.author} 著</div>
+                    <div class="book-price">￥${book.price.toFixed(2)} × ${book.quantity}</div>
+                  </div>
+                </div>
+              `).join('')}
+
+              ${order.shippingAddress ? `
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
+                  <strong>收货地址：</strong>${order.shippingAddress}
+                  ${order.trackingNumber ? `<br><strong>快递单号：</strong>${order.trackingNumber}` : ''}
+                </div>
+              ` : ''}
+
+              <div class="order-actions">
+                ${getOrderActions(order)}
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        ordersList.innerHTML = ordersHTML;
+      }
+
+      // 获取订单操作按钮
+      function getOrderActions(order) {
+        let actions = [];
+
+        switch(order.status) {
+          case 'pending':
+            actions.push(`<a href="#" class="btn-primary btn-sm" onclick="payOrder('${order.id}')">立即支付</a>`);
+            actions.push(`<a href="#" class="btn-danger btn-sm" onclick="cancelOrder('${order.id}')">取消订单</a>`);
+            break;
+          case 'paid':
+            actions.push(`<a href="#" class="btn-secondary btn-sm" onclick="viewOrderDetail('${order.id}')">查看详情</a>`);
+            break;
+          case 'shipped':
+            actions.push(`<a href="#" class="btn-primary btn-sm" onclick="trackOrder('${order.id}')">物流跟踪</a>`);
+            actions.push(`<a href="#" class="btn-secondary btn-sm" onclick="viewOrderDetail('${order.id}')">查看详情</a>`);
+            break;
+          case 'delivered':
+            actions.push(`<a href="#" class="btn-primary btn-sm" onclick="reviewOrder('${order.id}')">评价订单</a>`);
+            actions.push(`<a href="#" class="btn-secondary btn-sm" onclick="viewOrderDetail('${order.id}')">查看详情</a>`);
+            break;
+          case 'cancelled':
+            actions.push(`<a href="#" class="btn-secondary btn-sm" onclick="viewOrderDetail('${order.id}')">查看详情</a>`);
+            break;
+        }
+
+        return actions.join('');
+      }
+
+      // 支付订单
+      function payOrder(orderId) {
+        const order = ordersDatabase.find(o => o.id === orderId);
+        if (order) {
+          if (confirm(`确认支付订单 ${orderId}，金额 ￥${order.total.toFixed(2)}？`)) {
+            // 模拟支付过程
+            order.status = 'paid';
+            order.emailSent = true;
+
+            // 发送邮件通知
+            sendOrderEmail(order, 'payment_confirmed');
+
+            displayOrders();
+            showMessage('支付成功！订单确认邮件已发送到您的邮箱。', 'success');
+          }
+        }
+      }
+
+      // 取消订单
+      function cancelOrder(orderId) {
+        if (confirm('确认取消此订单吗？')) {
+          const order = ordersDatabase.find(o => o.id === orderId);
+          if (order) {
+            order.status = 'cancelled';
+            displayOrders();
+            showMessage('订单已取消', 'info');
+          }
+        }
+      }
+
+      // 物流跟踪
+      function trackOrder(orderId) {
+        const order = ordersDatabase.find(o => o.id === orderId);
+        if (order && order.trackingNumber) {
+          alert(`订单 ${orderId} 的快递单号是：${order.trackingNumber}\n\n物流状态：运输中\n预计送达：2-3个工作日`);
+        }
+      }
+
+      // 查看订单详情
+      function viewOrderDetail(orderId) {
+        const order = ordersDatabase.find(o => o.id === orderId);
+        if (order) {
+          let detail = `订单详情\n\n`;
+          detail += `订单号：${order.id}\n`;
+          detail += `下单时间：${order.date}\n`;
+          detail += `订单状态：${statusText[order.status]}\n`;
+          detail += `总金额：￥${order.total.toFixed(2)}\n\n`;
+          detail += `图书清单：\n`;
+          order.books.forEach(book => {
+            detail += `- ${book.title} × ${book.quantity} = ￥${(book.price * book.quantity).toFixed(2)}\n`;
+          });
+          detail += `\n收货地址：${order.shippingAddress}`;
+          if (order.trackingNumber) {
+            detail += `\n快递单号：${order.trackingNumber}`;
+          }
+
+          alert(detail);
+        }
+      }
+
+      // 评价订单
+      function reviewOrder(orderId) {
+        alert(`订单 ${orderId} 的评价功能将跳转到用户论坛页面，您可以在那里发表书评。`);
+        // 可以跳转到论坛页面
+        // window.location.href = 'forum.html';
+      }
+
+      // 发送订单邮件
+      function sendOrderEmail(order, type) {
+        // 模拟发送邮件
+        console.log(`发送邮件通知：`);
+        console.log(`收件人：${order.shippingAddress}`);
+        console.log(`邮件类型：${type}`);
+        console.log(`订单信息：`, order);
+
+        // 在实际应用中，这里会调用后端API发送邮件
+      }
+
+      // 状态筛选
+      function filterOrders() {
+        const status = document.getElementById('statusFilter').value;
+        let filteredOrders = ordersDatabase;
+
+        if (status) {
+          filteredOrders = ordersDatabase.filter(order => order.status === status);
+        }
+
+        displayOrders(filteredOrders);
+      }
+
+      // 显示消息
+      function showMessage(message, type = 'info') {
+        const output = document.getElementById('form-output-global');
+        const alertClass = type === 'success' ? 'alert-success' :
+                          type === 'error' ? 'alert-danger' : 'alert-info';
+
+        output.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+        output.style.display = 'block';
+
+        setTimeout(() => {
+          output.style.display = 'none';
+        }, 3000);
+      }
+
+      // 检查用户登录状态
+      function checkUserStatus() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+
+        if (!isLoggedIn) {
+          window.location.href = 'login-page.html';
+          return;
+        }
+
+        // 更新用户信息显示
+        document.getElementById('sidebarUsername').textContent = userInfo.username || '用户';
+        document.getElementById('sidebarUserEmail').textContent = userInfo.email || 'user@example.com';
+        document.getElementById('userDisplayName').textContent = userInfo.username || '用户';
+      }
+
+      // 注销功能
+      function logout() {
+        if (confirm('确定要退出登录吗？')) {
+          localStorage.removeItem('userInfo');
+          localStorage.removeItem('isLoggedIn');
+          window.location.href = 'index.html';
+        }
+      }
+
+      // 页面加载时初始化
+      window.addEventListener('load', function() {
+        checkUserStatus();
+        displayOrders();
+
+        // 绑定筛选事件
+        document.getElementById('statusFilter').addEventListener('change', filterOrders);
+
+        // 用户菜单点击事件
+        const userMenu = document.getElementById('userMenu');
+        const userDropdown = document.getElementById('userDropdown');
+
+        if (userMenu && userDropdown) {
+          userMenu.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // 切换下拉菜单显示状态
+            if (userDropdown.style.display === 'none' || userDropdown.style.display === '') {
+              userDropdown.style.display = 'block';
+            } else {
+              userDropdown.style.display = 'none';
+            }
+          });
+
+          // 点击页面其他地方关闭下拉菜单
+          document.addEventListener('click', function(e) {
+            if (!userMenu.contains(e.target) && !userDropdown.contains(e.target)) {
+              userDropdown.style.display = 'none';
+            }
+          });
+        }
+      });
+    </script>
+
+    <!-- Order History Styles -->
+    <style>
+      .user-sidebar {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .user-nav .nav-link {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-bottom: 5px;
+        transition: all 0.3s;
+      }
+
+      .user-nav .nav-link:hover,
+      .user-nav .nav-link.active {
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+      }
+
+      .card {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .card-header {
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        padding: 20px;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .order-item {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+
+      .order-header {
+        background: #f8f9fa;
+        padding: 15px 20px;
+        border-bottom: 1px solid #dee2e6;
+        display: flex;
+        justify-content: between;
+        align-items: center;
+      }
+
+      .order-info {
+        flex: 1;
+      }
+
+      .order-status {
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .status-pending {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeaa7;
+      }
+
+      .status-paid {
+        background: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+
+      .status-shipped {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .status-delivered {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .status-cancelled {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      .order-body {
+        padding: 20px;
+      }
+
+      .order-book {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .order-book:last-child {
+        border-bottom: none;
+      }
+
+      .book-cover {
+        width: 60px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 15px;
+      }
+
+      .book-info {
+        flex: 1;
+      }
+
+      .book-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .book-author {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      .book-price {
+        color: #e74c3c;
+        font-weight: 600;
+      }
+
+      .order-actions {
+        margin-top: 15px;
+        text-align: right;
+      }
+
+      .btn-sm {
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 4px;
+        margin-left: 10px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+      }
+
+      .btn-primary:hover {
+        background: #0056b3;
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn-secondary {
+        background: #6c757d;
+        color: white;
+        border: 1px solid #6c757d;
+      }
+
+      .btn-secondary:hover {
+        background: #545b62;
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn-danger {
+        background: #dc3545;
+        color: white;
+        border: 1px solid #dc3545;
+      }
+
+      .btn-danger:hover {
+        background: #c82333;
+        text-decoration: none;
+        color: white;
+      }
+
+      .empty-orders {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+      }
+
+      .empty-orders i {
+        font-size: 48px;
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+
+      .order-filter select {
+        width: 150px;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+    </style>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <!-- 网站标题-->
+    <title>欢迎加入华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- 样式表-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:700%7CLato:300,400,300italic,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <style>
+      .welcome-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+      .welcome-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 60px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        color: #333;
+        max-width: 600px;
+      }
+      .welcome-icon {
+        font-size: 4rem;
+        color: #28a745;
+        margin-bottom: 30px;
+      }
+      .welcome-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+      .welcome-subtitle {
+        font-size: 1.2rem;
+        color: #6c757d;
+        margin-bottom: 40px;
+      }
+      .feature-list {
+        text-align: left;
+        margin: 30px 0;
+      }
+      .feature-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      .feature-icon {
+        color: #28a745;
+        margin-right: 15px;
+        font-size: 1.3rem;
+      }
+      .action-buttons {
+        margin-top: 40px;
+      }
+      .btn-custom {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        border-radius: 25px;
+        margin: 0 10px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+      .btn-primary-custom {
+        background: #007bff;
+        color: white;
+        border: 2px solid #007bff;
+      }
+      .btn-primary-custom:hover {
+        background: #0056b3;
+        border-color: #0056b3;
+        transform: translateY(-2px);
+      }
+      .btn-secondary-custom {
+        background: transparent;
+        color: #6c757d;
+        border: 2px solid #6c757d;
+      }
+      .btn-secondary-custom:hover {
+        background: #6c757d;
+        color: white;
+        transform: translateY(-2px);
+      }
+      .email-status {
+        background: #e8f5e8;
+        border: 1px solid #28a745;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 20px 0;
+        color: #155724;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="welcome-container">
+      <div class="welcome-card">
+        <div class="welcome-icon">
+          <i class="mdi mdi-check-circle"></i>
+        </div>
+        
+        <h1 class="welcome-title">🎉 欢迎加入华轩书店！</h1>
+        
+        <p class="welcome-subtitle" id="welcomeMessage">
+          亲爱的用户，感谢您注册华轩书店！
+        </p>
+
+        <div class="email-status" id="emailStatus">
+          <i class="mdi mdi-email-check"></i>
+          <strong>欢迎邮件已发送</strong><br>
+          请检查您的邮箱，我们已向您发送了详细的欢迎邮件。
+        </div>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <i class="mdi mdi-book-open feature-icon"></i>
+            <span>浏览海量优质图书资源</span>
+          </div>
+          <div class="feature-item">
+            <i class="mdi mdi-cart feature-icon"></i>
+            <span>享受便捷的在线购书体验</span>
+          </div>
+          <div class="feature-item">
+            <i class="mdi mdi-forum feature-icon"></i>
+            <span>参与活跃的读者论坛讨论</span>
+          </div>
+          <div class="feature-item">
+            <i class="mdi mdi-star feature-icon"></i>
+            <span>获得个性化的图书推荐</span>
+          </div>
+          <div class="feature-item">
+            <i class="mdi mdi-gift feature-icon"></i>
+            <span>享受会员专属优惠活动</span>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <a href="login-page.html" class="btn-custom btn-primary-custom">
+            <i class="mdi mdi-login"></i> 立即登录
+          </a>
+          <a href="index.html" class="btn-custom btn-secondary-custom">
+            <i class="mdi mdi-home"></i> 浏览首页
+          </a>
+        </div>
+
+        <div style="margin-top: 30px; font-size: 0.9rem; color: #6c757d;">
+          <p>如有任何问题，请联系我们的客服团队</p>
+          <p>客服热线：400-123-4567</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      // 页面加载完成后执行
+      document.addEventListener('DOMContentLoaded', function() {
+        // 从URL获取用户名和邮箱
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const email = urlParams.get('email');
+        const emailSent = urlParams.get('emailSent');
+
+        // 个性化欢迎消息
+        if (username) {
+          document.getElementById('welcomeMessage').textContent = 
+            `亲爱的 ${username}，感谢您注册华轩书店！`;
+        }
+
+        // 根据邮件发送状态显示不同消息
+        const emailStatus = document.getElementById('emailStatus');
+        if (emailSent === 'false') {
+          emailStatus.innerHTML = `
+            <i class="mdi mdi-email-alert"></i>
+            <strong>邮件发送失败</strong><br>
+            欢迎邮件发送遇到问题，但您的注册已成功完成。
+          `;
+          emailStatus.style.background = '#fff3cd';
+          emailStatus.style.borderColor = '#ffc107';
+          emailStatus.style.color = '#856404';
+        }
+
+        // 5秒后自动跳转到登录页面
+        setTimeout(() => {
+          if (confirm('即将跳转到登录页面，是否继续？')) {
+            window.location.href = 'login-page.html';
+          }
+        }, 5000);
+      });
+    </script>
+  </body>
+</html>

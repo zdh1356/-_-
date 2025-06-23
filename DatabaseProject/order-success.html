@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh">
+  <head>
+    <title>订单提交成功 - 网上书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:700%7CLato:300,400,300italic,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+  </head>
+  <body>
+    <!-- Page preloader-->
+    <div class="page-loader">
+      <div class="page-loader-body">
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-161x57.png" alt="" width="161" height="57"/><img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="" width="161" height="57"/></a></div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- 订单成功页面 -->
+      <section class="section section-lg bg-default text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+              <div class="success-message">
+                <div class="icon-success mb-4">
+                  <span class="icon mdi mdi-check-circle text-success" style="font-size: 5rem;"></span>
+                </div>
+                <h2 class="text-success mb-4">订单提交成功！</h2>
+
+                <!-- 邮件发送状态 -->
+                <div class="email-status card mb-4" id="emailStatus" style="display: none;">
+                  <div class="card-body text-center">
+                    <div id="emailStatusContent">
+                      <!-- 邮件状态将由JavaScript动态填充 -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="order-info card mb-4">
+                  <div class="card-body">
+                    <h5 class="card-title">订单信息</h5>
+                    <div class="order-details" id="orderDetails">
+                      <!-- 订单详情将由JavaScript动态填充 -->
+                    </div>
+                  </div>
+                </div>
+                <p class="text-muted mb-4">感谢您的购买！我们会尽快处理您的订单。</p>
+                <div class="buttons-container">
+                  <a href="index.html" class="button button-primary button-nina">返回首页</a>
+                  <a href="#" class="button button-secondary button-nina ml-2" id="viewOrderBtn">查看订单</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Default-->
+      <footer class="section page-footer page-footer-default novi-background bg-cover text-left footer-form bg-dark">
+        <div class="container container-wide">
+          <div class="row row-50 justify-content-sm-center">
+            <div class="col-md-6 col-xl-3">
+              <div class="inset-xxl">
+                <h6 class="text-white">关于我们</h6>
+                <p class="text-transparent text-spacing-sm">网上书店是一个专业的图书销售平台，提供丰富的图书资源和便捷的购书体验。我们致力于为读者提供优质的阅读服务。</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-2">
+              <h6 class="text-white">快速链接</h6>
+              <ul class="list-marked list-marked-primary">
+                <li><a href="about-us.html">关于我们</a></li>
+                <li><a href="#">服务</a></li>
+                <li><a href="shop-4-columns-layout.html">商城</a></li>
+                <li><a href="classic-blog.html">博客</a></li>
+                <li><a href="contacts.html">联系我们</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      // 页面加载完成后执行
+      document.addEventListener('DOMContentLoaded', function() {
+        // 从URL获取订单ID和邮件发送状态
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('orderId');
+        const emailSent = urlParams.get('emailSent');
+
+        if (orderId) {
+          // 加载订单详情
+          loadOrderDetails(orderId);
+          // 更新查看订单按钮链接
+          document.getElementById('viewOrderBtn').href = `/user/orders.html?id=${orderId}`;
+        }
+
+        // 显示邮件发送状态
+        showEmailStatus(emailSent);
+      });
+
+      // 加载订单详情
+      async function loadOrderDetails(orderId) {
+        try {
+          const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+          if (!authToken) {
+            throw new Error('用户未登录');
+          }
+
+          const response = await fetch(`http://1.94.203.175:5000/api/order/${orderId}`, {
+            headers: {
+              'Authorization': `Bearer ${authToken}`,
+              'Content-Type': 'application/json'
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error('获取订单详情失败');
+          }
+
+          const result = await response.json();
+
+          if (result.success && result.data) {
+            const order = result.data;
+
+            // 显示订单详情
+            document.getElementById('orderDetails').innerHTML = `
+              <div class="row mb-2">
+                <div class="col-4">订单编号：</div>
+                <div class="col-8">${order.orderNumber}</div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-4">下单时间：</div>
+                <div class="col-8">${new Date(order.createdAt).toLocaleString('zh-CN')}</div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-4">订单状态：</div>
+                <div class="col-8">${getOrderStatusText(order.status)}</div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-4">订单金额：</div>
+                <div class="col-8">¥${order.totalAmount.toFixed(2)}</div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-4">收货信息：</div>
+                <div class="col-8">${order.shippingName} - ${order.shippingPhone}</div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-4">收货地址：</div>
+                <div class="col-8">${order.shippingAddress}</div>
+              </div>
+            `;
+          } else {
+            throw new Error(result.message || '获取订单详情失败');
+          }
+        } catch (error) {
+          console.error('加载订单详情失败:', error);
+
+          // 如果获取订单详情失败，尝试从localStorage获取基本信息
+          const orderNumber = localStorage.getItem('lastOrderNumber');
+          const orderAmount = localStorage.getItem('lastOrderAmount');
+
+          if (orderNumber && orderAmount) {
+            document.getElementById('orderDetails').innerHTML = `
+              <div class="row mb-2">
+                <div class="col-4">订单编号：</div>
+                <div class="col-8">${orderNumber}</div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-4">下单时间：</div>
+                <div class="col-8">${new Date().toLocaleString('zh-CN')}</div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-4">订单状态：</div>
+                <div class="col-8">待支付</div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-4">订单金额：</div>
+                <div class="col-8">¥${orderAmount}</div>
+              </div>
+            `;
+
+            // 清除临时存储
+            localStorage.removeItem('lastOrderNumber');
+            localStorage.removeItem('lastOrderAmount');
+          } else {
+            document.getElementById('orderDetails').innerHTML = `
+              <div class="text-danger">无法获取订单详情，请稍后在订单列表中查看。</div>
+            `;
+          }
+        }
+      }
+
+      // 显示邮件发送状态
+      function showEmailStatus(emailSent) {
+        const emailStatus = document.getElementById('emailStatus');
+        const emailStatusContent = document.getElementById('emailStatusContent');
+
+        if (emailSent === 'true') {
+          emailStatusContent.innerHTML = `
+            <div class="text-success">
+              <i class="mdi mdi-email-check" style="font-size: 2rem;"></i>
+              <h6 class="mt-2">📧 订单确认邮件已发送</h6>
+              <p class="mb-0">我们已向您的邮箱发送了详细的订单确认邮件，请注意查收。</p>
+            </div>
+          `;
+          emailStatus.style.display = 'block';
+        } else if (emailSent === 'false') {
+          emailStatusContent.innerHTML = `
+            <div class="text-warning">
+              <i class="mdi mdi-email-alert" style="font-size: 2rem;"></i>
+              <h6 class="mt-2">⚠️ 邮件发送失败</h6>
+              <p class="mb-0">订单确认邮件发送遇到问题，但您的订单已成功提交。您可以在订单历史中查看详情。</p>
+            </div>
+          `;
+          emailStatus.style.display = 'block';
+        }
+      }
+
+      // 获取订单状态文本
+      function getOrderStatusText(status) {
+        const statusMap = {
+          'pending': '待支付',
+          'paid': '已支付',
+          'shipped': '已发货',
+          'delivered': '已送达',
+          'cancelled': '已取消'
+        };
+        return statusMap[status] || status;
+      }
+
+      // 获取支付方式文本
+      function getPaymentMethodText(method) {
+        const methods = {
+          'alipay': '支付宝',
+          'wechat': '微信支付',
+          'bankTransfer': '银行转账'
+        };
+        return methods[method] || method;
+      }
+    </script>
+  </body>
+</html> 

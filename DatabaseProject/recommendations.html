@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <title>为您推荐 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7CPoppins:400%7CTeko:300,400">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=business">商业管理</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li class="active"><a href="recommendations.html">为您推荐</a></li>
+                    <li><a href="forum.html">读者论坛</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/><img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/></a></div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人资料</a>
+                    <a href="order-history.html">我的订单</a>
+                    <a href="browsing-history.html">浏览历史</a>
+                    <a href="user-preferences.html">偏好设置</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon" id="cartIcon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Breadcrumbs-->
+      <section class="breadcrumbs-custom" style="background-image: url(images/breadcrumbs-bg.jpg)">
+        <div class="container">
+          <p class="breadcrumbs-custom-subtitle">个性化服务</p>
+          <p class="heading-1 breadcrumbs-custom-title">为您推荐</p>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">首页</a></li>
+            <li class="active">为您推荐</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Recommendations Section -->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <!-- User Preference Summary -->
+          <div class="card mb-4" id="preferenceSummary">
+            <div class="card-header">
+              <h4>🎯 您的阅读偏好</h4>
+            </div>
+            <div class="card-body">
+              <div id="preferenceContent">
+                <!-- 偏好内容将在这里动态生成 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommendation Tabs -->
+          <div class="recommendation-tabs">
+            <ul class="nav nav-tabs" id="recommendationTabs">
+              <li class="nav-item">
+                <a class="nav-link active" data-tab="browsing" href="#browsing">基于浏览历史</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-tab="purchase" href="#purchase">基于购买历史</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-tab="similar" href="#similar">相似用户推荐</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-tab="popular" href="#popular">热门推荐</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-tab="new" href="#new">新书推荐</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Recommendation Content -->
+          <div class="tab-content" id="recommendationContent">
+            <!-- 推荐内容将在这里动态生成 -->
+          </div>
+
+          <!-- Recommendation Settings -->
+          <div class="card mt-4">
+            <div class="card-header">
+              <h5>⚙️ 推荐设置</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>推荐算法</label>
+                    <select id="algorithmSelect" class="form-control">
+                      <option value="browsing">基于浏览历史</option>
+                      <option value="purchase">基于购买历史</option>
+                      <option value="similar">相似用户推荐</option>
+                      <option value="popular">热门图书推荐</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>推荐数量</label>
+                    <select id="countSelect" class="form-control">
+                      <option value="6">6本图书</option>
+                      <option value="12" selected>12本图书</option>
+                      <option value="24">24本图书</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>分类过滤</label>
+                    <select id="categoryFilter" class="form-control">
+                      <option value="">全部分类</option>
+                      <option value="literature">文学艺术</option>
+                      <option value="technology">科技计算机</option>
+                      <option value="business">经济管理</option>
+                      <option value="education">教育考试</option>
+                      <option value="children">少儿读物</option>
+                      <option value="life">生活休闲</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="button-group">
+                  <button class="btn btn-primary" onclick="updateRecommendations()">更新推荐</button>
+                  <button class="btn btn-secondary" onclick="refreshRecommendations()">刷新推荐</button>
+                  <button class="btn btn-outline-primary" onclick="sendRecommendationEmail()">📧 发送推荐邮件</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Recommendations Scripts -->
+    <script>
+      // 邮件服务API配置
+      const EMAIL_API_BASE = 'http://1.94.203.175:5000/api/email';
+
+      // 模拟推荐图书数据库
+      const recommendationDatabase = {
+        browsing: [
+          {
+            id: 10,
+            title: '深入理解计算机系统',
+            author: 'Randal E. Bryant',
+            publisher: '机械工业出版社',
+            price: 139.00,
+            originalPrice: 159.00,
+            stock: 25,
+            category: 'technology',
+            cover: 'images/book-06-188x246.jpg',
+            reason: '基于您对技术类图书的浏览偏好',
+            score: 95
+          },
+          {
+            id: 11,
+            title: 'JavaScript高级程序设计',
+            author: 'Nicholas C. Zakas',
+            publisher: '人民邮电出版社',
+            price: 99.00,
+            originalPrice: 119.00,
+            stock: 42,
+            category: 'technology',
+            cover: 'images/book-07-188x246.jpg',
+            reason: '与您浏览的《网页设计基础》相关',
+            score: 92
+          },
+          {
+            id: 12,
+            title: '设计心理学',
+            author: '唐纳德·诺曼',
+            publisher: '中信出版社',
+            price: 49.00,
+            originalPrice: 59.00,
+            stock: 38,
+            category: 'business',
+            cover: 'images/book-08-188x246.jpg',
+            reason: '与您浏览的《领导力艺术》相关',
+            score: 88
+          }
+        ],
+        purchase: [
+          {
+            id: 13,
+            title: '人类简史',
+            author: '尤瓦尔·赫拉利',
+            publisher: '中信出版社',
+            price: 68.00,
+            originalPrice: 78.00,
+            stock: 56,
+            category: 'social',
+            cover: 'images/book-09-188x246.jpg',
+            reason: '购买过文学类图书的用户也喜欢',
+            score: 94
+          },
+          {
+            id: 14,
+            title: '未来简史',
+            author: '尤瓦尔·赫拉利',
+            publisher: '中信出版社',
+            price: 72.00,
+            originalPrice: 82.00,
+            stock: 33,
+            category: 'social',
+            cover: 'images/book-10-188x246.jpg',
+            reason: '与您购买的图书风格相似',
+            score: 91
+          }
+        ],
+        similar: [
+          {
+            id: 15,
+            title: '三体',
+            author: '刘慈欣',
+            publisher: '重庆出版社',
+            price: 23.00,
+            originalPrice: 29.00,
+            stock: 67,
+            category: 'literature',
+            cover: 'images/book-11-188x246.jpg',
+            reason: '相似用户强烈推荐',
+            score: 96
+          },
+          {
+            id: 16,
+            title: '黑客与画家',
+            author: 'Paul Graham',
+            publisher: '人民邮电出版社',
+            price: 55.00,
+            originalPrice: 65.00,
+            stock: 29,
+            category: 'technology',
+            cover: 'images/book-12-188x246.jpg',
+            reason: '与您兴趣相似的用户也在看',
+            score: 89
+          }
+        ],
+        popular: [
+          {
+            id: 17,
+            title: '原则',
+            author: '瑞·达利欧',
+            publisher: '中信出版社',
+            price: 98.00,
+            originalPrice: 118.00,
+            stock: 45,
+            category: 'business',
+            cover: 'images/book-13-188x246.jpg',
+            reason: '本月最受欢迎的管理类图书',
+            score: 97
+          },
+          {
+            id: 18,
+            title: '思考，快与慢',
+            author: '丹尼尔·卡尼曼',
+            publisher: '中信出版社',
+            price: 69.00,
+            originalPrice: 79.00,
+            stock: 52,
+            category: 'social',
+            cover: 'images/book-14-188x246.jpg',
+            reason: '心理学类热门图书',
+            score: 93
+          }
+        ],
+        new: [
+          {
+            id: 19,
+            title: 'ChatGPT：AI革命',
+            author: '李开复',
+            publisher: '机械工业出版社',
+            price: 89.00,
+            originalPrice: 99.00,
+            stock: 78,
+            category: 'technology',
+            cover: 'images/book-15-188x246.jpg',
+            reason: '2024年最新AI技术图书',
+            score: 90,
+            isNew: true
+          },
+          {
+            id: 20,
+            title: '数字化转型实战',
+            author: '张三丰',
+            publisher: '电子工业出版社',
+            price: 79.00,
+            originalPrice: 89.00,
+            stock: 34,
+            category: 'business',
+            cover: 'images/book-16-188x246.jpg',
+            reason: '企业数字化转型必读',
+            score: 87,
+            isNew: true
+          }
+        ]
+      };
+
+      // 分类名称映射
+      const categoryNames = {
+        'literature': '文学艺术',
+        'technology': '科技计算机',
+        'business': '经济管理',
+        'education': '教育考试',
+        'children': '少儿读物',
+        'life': '生活休闲',
+        'social': '社会科学'
+      };
+
+      let currentTab = 'browsing';
+
+      // 显示用户偏好摘要
+      function displayPreferenceSummary() {
+        const preferences = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+        const browsingHistory = JSON.parse(localStorage.getItem('browsingHistory') || '[]');
+        const preferenceContent = document.getElementById('preferenceContent');
+
+        // 分析浏览偏好
+        const categoryCount = {};
+        browsingHistory.forEach(item => {
+          categoryCount[item.category] = (categoryCount[item.category] || 0) + 1;
+        });
+
+        const topCategories = Object.keys(categoryCount)
+          .sort((a, b) => categoryCount[b] - categoryCount[a])
+          .slice(0, 3);
+
+        const preferredCategories = preferences.categories || [];
+
+        const summaryHTML = `
+          <div class="preference-summary">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="preference-item">
+                  <h6><i class="mdi mdi-heart"></i> 偏好分类</h6>
+                  <div class="category-tags">
+                    ${preferredCategories.map(cat =>
+                      `<span class="category-tag">${categoryNames[cat] || cat}</span>`
+                    ).join('')}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="preference-item">
+                  <h6><i class="mdi mdi-eye"></i> 浏览偏好</h6>
+                  <div class="category-tags">
+                    ${topCategories.map(cat =>
+                      `<span class="browsing-tag">${categoryNames[cat] || cat} (${categoryCount[cat]})</span>`
+                    ).join('')}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="preference-item">
+                  <h6><i class="mdi mdi-settings"></i> 推荐设置</h6>
+                  <p>算法: ${getAlgorithmName(preferences.recommendations?.algorithm || 'browsing')}</p>
+                  <p>频率: ${getFrequencyName(preferences.recommendations?.frequency || 'weekly')}</p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <a href="user-preferences.html" class="btn btn-outline-primary btn-sm">修改偏好设置</a>
+            </div>
+          </div>
+        `;
+
+        preferenceContent.innerHTML = summaryHTML;
+      }
+
+      // 获取算法名称
+      function getAlgorithmName(algorithm) {
+        const names = {
+          'browsing': '基于浏览历史',
+          'purchase': '基于购买历史',
+          'similar': '相似用户推荐',
+          'popular': '热门图书推荐'
+        };
+        return names[algorithm] || algorithm;
+      }
+
+      // 获取频率名称
+      function getFrequencyName(frequency) {
+        const names = {
+          'daily': '每日推荐',
+          'weekly': '每周推荐',
+          'monthly': '每月推荐',
+          'never': '不推荐'
+        };
+        return names[frequency] || frequency;
+      }
+
+      // 显示推荐内容
+      function displayRecommendations(tab = 'browsing') {
+        const content = document.getElementById('recommendationContent');
+        const recommendations = recommendationDatabase[tab] || [];
+        const count = parseInt(document.getElementById('countSelect').value);
+        const categoryFilter = document.getElementById('categoryFilter').value;
+
+        // 过滤推荐
+        let filteredRecommendations = recommendations;
+        if (categoryFilter) {
+          filteredRecommendations = recommendations.filter(book => book.category === categoryFilter);
+        }
+
+        // 限制数量
+        filteredRecommendations = filteredRecommendations.slice(0, count);
+
+        if (filteredRecommendations.length === 0) {
+          content.innerHTML = `
+            <div class="empty-recommendations">
+              <i class="mdi mdi-lightbulb-outline"></i>
+              <h5>暂无推荐</h5>
+              <p>当前条件下没有找到合适的推荐图书，请尝试调整筛选条件。</p>
+              <button class="btn btn-primary" onclick="refreshRecommendations()">刷新推荐</button>
+            </div>
+          `;
+          return;
+        }
+
+        const tabInfo = getTabInfo(tab);
+        const recommendationsHTML = `
+          <div class="tab-pane active">
+            <div class="recommendation-header">
+              <h5>${tabInfo.title}</h5>
+              <p class="text-muted">${tabInfo.description}</p>
+            </div>
+            <div class="books-grid">
+              ${filteredRecommendations.map(book => `
+                <div class="book-card">
+                  <div class="book-image">
+                    <a href="book-detail.html?id=${book.id}">
+                      <img src="${book.cover}" alt="${book.title}" class="book-cover">
+                      ${book.isNew ? '<span class="new-badge">新书</span>' : ''}
+                    </a>
+                  </div>
+                  <div class="book-info">
+                    <h6 class="book-title">
+                      <a href="book-detail.html?id=${book.id}">${book.title}</a>
+                    </h6>
+                    <p class="book-author">${book.author}</p>
+                    <div class="book-price">
+                      <span class="current-price">￥${book.price.toFixed(2)}</span>
+                      ${book.originalPrice > book.price ?
+                        `<span class="original-price">￥${book.originalPrice.toFixed(2)}</span>` : ''}
+                    </div>
+                    <div class="recommendation-reason">
+                      <i class="mdi mdi-lightbulb"></i>
+                      ${book.reason}
+                    </div>
+                    <div class="recommendation-score">
+                      <span class="score-label">推荐度:</span>
+                      <div class="score-bar">
+                        <div class="score-fill" style="width: ${book.score}%"></div>
+                      </div>
+                      <span class="score-value">${book.score}%</span>
+                    </div>
+                    <div class="book-actions">
+                      <button class="btn btn-primary btn-sm" onclick="addToCart(${book.id})">
+                        <i class="mdi mdi-cart-plus"></i>
+                        加入购物车
+                      </button>
+                      <button class="btn btn-outline-secondary btn-sm" onclick="addToWishlist(${book.id})">
+                        <i class="mdi mdi-heart-outline"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+
+        content.innerHTML = recommendationsHTML;
+      }
+
+      // 获取标签页信息
+      function getTabInfo(tab) {
+        const tabInfos = {
+          'browsing': {
+            title: '基于浏览历史的推荐',
+            description: '根据您最近浏览的图书，为您推荐相关的优质图书'
+          },
+          'purchase': {
+            title: '基于购买历史的推荐',
+            description: '根据您的购买记录，为您推荐同类型的热门图书'
+          },
+          'similar': {
+            title: '相似用户推荐',
+            description: '与您兴趣相似的用户也在阅读这些图书'
+          },
+          'popular': {
+            title: '热门图书推荐',
+            description: '当前最受欢迎的图书，不容错过的精品'
+          },
+          'new': {
+            title: '新书推荐',
+            description: '最新上架的优质图书，抢先体验'
+          }
+        };
+        return tabInfos[tab] || { title: '推荐图书', description: '为您精选的优质图书' };
+      }
+
+      // 切换标签页
+      function switchTab(tab) {
+        // 更新标签页状态
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+
+        currentTab = tab;
+        displayRecommendations(tab);
+      }
+
+      // 更新推荐
+      function updateRecommendations() {
+        const algorithm = document.getElementById('algorithmSelect').value;
+        switchTab(algorithm);
+        showMessage('推荐已更新', 'success');
+      }
+
+      // 刷新推荐
+      function refreshRecommendations() {
+        // 模拟刷新推荐算法
+        displayRecommendations(currentTab);
+        showMessage('推荐已刷新', 'info');
+      }
+
+      // 添加到购物车
+      function addToCart(bookId) {
+        // 查找图书信息
+        let book = null;
+        for (const category in recommendationDatabase) {
+          book = recommendationDatabase[category].find(b => b.id === bookId);
+          if (book) break;
+        }
+
+        if (book) {
+          // 获取现有购物车
+          let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+          // 检查是否已存在
+          const existingIndex = cart.findIndex(item => item.id === bookId);
+          if (existingIndex !== -1) {
+            cart[existingIndex].quantity += 1;
+          } else {
+            cart.push({
+              id: book.id,
+              title: book.title,
+              author: book.author,
+              price: book.price,
+              cover: book.cover,
+              quantity: 1
+            });
+          }
+
+          localStorage.setItem('cart', JSON.stringify(cart));
+          updateCartCount();
+          showMessage(`《${book.title}》已添加到购物车`, 'success');
+        }
+      }
+
+      // 添加到收藏夹
+      function addToWishlist(bookId) {
+        showMessage('收藏功能开发中...', 'info');
+      }
+
+      // 更新购物车数量显示
+      async function updateCartCount() {
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        if (!authToken) {
+          // 未登录时显示0
+          const cartCount = document.getElementById('cartCount');
+          if (cartCount) {
+            cartCount.textContent = '0';
+          }
+          return;
+        }
+
+        try {
+          const response = await fetch('http://1.94.203.175:5000/api/order/cart', {
+            headers: {
+              'Authorization': `Bearer ${authToken}`
+            }
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            const cartCount = document.getElementById('cartCount');
+            if (cartCount && result.data && result.data.items) {
+              const totalItems = result.data.items.reduce((sum, item) => sum + item.quantity, 0);
+              cartCount.textContent = totalItems;
+              console.log('✅ 为您推荐页面购物车计数已更新:', totalItems);
+            }
+          } else {
+            console.log('⚠️ 获取购物车数据失败');
+          }
+        } catch (error) {
+          console.error('❌ 更新购物车计数失败:', error);
+          // 出错时也显示0
+          const cartCount = document.getElementById('cartCount');
+          if (cartCount) {
+            cartCount.textContent = '0';
+          }
+        }
+      }
+
+      // 显示消息
+      function showMessage(message, type = 'info') {
+        const output = document.getElementById('form-output-global');
+        const alertClass = type === 'success' ? 'alert-success' :
+                          type === 'error' ? 'alert-danger' : 'alert-info';
+
+        output.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+        output.style.display = 'block';
+
+        setTimeout(() => {
+          output.style.display = 'none';
+        }, 3000);
+      }
+
+      // 检查用户登录状态
+      function checkUserStatus() {
+        console.log('🔍 检查用户状态 - 推荐页面');
+
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const userInfoStr = localStorage.getItem('userInfo');
+        const username = localStorage.getItem('username');
+
+        console.log('登录数据:', { authToken: !!authToken, isLoggedIn, userInfoStr: !!userInfoStr, username });
+
+        const userMenu = document.getElementById('userMenu');
+        const userDisplayName = document.getElementById('userDisplayName');
+        const userDropdown = document.getElementById('userDropdown');
+
+        if (!userMenu || !userDisplayName) {
+          console.error('❌ 用户菜单元素未找到');
+          return;
+        }
+
+        let userInfo = {};
+        if (userInfoStr) {
+          try {
+            userInfo = JSON.parse(userInfoStr);
+          } catch (error) {
+            console.error('❌ 解析用户信息失败:', error);
+          }
+        }
+
+        // 检查是否已登录（多重检查）
+        const hasValidLogin = (
+          (authToken && authToken !== 'null') &&
+          (isLoggedIn === 'true') &&
+          (userInfo.username || username)
+        );
+
+        console.log('登录状态判断:', hasValidLogin);
+
+        if (hasValidLogin) {
+          // 用户已登录
+          const displayName = userInfo.username || username || '用户';
+          console.log('✅ 用户已登录:', displayName);
+
+          userDisplayName.textContent = displayName;
+          userMenu.href = '#';
+
+          // 绑定下拉菜单事件
+          userMenu.onclick = function(e) {
+            e.preventDefault();
+            toggleUserDropdown();
+          };
+        } else {
+          // 用户未登录
+          console.log('❌ 用户未登录');
+          userDisplayName.textContent = '登录';
+          userMenu.href = 'login-page.html';
+          userMenu.onclick = null;
+
+          if (userDropdown) {
+            userDropdown.style.display = 'none';
+          }
+        }
+      }
+
+      // 切换用户下拉菜单
+      function toggleUserDropdown() {
+        const userDropdown = document.getElementById('userDropdown');
+        if (userDropdown.style.display === 'none' || !userDropdown.style.display) {
+          userDropdown.style.display = 'block';
+        } else {
+          userDropdown.style.display = 'none';
+        }
+      }
+
+      // 注销功能
+      function logout() {
+        if (confirm('确定要退出登录吗？')) {
+          localStorage.removeItem('userInfo');
+          localStorage.removeItem('isLoggedIn');
+          checkUserStatus();
+          showMessage('已成功退出登录', 'info');
+        }
+      }
+
+      // 页面加载时初始化
+      window.addEventListener('load', function() {
+        checkUserStatus();
+        updateCartCount();
+        displayPreferenceSummary();
+        displayRecommendations('browsing');
+
+        // 绑定标签页切换事件
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tab = this.getAttribute('data-tab');
+            switchTab(tab);
+          });
+        });
+
+        // 绑定设置变更事件
+        document.getElementById('countSelect').addEventListener('change', function() {
+          displayRecommendations(currentTab);
+        });
+
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+          displayRecommendations(currentTab);
+        });
+
+        // 点击页面其他地方关闭下拉菜单
+        document.addEventListener('click', function(e) {
+          const userDropdown = document.getElementById('userDropdown');
+          const userMenu = document.getElementById('userMenu');
+
+          if (!userMenu.contains(e.target) && !userDropdown.contains(e.target)) {
+            userDropdown.style.display = 'none';
+          }
+        });
+      });
+
+      // 发送推荐邮件
+      async function sendRecommendationEmail() {
+        try {
+          // 获取用户信息
+          const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+          const userEmail = userInfo.email || localStorage.getItem('userEmail');
+          const username = userInfo.username || localStorage.getItem('username') || '尊敬的用户';
+
+          if (!userEmail) {
+            showMessage('请先登录并设置邮箱地址', 'error');
+            return;
+          }
+
+          // 获取当前推荐的图书
+          const currentRecommendations = getCurrentRecommendations();
+
+          // 发送邮件
+          const response = await fetch(`${EMAIL_API_BASE}/send`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email: userEmail,
+              email_type: 'recommendation',
+              username: username,
+              user_id: userInfo.id,
+              recommendation_data: {
+                recommendations: currentRecommendations,
+                recommendation_type: currentTab,
+                username: username
+              }
+            })
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            showMessage('📧 推荐邮件发送成功！请查收邮箱', 'success');
+          } else {
+            throw new Error(result.error || '邮件发送失败');
+          }
+
+        } catch (error) {
+          console.error('❌ 发送推荐邮件时出错:', error);
+          showMessage(`发送推荐邮件失败: ${error.message}`, 'error');
+        }
+      }
+
+      // 获取当前推荐的图书
+      function getCurrentRecommendations() {
+        const count = parseInt(document.getElementById('countSelect').value);
+        const category = document.getElementById('categoryFilter').value;
+
+        let books = recommendationDatabase[currentTab] || [];
+
+        // 应用分类筛选
+        if (category !== 'all') {
+          books = books.filter(book => book.category === category);
+        }
+
+        // 限制数量
+        return books.slice(0, count).map(book => ({
+          title: book.title,
+          author: book.author,
+          price: book.price,
+          reason: book.reason,
+          score: book.score
+        }));
+      }
+
+      // 显示消息
+      function showMessage(message, type = 'info') {
+        const output = document.getElementById('form-output-global');
+        const alertClass = type === 'success' ? 'alert-success' :
+                          type === 'error' ? 'alert-danger' : 'alert-info';
+
+        output.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+        output.style.display = 'block';
+
+        setTimeout(() => {
+          output.style.display = 'none';
+        }, 3000);
+      }
+
+      // 延迟更新购物车计数
+      setTimeout(updateCartCount, 2000);
+      setTimeout(updateCartCount, 5000);
+    </script>
+
+    <!-- Recommendations Styles -->
+    <style>
+      .card {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+      }
+
+      .card-header {
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        padding: 20px;
+      }
+
+      .card-header h4, .card-header h5 {
+        margin: 0;
+        color: #333;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .preference-summary {
+        margin: 0;
+      }
+
+      .preference-item {
+        margin-bottom: 20px;
+      }
+
+      .preference-item h6 {
+        margin-bottom: 10px;
+        color: #495057;
+        font-weight: 600;
+      }
+
+      .preference-item p {
+        margin: 5px 0;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .category-tags, .browsing-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .category-tag, .browsing-tag {
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .category-tag {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+
+      .browsing-tag {
+        background: #f3e5f5;
+        color: #7b1fa2;
+      }
+
+      .recommendation-tabs {
+        margin-bottom: 30px;
+      }
+
+      .nav-tabs {
+        border-bottom: 2px solid #dee2e6;
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-item {
+        margin-bottom: -2px;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 12px 20px;
+        color: #666;
+        text-decoration: none;
+        border: 2px solid transparent;
+        border-bottom: none;
+        border-radius: 8px 8px 0 0;
+        transition: all 0.3s;
+        background: #f8f9fa;
+        margin-right: 5px;
+      }
+
+      .nav-link:hover {
+        color: #007bff;
+        background: #e9ecef;
+        text-decoration: none;
+      }
+
+      .nav-link.active {
+        color: #007bff;
+        background: white;
+        border-color: #dee2e6;
+        border-bottom-color: white;
+        font-weight: 600;
+      }
+
+      .tab-content {
+        background: white;
+        border: 1px solid #dee2e6;
+        border-radius: 0 8px 8px 8px;
+        padding: 30px;
+      }
+
+      .recommendation-header {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .recommendation-header h5 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .books-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .book-card {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s;
+        background: white;
+      }
+
+      .book-card:hover {
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+      }
+
+      .book-image {
+        position: relative;
+        text-align: center;
+        padding: 15px;
+        background: #f8f9fa;
+      }
+
+      .book-cover {
+        width: 120px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      .new-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff4757;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 10px;
+        font-weight: 600;
+      }
+
+      .book-info {
+        padding: 15px;
+      }
+
+      .book-title {
+        margin: 0 0 8px 0;
+        font-size: 16px;
+      }
+
+      .book-title a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+
+      .book-title a:hover {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .book-author {
+        margin: 0 0 10px 0;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .book-price {
+        margin-bottom: 12px;
+      }
+
+      .current-price {
+        color: #e74c3c;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .original-price {
+        color: #999;
+        text-decoration: line-through;
+        font-size: 14px;
+        margin-left: 8px;
+      }
+
+      .recommendation-reason {
+        background: #fff3cd;
+        color: #856404;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-bottom: 12px;
+        border-left: 3px solid #ffc107;
+      }
+
+      .recommendation-reason i {
+        color: #ffc107;
+        margin-right: 5px;
+      }
+
+      .recommendation-score {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 15px;
+        font-size: 12px;
+      }
+
+      .score-label {
+        color: #666;
+        font-weight: 500;
+      }
+
+      .score-bar {
+        flex: 1;
+        height: 6px;
+        background: #e9ecef;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .score-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #28a745, #20c997);
+        transition: width 0.3s;
+      }
+
+      .score-value {
+        color: #28a745;
+        font-weight: 600;
+      }
+
+      .book-actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .btn {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px;
+        font-size: 12px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: all 0.3s;
+        font-weight: 500;
+      }
+
+      .btn-primary {
+        background: #007bff;
+        color: white;
+        flex: 1;
+      }
+
+      .btn-primary:hover {
+        background: #0056b3;
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn-secondary {
+        background: #6c757d;
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background: #545b62;
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn-outline-secondary {
+        background: transparent;
+        color: #6c757d;
+        border: 1px solid #6c757d;
+        padding: 7px 11px;
+      }
+
+      .btn-outline-secondary:hover {
+        background: #6c757d;
+        color: white;
+        text-decoration: none;
+      }
+
+      .btn-outline-primary {
+        background: transparent;
+        color: #007bff;
+        border: 1px solid #007bff;
+      }
+
+      .btn-outline-primary:hover {
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+      }
+
+      .btn-sm {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #495057;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+      }
+
+      .empty-recommendations {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+      }
+
+      .empty-recommendations i {
+        font-size: 48px;
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+
+      .empty-recommendations h5 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .empty-recommendations p {
+        margin-bottom: 20px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-muted {
+        color: #6c757d;
+      }
+
+      .mt-3 {
+        margin-top: 1rem;
+      }
+
+      .mt-4 {
+        margin-top: 1.5rem;
+      }
+
+      .mb-4 {
+        margin-bottom: 1.5rem;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .button-group .btn {
+        flex: 0 0 auto;
+        min-width: 130px;
+        margin: 0;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+      }
+
+      .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+        padding: 0 15px;
+      }
+
+      /* User dropdown styles */
+      .rd-navbar-user {
+        position: relative;
+      }
+
+      .user-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #333;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .user-icon:hover {
+        background: #f8f9fa;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .user-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        min-width: 150px;
+        z-index: 1000;
+      }
+
+      .user-dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        transition: background 0.3s;
+      }
+
+      .user-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      .user-dropdown a:hover {
+        background: #f8f9fa;
+        text-decoration: none;
+      }
+
+      /* Shopping cart styles */
+      .rd-navbar-cart {
+        margin-left: 15px;
+      }
+
+      .cart-icon {
+        position: relative;
+        color: #333;
+        text-decoration: none;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .cart-icon:hover {
+        background: #f8f9fa;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(50%, -50%);
+      }
+
+      @media (max-width: 768px) {
+        .col-md-4 {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .books-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+        }
+
+        .nav-tabs {
+          flex-direction: column;
+        }
+
+        .nav-item {
+          margin-bottom: 5px;
+        }
+
+        .nav-link {
+          margin-right: 0;
+          border-radius: 4px;
+        }
+
+        .tab-content {
+          border-radius: 8px;
+          padding: 20px;
+        }
+
+        .book-actions {
+          flex-direction: column;
+        }
+
+        .category-tags, .browsing-tags {
+          justify-content: center;
+        }
+      }
+    </style>

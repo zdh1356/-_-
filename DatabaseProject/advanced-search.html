@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN"> 
+  <head>
+    <!-- 网站标题-->
+    <title>高级搜索 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- 样式表-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:700%7CLato:300,400,300italic,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="您正在使用过时的浏览器。为了获得更快更安全的浏览体验，请免费升级。"></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]--> 
+  </head>
+  <body>
+    <!-- Page preloader-->
+    <div class="page-loader"> 
+      <div class="page-loader-body"> 
+        <div class="preloader-wrapper big active"> 
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"> </div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=business">商业管理</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="category.html">全部图书</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <a class="brand-name" href="index.html">
+                    <img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/>
+                    <img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/>
+                  </a>
+                </div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search">
+                  <a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人中心</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="order-history.html">订单历史</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      
+      <!-- Breadcrumbs -->
+      <section class="breadcrumbs-custom">
+        <div class="parallax-container" data-parallax-img="images/bg-breadcrumbs-02.jpg">
+          <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+              <h2 class="breadcrumbs-custom-title">高级搜索</h2>
+              <ul class="breadcrumbs-custom-path">
+                <li><a href="index.html">首页</a></li>
+                <li class="active">高级搜索</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advanced Search Section -->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="card" style="padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                <h3 class="text-primary mb-4" style="margin-bottom: 30px; font-size: 28px;">高级图书搜索</h3>
+                <p class="text-muted mb-4">使用下面的表单进行精确搜索，支持按书名、作者、出版社、ISBN等条件查找图书。</p>
+                
+                <!-- Advanced Search Form -->
+                <form id="advancedSearchForm" action="search-results.html" method="GET">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="search-title" type="text" name="title" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="search-title">书名</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="search-author" type="text" name="author" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="search-author">作者</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="search-publisher" type="text" name="publisher" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="search-publisher">出版社</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="search-isbn" type="text" name="isbn" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="search-isbn">ISBN</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-wrap">
+                        <select class="form-input" id="search-category" name="category" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                          <option value="">所有分类</option>
+                          <option value="business">商业管理</option>
+                          <option value="technology">科技计算机</option>
+                          <option value="literature">文学艺术</option>
+                          <option value="education">教育考试</option>
+                          <option value="children">少儿读物</option>
+                          <option value="life">生活休闲</option>
+                          <option value="social">社会科学</option>
+                        </select>
+                        <label class="form-label" for="search-category">图书分类</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-wrap">
+                        <select class="form-input" id="search-stock" name="stock" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                          <option value="">所有状态</option>
+                          <option value="in-stock">有库存</option>
+                          <option value="out-of-stock">缺货</option>
+                        </select>
+                        <label class="form-label" for="search-stock">库存状态</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-wrap">
+                        <input class="form-input" id="search-min-price" type="number" name="minPrice" min="0" step="0.01" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="search-min-price">最低价格（元）</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-wrap">
+                        <input class="form-input" id="search-max-price" type="number" name="maxPrice" min="0" step="0.01" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="search-max-price">最高价格（元）</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="form-wrap text-center" style="margin-top: 30px;">
+                    <button class="button button-primary button-lg" type="submit" style="font-size: 18px; padding: 15px 40px; margin-right: 15px;">开始搜索</button>
+                    <button class="button button-default button-lg" type="reset" style="font-size: 18px; padding: 15px 40px;">重置表单</button>
+                  </div>
+                  
+                  <div class="form-wrap text-center" style="margin-top: 20px;">
+                    <p style="font-size: 16px;"><a href="search-results.html">浏览全部图书</a> | <a href="index.html">返回首页</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+      // 表单提交处理
+      document.getElementById('advancedSearchForm').addEventListener('submit', function(e) {
+        // 检查是否至少填写了一个搜索条件
+        const title = document.getElementById('search-title').value.trim();
+        const author = document.getElementById('search-author').value.trim();
+        const publisher = document.getElementById('search-publisher').value.trim();
+        const isbn = document.getElementById('search-isbn').value.trim();
+        const category = document.getElementById('search-category').value;
+        const stock = document.getElementById('search-stock').value;
+        const minPrice = document.getElementById('search-min-price').value;
+        const maxPrice = document.getElementById('search-max-price').value;
+        
+        if (!title && !author && !publisher && !isbn && !category && !stock && !minPrice && !maxPrice) {
+          e.preventDefault();
+          const output = document.getElementById('form-output-global');
+          output.innerHTML = '<div class="alert alert-warning">请至少填写一个搜索条件</div>';
+          output.style.display = 'block';
+          
+          setTimeout(() => {
+            output.style.display = 'none';
+          }, 3000);
+          
+          return false;
+        }
+        
+        // 表单验证通过，显示搜索中提示
+        const output = document.getElementById('form-output-global');
+        output.innerHTML = '<div class="alert alert-info">正在搜索中...</div>';
+        output.style.display = 'block';
+      });
+    </script>
+  </body>
+</html>

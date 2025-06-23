@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <!-- 网站标题-->
+    <title>用户登录 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- 样式表-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:700%7CLato:300,400,300italic,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <!-- 实时数据系统样式 -->
+    <link rel="stylesheet" href="css/realtime-ui.css">
+
+    <!-- 登录页面专用样式 -->
+    <style>
+      /* 修复浮动标签重合问题 */
+      .form-wrap {
+        position: relative;
+        margin-bottom: 25px;
+      }
+
+      .form-label {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 16px;
+        color: #666;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+        padding: 0 5px;
+        z-index: 1;
+      }
+
+      /* 当输入框获得焦点或有内容时，标签上移 */
+      .form-input:focus + .form-label,
+      .form-input:not(:placeholder-shown) + .form-label,
+      .form-input.has-value + .form-label {
+        top: -8px;
+        left: 10px;
+        font-size: 12px;
+        color: #007bff;
+        background: white;
+      }
+
+      /* 确保输入框有内容时标签保持上移状态 */
+      .form-input:valid + .form-label {
+        top: -8px;
+        left: 10px;
+        font-size: 12px;
+        color: #007bff;
+        background: white;
+      }
+
+      /* 输入框样式优化 */
+      .form-input {
+        position: relative;
+        z-index: 0;
+      }
+
+      .form-input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      }
+    </style>
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="您正在使用过时的浏览器。为了获得更快更安全的浏览体验，请免费升级。"></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+    <!-- Page preloader-->
+    <div class="page-loader">
+      <div class="page-loader-body">
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"> </div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=business">商业管理</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="recommendations.html">为您推荐</a></li>
+                    <li><a href="forum.html">读者论坛</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <a class="brand-name" href="index.html">
+                    <img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/>
+                    <img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/>
+                  </a>
+                </div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search">
+                  <a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人资料</a>
+                    <a href="order-history.html">我的订单</a>
+                    <a href="browsing-history.html">浏览历史</a>
+                    <a href="user-preferences.html">偏好设置</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon" id="cartIcon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <section class="single-screen section fullwidth-page">
+        <div class="fullwidth-page-inner" style="display: flex; align-items: flex-start; justify-content: center; min-height: 100vh; padding-top: 90px;">
+          <div class="section-md" style="width: 100%;">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-10 col-lg-8 col-xl-6" style="margin-left: 35%;">
+                  <div class="card" style="padding: 60px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                    <h3 class="text-primary mb-4" style="margin-bottom: 40px; font-size: 28px;">用户登录</h3>
+                    <!-- RD Mailform-->
+                    <form class="rd-mailform form-fix" id="loginForm" method="POST" action="#" style="margin-top: 30px;">
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="forms-login-email" type="email" name="email" data-constraints="@Required @Email" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="forms-login-email">电子邮箱</label>
+                      </div>
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="forms-login-password" type="password" name="password" data-constraints="@Required" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="forms-login-password">密码</label>
+                      </div>
+                      <div class="form-wrap text-left">
+                        <div class="checkbox-inline">
+                          <label class="checkbox-inline__label" style="font-size: 16px;">
+                            <input class="checkbox-inline__input" type="checkbox" name="remember" value="yes">
+                            <span class="checkbox-inline__box"></span>记住我
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-wrap">
+                        <button class="button button-block button-primary" type="submit" style="font-size: 18px; padding: 15px;">登录</button>
+                      </div>
+                      <div class="form-wrap text-center" style="margin-top: 25px;">
+                        <p style="font-size: 16px;">还没有账号？ <a href="registration-page.html">立即注册</a></p>
+                        <p style="font-size: 16px;"><a href="forgot-password.html">忘记密码？</a></p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fullwidth-page-footer text-center">
+          <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>华轩书店</span><span>. 保留所有权利.</span></p>
+        </div>
+      </section>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- 实时数据系统脚本 -->
+    <script src="js/realtime-data-manager.js"></script>
+    <script src="js/page-adapters.js"></script>
+
+    <!-- 强制登录修复脚本 -->
+    <script>
+        console.log('🔍 登录页面加载完成');
+
+        // 强制绑定登录功能 - 多重保险
+        function forceBindLogin() {
+            const loginForm = document.getElementById('loginForm');
+            const submitBtn = loginForm ? loginForm.querySelector('button[type="submit"]') : null;
+
+            console.log('🔧 强制绑定登录功能');
+            console.log('- loginForm:', !!loginForm);
+            console.log('- submitBtn:', !!submitBtn);
+
+            if (!loginForm) {
+                console.error('❌ 未找到登录表单');
+                return;
+            }
+
+            // 移除所有现有的事件监听器
+            const newForm = loginForm.cloneNode(true);
+            loginForm.parentNode.replaceChild(newForm, loginForm);
+
+            // 重新获取元素
+            const form = document.getElementById('loginForm');
+            const newSubmitBtn = form.querySelector('button[type="submit"]');
+
+            console.log('✅ 表单已重置，重新绑定事件');
+
+            // 绑定表单提交事件
+            form.addEventListener('submit', handleLogin);
+
+            // 绑定按钮点击事件（双重保险）
+            if (newSubmitBtn) {
+                newSubmitBtn.addEventListener('click', function(e) {
+                    console.log('🖱️ 登录按钮被点击');
+                    e.preventDefault();
+                    handleLogin(e);
+                });
+            }
+
+            // 绑定回车键事件
+            form.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    console.log('⌨️ 回车键被按下');
+                    e.preventDefault();
+                    handleLogin(e);
+                }
+            });
+
+            console.log('🎯 所有事件绑定完成');
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            console.log('📝 登录处理函数被调用');
+
+            const email = document.getElementById('forms-login-email').value;
+            const password = document.getElementById('forms-login-password').value;
+            const remember = document.querySelector('input[name="remember"]');
+
+            console.log('📧 登录信息:', {
+                email,
+                password: password ? '***' : '(空)',
+                remember: remember ? remember.checked : false
+            });
+
+            if (!email || !password) {
+                alert('请填写邮箱和密码');
+                return;
+            }
+
+            // 显示加载状态
+            const submitBtn = document.querySelector('#loginForm button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.textContent : '';
+            if (submitBtn) {
+                submitBtn.textContent = '登录中...';
+                submitBtn.disabled = true;
+            }
+
+            try {
+                console.log('🔄 开始API调用');
+
+                const response = await fetch('http://1.94.203.175:5000/api/user/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                console.log('📡 API响应状态:', response.status);
+
+                const result = await response.json();
+                console.log('📥 API响应数据:', result);
+
+                if (result.success) {
+                    // 保存完整的登录状态
+                    localStorage.setItem('authToken', result.data.token);
+                    localStorage.setItem('token', result.data.token); // 兼容性
+                    localStorage.setItem('userInfo', JSON.stringify(result.data.user));
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('username', result.data.user.username);
+                    localStorage.setItem('userEmail', result.data.user.email);
+
+                    console.log('✅ 登录成功，已保存登录状态:', {
+                        authToken: !!result.data.token,
+                        userInfo: result.data.user,
+                        isLoggedIn: 'true'
+                    });
+
+                    alert('登录成功！正在跳转...');
+
+                    // 延迟跳转，确保数据保存完成
+                    setTimeout(() => {
+                        console.log('🔄 开始跳转到首页');
+                        window.location.href = 'index.html';
+                    }, 1000);
+                } else {
+                    console.error('❌ 登录失败:', result.message);
+                    alert('登录失败: ' + result.message);
+                }
+            } catch (error) {
+                console.error('❌ 登录异常:', error);
+                alert('登录失败: ' + error.message);
+            } finally {
+                // 恢复按钮状态
+                if (submitBtn) {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            }
+        }
+
+        // 处理浮动标签
+        function handleFloatingLabels() {
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                // 检查输入框是否有值
+                function checkValue() {
+                    if (input.value.trim() !== '') {
+                        input.classList.add('has-value');
+                    } else {
+                        input.classList.remove('has-value');
+                    }
+                }
+
+                // 初始检查
+                checkValue();
+
+                // 监听输入事件
+                input.addEventListener('input', checkValue);
+                input.addEventListener('change', checkValue);
+                input.addEventListener('blur', checkValue);
+            });
+        }
+
+        // 多重初始化策略
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📄 DOM加载完成');
+            forceBindLogin();
+            handleFloatingLabels();
+        });
+
+        window.addEventListener('load', function() {
+            console.log('🌐 页面完全加载');
+            // 延迟再次绑定，确保所有脚本都加载完成
+            setTimeout(forceBindLogin, 1000);
+        });
+
+        // 如果其他方法都失败，3秒后强制绑定
+        setTimeout(function() {
+            console.log('⏰ 3秒后强制检查');
+            const form = document.getElementById('loginForm');
+            if (form && !form.hasAttribute('data-force-bound')) {
+                console.log('🚨 执行最后的强制绑定');
+                form.setAttribute('data-force-bound', 'true');
+                forceBindLogin();
+            }
+        }, 3000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <!-- 网站标题-->
+    <title>用户注册 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- 样式表-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:700%7CLato:300,400,300italic,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+
+    <!-- 注册页面专用样式 -->
+    <style>
+      /* 修复浮动标签重合问题 */
+      .form-wrap {
+        position: relative;
+        margin-bottom: 25px;
+      }
+
+      .form-label {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 16px;
+        color: #666;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+        padding: 0 5px;
+        z-index: 1;
+      }
+
+      /* 当输入框获得焦点或有内容时，标签上移 */
+      .form-input:focus + .form-label,
+      .form-input:not(:placeholder-shown) + .form-label,
+      .form-input.has-value + .form-label {
+        top: -8px;
+        left: 10px;
+        font-size: 12px;
+        color: #007bff;
+        background: white;
+      }
+
+      /* 确保输入框有内容时标签保持上移状态 */
+      .form-input:valid + .form-label {
+        top: -8px;
+        left: 10px;
+        font-size: 12px;
+        color: #007bff;
+        background: white;
+      }
+
+      /* 输入框样式优化 */
+      .form-input {
+        position: relative;
+        z-index: 0;
+      }
+
+      .form-input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      }
+    </style>
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="您正在使用过时的浏览器。为了获得更快更安全的浏览体验，请免费升级。"></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+    <!-- Page preloader-->
+    <div class="page-loader">
+      <div class="page-loader-body">
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"> </div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="recommendations.html">为您推荐</a></li>
+                    <li><a href="forum.html">读者论坛</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <a class="brand-name" href="index.html">
+                    <img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/>
+                    <img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/>
+                  </a>
+                </div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search">
+                  <a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人资料</a>
+                    <a href="order-history.html">我的订单</a>
+                    <a href="browsing-history.html">浏览历史</a>
+                    <a href="user-preferences.html">偏好设置</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon" id="cartIcon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <section class="single-screen section fullwidth-page">
+        <div class="fullwidth-page-inner" style="display: flex; align-items: flex-start; justify-content: center; min-height: 100vh; padding-top: 90px;">
+          <div class="section-md" style="width: 100%;">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-10 col-lg-8 col-xl-6" style="margin-left: 35%;">
+                  <div class="card" style="padding: 60px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+                    <h3 class="text-primary mb-4" style="margin-bottom: 40px; font-size: 28px;">用户注册</h3>
+                    <!-- RD Mailform-->
+                    <form class="rd-mailform form-fix" id="registrationForm" method="POST" action="#" style="margin-top: 30px;">
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="form-username" type="text" name="username" data-constraints="@Required" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="form-username">用户名</label>
+                      </div>
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="form-email" type="email" name="email" data-constraints="@Email @Required" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="form-email">电子邮箱</label>
+                      </div>
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="form-password" type="password" name="password" data-constraints="@Required" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="form-password">密码</label>
+                      </div>
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="form-confirm-password" type="password" name="confirmPassword" data-constraints="@Required" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="form-confirm-password">确认密码</label>
+                      </div>
+                      <div class="form-wrap form-wrap-validation">
+                        <input class="form-input" id="form-phone" type="tel" name="phone" data-constraints="@Required @Numeric" style="background: #f8f9fa; font-size: 16px; padding: 15px;">
+                        <label class="form-label" for="form-phone">手机号码</label>
+                      </div>
+                      <div class="form-wrap text-left">
+                        <div class="checkbox-inline">
+                          <label class="checkbox-inline__label" style="font-size: 16px;">
+                            <input class="checkbox-inline__input" type="checkbox" name="agreement" value="yes" data-constraints="@Required">
+                            <span class="checkbox-inline__box"></span>我已阅读并同意<a href="terms.html">服务条款</a>和<a href="privacy.html">隐私政策</a>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-wrap">
+                        <button class="button button-block button-primary" type="submit" style="font-size: 18px; padding: 15px;">注册</button>
+                      </div>
+                      <div class="form-wrap text-center" style="margin-top: 25px;">
+                        <p style="font-size: 16px;">已有账号？ <a href="login-page.html">立即登录</a></p>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fullwidth-page-footer text-center">
+          <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>华轩书店</span><span>. 保留所有权利.</span></p>
+        </div>
+      </section>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- Registration specific scripts -->
+    <script>
+      // 邮件服务API配置
+      const EMAIL_API_BASE = 'http://1.94.203.175:5000/api/email';
+
+      // 处理浮动标签
+      function handleFloatingLabels() {
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+          // 检查输入框是否有值
+          function checkValue() {
+            if (input.value.trim() !== '') {
+              input.classList.add('has-value');
+            } else {
+              input.classList.remove('has-value');
+            }
+          }
+
+          // 初始检查
+          checkValue();
+
+          // 监听输入事件
+          input.addEventListener('input', checkValue);
+          input.addEventListener('change', checkValue);
+          input.addEventListener('blur', checkValue);
+        });
+      }
+
+      // 页面加载完成后初始化
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 注册页面DOM加载完成');
+
+        handleFloatingLabels();
+
+        // 绑定表单提交事件 - 使用更强制的方式
+        setTimeout(() => {
+          const registrationForm = document.getElementById('registrationForm');
+          console.log('🔍 查找注册表单:', registrationForm);
+
+          if (registrationForm) {
+            console.log('✅ 找到注册表单，绑定提交事件');
+
+            // 移除可能存在的旧事件监听器
+            registrationForm.removeEventListener('submit', handleFormSubmit);
+
+            // 添加新的事件监听器
+            registrationForm.addEventListener('submit', handleFormSubmit);
+
+            // 同时绑定按钮点击事件作为备用
+            const submitButton = registrationForm.querySelector('button[type="submit"]');
+            if (submitButton) {
+              console.log('✅ 找到提交按钮，绑定点击事件');
+              submitButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('🖱️ 提交按钮被点击');
+                handleFormSubmit(e);
+              });
+            }
+
+          } else {
+            console.error('❌ 未找到注册表单元素');
+            // 尝试查找所有表单
+            const allForms = document.querySelectorAll('form');
+            console.log('📋 页面中所有表单:', allForms);
+          }
+        }, 500); // 延迟500ms确保DOM完全加载
+      });
+
+      // 表单提交处理函数
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        console.log('📝 注册表单提交事件触发');
+
+        const username = document.getElementById('form-username')?.value || '';
+        const email = document.getElementById('form-email')?.value || '';
+        const password = document.getElementById('form-password')?.value || '';
+        const confirmPassword = document.getElementById('form-confirm-password')?.value || '';
+        const phone = document.getElementById('form-phone')?.value || '';
+        const agreement = document.querySelector('input[name="agreement"]')?.checked || false;
+
+        console.log('📋 表单数据:', { username, email, phone, agreement });
+
+        // 表单验证
+        if (!username || !email || !password) {
+          showMessage('请填写完整信息', 'error');
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          showMessage('两次输入的密码不一致', 'error');
+          return;
+        }
+
+        if (!agreement) {
+          showMessage('请阅读并同意服务条款和隐私政策', 'error');
+          return;
+        }
+
+        // 调用注册API
+        console.log('🚀 开始调用注册API');
+        handleRegistration(username, email, password, phone);
+      }
+
+      // 处理注册
+      async function handleRegistration(username, email, password, phone) {
+        const output = document.getElementById('form-output-global');
+
+        try {
+          // 显示注册中消息
+          output.innerHTML = '<div class="alert alert-info">正在注册...</div>';
+          output.style.display = 'block';
+
+          // 调用注册API
+          const response = await fetch('http://1.94.203.175:5000/api/user/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              username: username,
+              email: email,
+              password: password,
+              phone: phone,
+              realName: username
+            })
+          });
+
+          const result = await response.json();
+          console.log('🔄 注册响应:', result);
+
+          if (result.success) {
+            // 注册成功，保存登录状态
+            localStorage.setItem('authToken', result.data.token);
+            localStorage.setItem('token', result.data.token); // 兼容性
+            localStorage.setItem('userInfo', JSON.stringify(result.data.user));
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('username', result.data.user.username);
+            localStorage.setItem('userEmail', result.data.user.email);
+
+            console.log('✅ 注册成功，已保存登录状态:', {
+              authToken: !!result.data.token,
+              userInfo: result.data.user,
+              isLoggedIn: 'true'
+            });
+
+            // 处理后续流程
+            handleRegistrationSuccess(username, email);
+          } else {
+            // 注册失败
+            output.innerHTML = `<div class="alert alert-danger">注册失败: ${result.message}</div>`;
+            output.style.display = 'block';
+          }
+        } catch (error) {
+          console.error('❌ 注册错误:', error);
+          output.innerHTML = `<div class="alert alert-danger">注册失败: ${error.message}</div>`;
+          output.style.display = 'block';
+        }
+      }
+
+      // 处理注册成功
+      async function handleRegistrationSuccess(username, email) {
+        const output = document.getElementById('form-output-global');
+
+        // 显示注册成功消息
+        output.innerHTML = `<div class="alert alert-success">🎉 注册成功！欢迎 ${username}！已自动登录，正在跳转到首页...</div>`;
+        output.style.display = 'block';
+
+        console.log('✅ 注册成功，准备跳转到首页');
+
+        // 异步发送欢迎邮件（不阻塞跳转）
+        sendWelcomeEmail(username, email).then(() => {
+          console.log('✅ 欢迎邮件发送成功');
+        }).catch(error => {
+          console.error('❌ 欢迎邮件发送失败:', error);
+          // 邮件发送失败不影响注册流程
+        });
+
+        // 3秒后跳转到首页
+        setTimeout(() => {
+          console.log('🔄 正在跳转到首页...');
+          window.location.href = 'index.html';
+        }, 3000);
+      }
+
+      // 发送欢迎邮件
+      async function sendWelcomeEmail(username, email) {
+        try {
+          const response = await fetch(`${EMAIL_API_BASE}/send`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email: email,
+              email_type: 'welcome',
+              username: username,
+              user_id: null
+            })
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.error || '邮件发送失败');
+          }
+
+          console.log('✅ 欢迎邮件发送成功');
+          return data;
+
+        } catch (error) {
+          console.error('❌ 发送欢迎邮件时出错:', error);
+          throw error;
+        }
+      }
+
+      // 显示消息的辅助函数
+      function showMessage(message, type = 'info') {
+        const output = document.getElementById('form-output-global');
+        const alertClass = type === 'success' ? 'alert-success' :
+                          type === 'error' ? 'alert-danger' :
+                          type === 'warning' ? 'alert-warning' : 'alert-info';
+
+        output.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+        output.style.display = 'block';
+      }
+    </script>
+  </body>
+</html>

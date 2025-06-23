@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <title>偏好设置 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7CPoppins:400%7CTeko:300,400">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="category.html">全部图书</a></li>
+                    <li><a href="forum.html">读者论坛</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/><img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/></a></div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人资料</a>
+                    <a href="order-history.html">我的订单</a>
+                    <a href="browsing-history.html">浏览历史</a>
+                    <a href="user-preferences.html">偏好设置</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Breadcrumbs-->
+      <section class="breadcrumbs-custom" style="background-image: url(images/breadcrumbs-bg.jpg)">
+        <div class="container">
+          <p class="breadcrumbs-custom-subtitle">个人设置</p>
+          <p class="heading-1 breadcrumbs-custom-title">偏好设置</p>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="user-profile.html">个人中心</a></li>
+            <li class="active">偏好设置</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Preferences Section -->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+              <div class="user-sidebar">
+                <div class="user-avatar text-center mb-4">
+                  <img src="images/user-1-80x80.jpg" alt="用户头像" class="rounded-circle" width="80" height="80">
+                  <h5 class="mt-3" id="sidebarUsername">用户名</h5>
+                  <p class="text-muted" id="sidebarUserEmail">user@example.com</p>
+                </div>
+                <nav class="user-nav">
+                  <ul class="list-unstyled">
+                    <li><a href="user-profile.html" class="nav-link">个人资料</a></li>
+                    <li><a href="order-history.html" class="nav-link">我的订单</a></li>
+                    <li><a href="browsing-history.html" class="nav-link">浏览历史</a></li>
+                    <li><a href="user-preferences.html" class="nav-link active">偏好设置</a></li>
+                    <li><a href="change-password.html" class="nav-link">修改密码</a></li>
+                    <li><a href="#" class="nav-link" onclick="logout()">退出登录</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+              <!-- Reading Preferences -->
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h4>📚 阅读偏好</h4>
+                  <p class="text-muted">设置您感兴趣的图书分类，我们将为您推荐相关图书</p>
+                </div>
+                <div class="card-body">
+                  <form id="readingPreferencesForm">
+                    <div class="preference-section">
+                      <h6>感兴趣的图书分类</h6>
+                      <div class="category-checkboxes">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label class="checkbox-item">
+                              <input type="checkbox" name="categories" value="literature" checked>
+                              <span class="checkmark"></span>
+                              文学艺术
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <label class="checkbox-item">
+                              <input type="checkbox" name="categories" value="technology">
+                              <span class="checkmark"></span>
+                              科技计算机
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <label class="checkbox-item">
+                              <input type="checkbox" name="categories" value="business" checked>
+                              <span class="checkmark"></span>
+                              经济管理
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <label class="checkbox-item">
+                              <input type="checkbox" name="categories" value="education">
+                              <span class="checkmark"></span>
+                              教育考试
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <label class="checkbox-item">
+                              <input type="checkbox" name="categories" value="children">
+                              <span class="checkmark"></span>
+                              少儿读物
+                            </label>
+                          </div>
+                          <div class="col-md-6">
+                            <label class="checkbox-item">
+                              <input type="checkbox" name="categories" value="life">
+                              <span class="checkmark"></span>
+                              生活休闲
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Email Notifications -->
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h4>📧 邮件通知设置</h4>
+                  <p class="text-muted">管理您希望接收的邮件通知类型</p>
+                </div>
+                <div class="card-body">
+                  <form id="emailNotificationsForm">
+                    <div class="notification-item">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h6>新书推荐</h6>
+                          <p class="text-muted">当有符合您偏好的新书上架时通知您</p>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" id="newBookNotifications" checked>
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="notification-item">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h6>订单状态更新</h6>
+                          <p class="text-muted">订单支付、发货、送达等状态变更通知</p>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" id="orderNotifications" checked>
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="notification-item">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h6>促销活动</h6>
+                          <p class="text-muted">特价图书、优惠活动等促销信息</p>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" id="promotionNotifications">
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="notification-item">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h6>论坛互动</h6>
+                          <p class="text-muted">您的帖子收到回复或点赞时通知</p>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" id="forumNotifications" checked>
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Recommendation Settings -->
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h4>🎯 推荐设置</h4>
+                  <p class="text-muted">个性化推荐算法设置</p>
+                </div>
+                <div class="card-body">
+                  <form id="recommendationForm">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-wrap">
+                          <select class="form-input" id="recommendationFrequency">
+                            <option value="daily">每日推荐</option>
+                            <option value="weekly" selected>每周推荐</option>
+                            <option value="monthly">每月推荐</option>
+                            <option value="never">不推荐</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-wrap">
+                          <select class="form-input" id="recommendationCount">
+                            <option value="3">3本图书</option>
+                            <option value="5" selected>5本图书</option>
+                            <option value="10">10本图书</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="preference-section">
+                      <h6>推荐算法偏好</h6>
+                      <div class="algorithm-options">
+                        <label class="radio-item">
+                          <input type="radio" name="algorithm" value="browsing" checked>
+                          <span class="radiomark"></span>
+                          基于浏览历史推荐
+                        </label>
+                        <label class="radio-item">
+                          <input type="radio" name="algorithm" value="purchase">
+                          <span class="radiomark"></span>
+                          基于购买历史推荐
+                        </label>
+                        <label class="radio-item">
+                          <input type="radio" name="algorithm" value="similar">
+                          <span class="radiomark"></span>
+                          相似用户推荐
+                        </label>
+                        <label class="radio-item">
+                          <input type="radio" name="algorithm" value="popular">
+                          <span class="radiomark"></span>
+                          热门图书推荐
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Email Configuration Settings -->
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h4>📧 邮件服务配置</h4>
+                  <p class="text-muted">配置系统邮件发送服务器设置</p>
+                </div>
+                <div class="card-body">
+                  <form id="emailConfigForm">
+                    <!-- SMTP服务器配置 -->
+                    <div class="preference-section">
+                      <h6>SMTP服务器设置</h6>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-wrap">
+                            <label class="form-label" for="smtp_server">SMTP服务器地址</label>
+                            <input class="form-input" type="text" id="smtp_server" placeholder="例如: smtp.qq.com">
+                            <small class="text-muted">常用: smtp.qq.com, smtp.163.com, smtp.gmail.com</small>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-wrap">
+                            <label class="form-label" for="smtp_port">SMTP端口</label>
+                            <input class="form-input" type="number" id="smtp_port" placeholder="587">
+                            <small class="text-muted">TLS: 587, SSL: 465</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 邮箱认证信息 -->
+                    <div class="preference-section">
+                      <h6>邮箱认证信息</h6>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-wrap">
+                            <label class="form-label" for="smtp_user">邮箱地址</label>
+                            <input class="form-input" type="email" id="smtp_user" placeholder="your@email.com">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-wrap">
+                            <label class="form-label" for="smtp_pass">邮箱密码/授权码</label>
+                            <input class="form-input" type="password" id="smtp_pass" placeholder="邮箱授权码">
+                            <small class="text-muted">QQ邮箱需要使用16位授权码</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 发件人设置 -->
+                    <div class="preference-section">
+                      <h6>发件人设置</h6>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-wrap">
+                            <label class="form-label" for="from_name">发件人名称</label>
+                            <input class="form-input" type="text" id="from_name" placeholder="华轩书店">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-wrap">
+                            <label class="form-label" for="smtp_use_tls">使用TLS加密</label>
+                            <select class="form-input" id="smtp_use_tls">
+                              <option value="true">是</option>
+                              <option value="false">否</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 测试配置 -->
+                    <div class="preference-section">
+                      <h6>配置测试</h6>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-wrap">
+                            <label class="form-label" for="test_email">测试邮箱地址</label>
+                            <input class="form-input" type="email" id="test_email" placeholder="test@example.com">
+                            <small class="text-muted">输入邮箱地址来测试当前配置</small>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-wrap">
+                            <label class="form-label">&nbsp;</label>
+                            <button type="button" class="button button-primary" onclick="testEmailConfig()">🧪 测试配置</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Privacy Settings -->
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h4>🔒 隐私设置</h4>
+                  <p class="text-muted">管理您的隐私和数据使用偏好</p>
+                </div>
+                <div class="card-body">
+                  <form id="privacyForm">
+                    <div class="notification-item">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h6>浏览历史记录</h6>
+                          <p class="text-muted">允许系统记录您的浏览历史用于推荐</p>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" id="trackBrowsing" checked>
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="notification-item">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h6>购买行为分析</h6>
+                          <p class="text-muted">允许分析购买行为以改善推荐质量</p>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" id="trackPurchase" checked>
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="notification-item">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                          <h6>数据共享</h6>
+                          <p class="text-muted">允许与合作伙伴共享匿名化数据</p>
+                        </div>
+                        <label class="switch">
+                          <input type="checkbox" id="dataSharing">
+                          <span class="slider"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Save Button -->
+              <div class="text-center">
+                <div class="button-group">
+                  <button class="button button-primary button-lg" onclick="savePreferences()">保存所有设置</button>
+                  <button class="button button-default button-lg" onclick="resetPreferences()">恢复默认</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Preferences Scripts -->
+    <script>
+      // API基础URL
+      const EMAIL_API_BASE = 'http://127.0.0.1:5000/api/email';
+
+      // 默认偏好设置
+      const defaultPreferences = {
+        categories: ['literature', 'business'],
+        notifications: {
+          newBooks: true,
+          orders: true,
+          promotions: false,
+          forum: true
+        },
+        recommendations: {
+          frequency: 'weekly',
+          count: 5,
+          algorithm: 'browsing'
+        },
+        privacy: {
+          trackBrowsing: true,
+          trackPurchase: true,
+          dataSharing: false
+        },
+        emailConfig: {
+          smtp_server: 'smtp.qq.com',
+          smtp_port: '587',
+          smtp_user: '',
+          smtp_pass: '',
+          smtp_use_tls: 'true',
+          from_name: '华轩书店'
+        }
+      };
+
+      // 加载用户偏好设置
+      function loadPreferences() {
+        const saved = localStorage.getItem('userPreferences');
+        return saved ? JSON.parse(saved) : defaultPreferences;
+      }
+
+      // 保存用户偏好设置
+      function savePreferences() {
+        const preferences = {
+          categories: Array.from(document.querySelectorAll('input[name="categories"]:checked')).map(cb => cb.value),
+          notifications: {
+            newBooks: document.getElementById('newBookNotifications').checked,
+            orders: document.getElementById('orderNotifications').checked,
+            promotions: document.getElementById('promotionNotifications').checked,
+            forum: document.getElementById('forumNotifications').checked
+          },
+          recommendations: {
+            frequency: document.getElementById('recommendationFrequency').value,
+            count: parseInt(document.getElementById('recommendationCount').value),
+            algorithm: document.querySelector('input[name="algorithm"]:checked').value
+          },
+          privacy: {
+            trackBrowsing: document.getElementById('trackBrowsing').checked,
+            trackPurchase: document.getElementById('trackPurchase').checked,
+            dataSharing: document.getElementById('dataSharing').checked
+          },
+          emailConfig: {
+            smtp_server: document.getElementById('smtp_server').value,
+            smtp_port: document.getElementById('smtp_port').value,
+            smtp_user: document.getElementById('smtp_user').value,
+            smtp_pass: document.getElementById('smtp_pass').value,
+            smtp_use_tls: document.getElementById('smtp_use_tls').value,
+            from_name: document.getElementById('from_name').value
+          }
+        };
+
+        localStorage.setItem('userPreferences', JSON.stringify(preferences));
+
+        // 保存邮件配置到服务器
+        saveEmailConfig(preferences.emailConfig);
+
+        // 显示保存成功消息
+        showMessage('偏好设置已保存！', 'success');
+
+        // 触发推荐系统更新
+        updateRecommendations();
+      }
+
+      // 恢复默认设置
+      function resetPreferences() {
+        if (confirm('确定要恢复默认设置吗？这将清除您的所有个性化偏好。')) {
+          localStorage.removeItem('userPreferences');
+          loadPreferencesToForm();
+          showMessage('已恢复默认设置', 'info');
+        }
+      }
+
+      // 将偏好设置加载到表单
+      function loadPreferencesToForm() {
+        const preferences = loadPreferences();
+
+        // 加载分类偏好
+        document.querySelectorAll('input[name="categories"]').forEach(cb => {
+          cb.checked = preferences.categories.includes(cb.value);
+        });
+
+        // 加载通知设置
+        document.getElementById('newBookNotifications').checked = preferences.notifications.newBooks;
+        document.getElementById('orderNotifications').checked = preferences.notifications.orders;
+        document.getElementById('promotionNotifications').checked = preferences.notifications.promotions;
+        document.getElementById('forumNotifications').checked = preferences.notifications.forum;
+
+        // 加载推荐设置
+        document.getElementById('recommendationFrequency').value = preferences.recommendations.frequency;
+        document.getElementById('recommendationCount').value = preferences.recommendations.count;
+        document.querySelector(`input[name="algorithm"][value="${preferences.recommendations.algorithm}"]`).checked = true;
+
+        // 加载隐私设置
+        document.getElementById('trackBrowsing').checked = preferences.privacy.trackBrowsing;
+        document.getElementById('trackPurchase').checked = preferences.privacy.trackPurchase;
+        document.getElementById('dataSharing').checked = preferences.privacy.dataSharing;
+
+        // 加载邮件配置（从服务器获取）
+        loadEmailConfig();
+      }
+
+      // 从服务器加载邮件配置
+      async function loadEmailConfig() {
+        try {
+          const response = await fetch(`${EMAIL_API_BASE}/config`);
+          const data = await response.json();
+
+          if (response.ok) {
+            const configs = data.configs;
+
+            // 填充邮件配置表单
+            document.getElementById('smtp_server').value = configs.smtp_server?.value || '';
+            document.getElementById('smtp_port').value = configs.smtp_port?.value || '';
+            document.getElementById('smtp_user').value = configs.smtp_user?.value || '';
+            document.getElementById('smtp_pass').value = ''; // 密码不显示
+            document.getElementById('from_name').value = configs.from_name?.value || '';
+            document.getElementById('smtp_use_tls').value = configs.smtp_use_tls?.value || 'true';
+
+            console.log('✅ 邮件配置加载成功');
+          } else {
+            console.error('❌ 加载邮件配置失败:', data.error);
+          }
+        } catch (error) {
+          console.error('❌ 网络错误:', error.message);
+        }
+      }
+
+      // 保存邮件配置到服务器
+      async function saveEmailConfig(emailConfig) {
+        try {
+          const response = await fetch(`${EMAIL_API_BASE}/config`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(emailConfig)
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            console.log('✅ 邮件配置保存成功');
+          } else {
+            console.error('❌ 保存邮件配置失败:', data.error);
+            showMessage(`邮件配置保存失败: ${data.error}`, 'error');
+          }
+        } catch (error) {
+          console.error('❌ 网络错误:', error.message);
+          showMessage(`网络错误: ${error.message}`, 'error');
+        }
+      }
+
+      // 测试邮件配置
+      async function testEmailConfig() {
+        const testEmail = document.getElementById('test_email').value;
+
+        if (!testEmail) {
+          showMessage('请输入测试邮箱地址', 'error');
+          return;
+        }
+
+        try {
+          const response = await fetch(`${EMAIL_API_BASE}/test`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ test_email: testEmail })
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            showMessage(`测试邮件发送成功！请检查 ${testEmail} 的收件箱`, 'success');
+          } else {
+            showMessage(`测试失败: ${data.error}`, 'error');
+          }
+        } catch (error) {
+          showMessage(`网络错误: ${error.message}`, 'error');
+        }
+      }
+
+      // 更新推荐系统
+      function updateRecommendations() {
+        const preferences = loadPreferences();
+
+        // 模拟推荐系统更新
+        console.log('推荐系统已更新，基于以下偏好：', preferences);
+
+        // 如果启用了新书通知，检查是否有新书需要推荐
+        if (preferences.notifications.newBooks) {
+          checkForNewBookRecommendations(preferences.categories);
+        }
+      }
+
+      // 检查新书推荐
+      function checkForNewBookRecommendations(interestedCategories) {
+        // 模拟检查新书
+        const newBooks = [
+          { title: 'JavaScript高级程序设计', category: 'technology' },
+          { title: '人间失格', category: 'literature' },
+          { title: '管理学原理', category: 'business' }
+        ];
+
+        const relevantBooks = newBooks.filter(book =>
+          interestedCategories.includes(book.category)
+        );
+
+        if (relevantBooks.length > 0) {
+          console.log('发现相关新书：', relevantBooks);
+          // 这里会调用邮件发送API
+          sendNewBookNotification(relevantBooks);
+        }
+      }
+
+      // 发送新书通知邮件
+      function sendNewBookNotification(books) {
+        console.log('发送新书推荐邮件：', books);
+        // 模拟邮件发送
+        showMessage(`发现 ${books.length} 本您可能感兴趣的新书，推荐邮件已发送！`, 'info');
+      }
+
+      // 显示消息
+      function showMessage(message, type = 'info') {
+        const output = document.getElementById('form-output-global');
+        const alertClass = type === 'success' ? 'alert-success' :
+                          type === 'error' ? 'alert-danger' : 'alert-info';
+
+        output.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+        output.style.display = 'block';
+
+        setTimeout(() => {
+          output.style.display = 'none';
+        }, 3000);
+      }
+
+      // 检查用户登录状态
+      function checkUserStatus() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+
+        if (!isLoggedIn) {
+          window.location.href = 'login-page.html';
+          return;
+        }
+
+        // 更新用户信息显示
+        document.getElementById('sidebarUsername').textContent = userInfo.username || '用户';
+        document.getElementById('sidebarUserEmail').textContent = userInfo.email || 'user@example.com';
+        document.getElementById('userDisplayName').textContent = userInfo.username || '用户';
+      }
+
+      // 注销功能
+      function logout() {
+        if (confirm('确定要退出登录吗？')) {
+          localStorage.removeItem('userInfo');
+          localStorage.removeItem('isLoggedIn');
+          window.location.href = 'index.html';
+        }
+      }
+
+      // 页面加载时初始化
+      window.addEventListener('load', function() {
+        checkUserStatus();
+        loadPreferencesToForm();
+
+        // 绑定实时保存事件
+        document.querySelectorAll('input[type="checkbox"], input[type="radio"], select').forEach(input => {
+          input.addEventListener('change', function() {
+            // 延迟保存，避免频繁操作
+            clearTimeout(window.autoSaveTimer);
+            window.autoSaveTimer = setTimeout(() => {
+              savePreferences();
+            }, 1000);
+          });
+        });
+      });
+    </script>
+
+    <!-- Preferences Styles -->
+    <style>
+      .user-sidebar {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .user-nav .nav-link {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-bottom: 5px;
+        transition: all 0.3s;
+      }
+
+      .user-nav .nav-link:hover,
+      .user-nav .nav-link.active {
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+      }
+
+      .card {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .card-header {
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        padding: 20px;
+      }
+
+      .card-header h4 {
+        margin: 0 0 5px 0;
+        color: #333;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .preference-section {
+        margin-bottom: 25px;
+      }
+
+      .preference-section h6 {
+        margin-bottom: 15px;
+        color: #495057;
+        font-weight: 600;
+      }
+
+      .category-checkboxes {
+        margin-top: 15px;
+      }
+
+      .checkbox-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .checkbox-item input[type="checkbox"] {
+        display: none;
+      }
+
+      .checkmark {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        margin-right: 10px;
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .checkbox-item input[type="checkbox"]:checked + .checkmark {
+        background: #007bff;
+        border-color: #007bff;
+      }
+
+      .checkbox-item input[type="checkbox"]:checked + .checkmark:after {
+        content: '✓';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .radio-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .radio-item input[type="radio"] {
+        display: none;
+      }
+
+      .radiomark {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+        margin-right: 10px;
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .radio-item input[type="radio"]:checked + .radiomark {
+        border-color: #007bff;
+      }
+
+      .radio-item input[type="radio"]:checked + .radiomark:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        background: #007bff;
+        border-radius: 50%;
+      }
+
+      .notification-item {
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .notification-item:last-child {
+        border-bottom: none;
+      }
+
+      .notification-item h6 {
+        margin: 0 0 5px 0;
+        color: #333;
+      }
+
+      .notification-item p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 24px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: #007bff;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+
+      .algorithm-options {
+        margin-top: 15px;
+      }
+
+      .form-wrap {
+        margin-bottom: 25px;
+        position: relative;
+        clear: both;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 10px;
+        color: #495057;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.4;
+        clear: both;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 1.4;
+        transition: border-color 0.3s;
+        background: white;
+        box-sizing: border-box;
+        display: block;
+        clear: both;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+      }
+
+      .button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .button-primary {
+        background: #007bff;
+        color: white;
+      }
+
+      .button-primary:hover {
+        background: #0056b3;
+        color: white;
+        text-decoration: none;
+      }
+
+      .button-default {
+        background: #6c757d;
+        color: white;
+      }
+
+      .button-default:hover {
+        background: #545b62;
+        color: white;
+        text-decoration: none;
+      }
+
+      .button-lg {
+        padding: 15px 30px;
+        font-size: 16px;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .button-group .button {
+        flex: 0 0 auto;
+        min-width: 160px;
+        margin: 0;
+      }
+
+      /* 通用布局样式 */
+      .d-flex {
+        display: flex;
+      }
+
+      .justify-content-between {
+        justify-content: space-between;
+      }
+
+      .align-items-center {
+        align-items: center;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-muted {
+        color: #6c757d;
+      }
+
+      .mb-4 {
+        margin-bottom: 1.5rem;
+      }
+
+      .mt-3 {
+        margin-top: 1rem;
+      }
+
+      .rounded-circle {
+        border-radius: 50%;
+      }
+
+      .list-unstyled {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+      }
+
+      .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 0 15px;
+      }
+
+      @media (max-width: 768px) {
+        .d-flex {
+          flex-direction: column;
+          align-items: stretch !important;
+        }
+
+        .switch {
+          margin-top: 10px;
+          align-self: flex-start;
+        }
+
+        .col-md-6 {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin-bottom: 15px;
+        }
+
+        .button-group {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .button-group .button {
+          min-width: auto;
+          width: 100%;
+        }
+      }
+    </style>

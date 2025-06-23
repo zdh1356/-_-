@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <title>浏览历史 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7CPoppins:400%7CTeko:300,400">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+
+      /* 用户下拉菜单样式 */
+      .rd-navbar-user {
+        position: relative;
+      }
+
+      .user-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .user-icon:hover {
+        background-color: #f5f5f5;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .user-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        min-width: 150px;
+        z-index: 1000;
+      }
+
+      .user-dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.3s ease;
+      }
+
+      .user-dropdown a:hover {
+        background-color: #f5f5f5;
+        color: #007bff;
+      }
+
+      .user-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      /* 购物车和用户图标对齐调整 */
+      .rd-navbar-user,
+      .rd-navbar-cart {
+        display: flex;
+        align-items: center;
+      }
+
+      .rd-navbar-cart .cart-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        position: relative;
+      }
+
+      .rd-navbar-cart .cart-icon:hover {
+        background-color: #f5f5f5;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .cart-count {
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        min-width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      /* 图标大小调整 */
+      .rd-navbar-user .mdi,
+      .rd-navbar-cart .mdi {
+        font-size: 20px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=business">商业管理</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="category.html">全部图书</a></li>
+                    <li><a href="forum.html">读者论坛</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/><img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/></a></div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人资料</a>
+                    <a href="order-history.html">我的订单</a>
+                    <a href="browsing-history.html">浏览历史</a>
+                    <a href="user-preferences.html">偏好设置</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Breadcrumbs-->
+      <section class="breadcrumbs-custom" style="background-image: url(images/breadcrumbs-bg.jpg)">
+        <div class="container">
+          <p class="breadcrumbs-custom-subtitle">个人中心</p>
+          <p class="heading-1 breadcrumbs-custom-title">浏览历史</p>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="user-profile.html">个人中心</a></li>
+            <li class="active">浏览历史</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Browsing History Section -->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+              <div class="user-sidebar">
+                <div class="user-avatar text-center mb-4">
+                  <img src="images/user-1-80x80.jpg" alt="用户头像" class="rounded-circle" width="80" height="80">
+                  <h5 class="mt-3" id="sidebarUsername">用户名</h5>
+                  <p class="text-muted" id="sidebarUserEmail">user@example.com</p>
+                </div>
+                <nav class="user-nav">
+                  <ul class="list-unstyled">
+                    <li><a href="user-profile.html" class="nav-link">个人资料</a></li>
+                    <li><a href="order-history.html" class="nav-link">我的订单</a></li>
+                    <li><a href="browsing-history.html" class="nav-link active">浏览历史</a></li>
+                    <li><a href="user-preferences.html" class="nav-link">偏好设置</a></li>
+                    <li><a href="change-password.html" class="nav-link">修改密码</a></li>
+                    <li><a href="#" class="nav-link" onclick="logout()">退出登录</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+              <!-- History Controls -->
+              <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <h4>📖 浏览历史</h4>
+                  <div class="history-controls">
+                    <select id="timeFilter" class="form-control mr-2">
+                      <option value="all">全部时间</option>
+                      <option value="today">今天</option>
+                      <option value="week">最近一周</option>
+                      <option value="month">最近一月</option>
+                    </select>
+                    <button class="btn btn-danger btn-sm" onclick="clearHistory()">清空历史</button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="history-stats">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="stat-item">
+                          <div class="stat-number" id="totalViews">0</div>
+                          <div class="stat-label">总浏览量</div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="stat-item">
+                          <div class="stat-number" id="todayViews">0</div>
+                          <div class="stat-label">今日浏览</div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="stat-item">
+                          <div class="stat-number" id="favoriteCategory">文学</div>
+                          <div class="stat-label">偏好分类</div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="stat-item">
+                          <div class="stat-number" id="avgTime">2.5分钟</div>
+                          <div class="stat-label">平均停留</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- History List -->
+              <div class="card">
+                <div class="card-header">
+                  <h5>浏览记录</h5>
+                </div>
+                <div class="card-body">
+                  <div id="historyList">
+                    <!-- 浏览历史将在这里动态生成 -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recommendations Based on History -->
+              <div class="card mt-4">
+                <div class="card-header">
+                  <h5>🎯 基于浏览历史的推荐</h5>
+                </div>
+                <div class="card-body">
+                  <div id="recommendationsList">
+                    <!-- 推荐内容将在这里动态生成 -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Browsing History Scripts -->
+    <script>
+      // 模拟浏览历史数据
+      let browsingHistory = [
+        {
+          id: 1,
+          bookId: 1,
+          title: '领导力艺术',
+          author: '乔安妮·舒尔茨',
+          category: 'business',
+          cover: 'images/book-02-188x246.jpg',
+          viewTime: '2024-01-28 14:30:00',
+          duration: 180, // 秒
+          source: 'search' // search, category, recommendation
+        },
+        {
+          id: 2,
+          bookId: 9,
+          title: '百年孤独',
+          author: '加西亚·马尔克斯',
+          category: 'literature',
+          cover: 'images/book-02-188x246.jpg',
+          viewTime: '2024-01-28 10:15:00',
+          duration: 320,
+          source: 'category'
+        },
+        {
+          id: 3,
+          bookId: 2,
+          title: '网页设计基础',
+          author: '张明华',
+          category: 'technology',
+          cover: 'images/book-03-188x246.jpg',
+          viewTime: '2024-01-27 16:45:00',
+          duration: 150,
+          source: 'recommendation'
+        },
+        {
+          id: 4,
+          bookId: 3,
+          title: '网页设计中的网格系统',
+          author: '李小红',
+          category: 'technology',
+          cover: 'images/book-04-188x246.jpg',
+          viewTime: '2024-01-27 09:20:00',
+          duration: 240,
+          source: 'search'
+        },
+        {
+          id: 5,
+          bookId: 4,
+          title: '揭示用户放弃网站原因的工具',
+          author: '王大伟',
+          category: 'technology',
+          cover: 'images/book-05-188x246.jpg',
+          viewTime: '2024-01-26 11:30:00',
+          duration: 200,
+          source: 'category'
+        }
+      ];
+
+      // 分类名称映射
+      const categoryNames = {
+        'literature': '文学艺术',
+        'technology': '科技计算机',
+        'business': '经济管理',
+        'education': '教育考试',
+        'children': '少儿读物',
+        'life': '生活休闲',
+        'social': '社会科学'
+      };
+
+      // 来源名称映射
+      const sourceNames = {
+        'search': '搜索发现',
+        'category': '分类浏览',
+        'recommendation': '推荐发现',
+        'direct': '直接访问'
+      };
+
+      // 加载浏览历史
+      function loadBrowsingHistory() {
+        const saved = localStorage.getItem('browsingHistory');
+        if (saved) {
+          browsingHistory = JSON.parse(saved);
+        }
+        return browsingHistory;
+      }
+
+      // 保存浏览历史
+      function saveBrowsingHistory() {
+        localStorage.setItem('browsingHistory', JSON.stringify(browsingHistory));
+      }
+
+      // 添加浏览记录
+      function addBrowsingRecord(bookId, bookInfo, duration = 60, source = 'direct') {
+        const preferences = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+
+        // 检查是否允许记录浏览历史
+        if (preferences.privacy && !preferences.privacy.trackBrowsing) {
+          return;
+        }
+
+        const record = {
+          id: Date.now(),
+          bookId: bookId,
+          title: bookInfo.title,
+          author: bookInfo.author,
+          category: bookInfo.category,
+          cover: bookInfo.cover,
+          viewTime: new Date().toISOString(),
+          duration: duration,
+          source: source
+        };
+
+        // 检查是否已存在相同图书的记录（同一天内）
+        const today = new Date().toDateString();
+        const existingIndex = browsingHistory.findIndex(item =>
+          item.bookId === bookId &&
+          new Date(item.viewTime).toDateString() === today
+        );
+
+        if (existingIndex !== -1) {
+          // 更新现有记录
+          browsingHistory[existingIndex].duration += duration;
+          browsingHistory[existingIndex].viewTime = new Date().toISOString();
+        } else {
+          // 添加新记录
+          browsingHistory.unshift(record);
+        }
+
+        // 限制历史记录数量（最多保留100条）
+        if (browsingHistory.length > 100) {
+          browsingHistory = browsingHistory.slice(0, 100);
+        }
+
+        saveBrowsingHistory();
+      }
+
+      // 显示浏览历史
+      function displayHistory(filter = 'all') {
+        const historyList = document.getElementById('historyList');
+        let filteredHistory = browsingHistory;
+
+        // 时间筛选
+        const now = new Date();
+        switch(filter) {
+          case 'today':
+            filteredHistory = browsingHistory.filter(item => {
+              const itemDate = new Date(item.viewTime);
+              return itemDate.toDateString() === now.toDateString();
+            });
+            break;
+          case 'week':
+            const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            filteredHistory = browsingHistory.filter(item =>
+              new Date(item.viewTime) >= weekAgo
+            );
+            break;
+          case 'month':
+            const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+            filteredHistory = browsingHistory.filter(item =>
+              new Date(item.viewTime) >= monthAgo
+            );
+            break;
+        }
+
+        if (filteredHistory.length === 0) {
+          historyList.innerHTML = `
+            <div class="empty-history">
+              <i class="mdi mdi-history"></i>
+              <h5>暂无浏览记录</h5>
+              <p>您还没有浏览过任何图书，快去发现好书吧！</p>
+              <a href="category.html" class="btn btn-primary">开始浏览</a>
+            </div>
+          `;
+          return;
+        }
+
+        const historyHTML = filteredHistory.map(item => `
+          <div class="history-item">
+            <div class="history-book">
+              <img src="${item.cover}" alt="${item.title}" class="book-cover">
+              <div class="book-info">
+                <h6 class="book-title">
+                  <a href="book-detail.html?id=${item.bookId}">${item.title}</a>
+                </h6>
+                <p class="book-author">${item.author}</p>
+                <div class="book-meta">
+                  <span class="category-tag">${categoryNames[item.category] || item.category}</span>
+                  <span class="source-tag">${sourceNames[item.source] || item.source}</span>
+                </div>
+              </div>
+            </div>
+            <div class="history-details">
+              <div class="view-time">
+                <i class="mdi mdi-clock"></i>
+                ${formatDateTime(item.viewTime)}
+              </div>
+              <div class="duration">
+                <i class="mdi mdi-timer"></i>
+                停留 ${formatDuration(item.duration)}
+              </div>
+              <div class="history-actions">
+                <a href="book-detail.html?id=${item.bookId}" class="btn btn-sm btn-primary">再次查看</a>
+                <button class="btn btn-sm btn-outline-danger" onclick="removeHistoryItem(${item.id})">删除</button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        historyList.innerHTML = historyHTML;
+        updateHistoryStats(filteredHistory);
+      }
+
+      // 更新统计信息
+      function updateHistoryStats(history = browsingHistory) {
+        // 总浏览量
+        document.getElementById('totalViews').textContent = history.length;
+
+        // 今日浏览
+        const today = new Date().toDateString();
+        const todayViews = history.filter(item =>
+          new Date(item.viewTime).toDateString() === today
+        ).length;
+        document.getElementById('todayViews').textContent = todayViews;
+
+        // 偏好分类
+        const categoryCount = {};
+        history.forEach(item => {
+          categoryCount[item.category] = (categoryCount[item.category] || 0) + 1;
+        });
+        const favoriteCategory = Object.keys(categoryCount).reduce((a, b) =>
+          categoryCount[a] > categoryCount[b] ? a : b, 'literature'
+        );
+        document.getElementById('favoriteCategory').textContent =
+          categoryNames[favoriteCategory] || '暂无';
+
+        // 平均停留时间
+        const avgDuration = history.length > 0 ?
+          history.reduce((sum, item) => sum + item.duration, 0) / history.length : 0;
+        document.getElementById('avgTime').textContent = formatDuration(avgDuration);
+      }
+
+      // 生成基于历史的推荐
+      function generateRecommendations() {
+        const recommendationsList = document.getElementById('recommendationsList');
+
+        // 分析用户偏好
+        const categoryPreference = analyzeUserPreference();
+
+        // 模拟推荐图书
+        const recommendations = [
+          {
+            id: 10,
+            title: '深入理解计算机系统',
+            author: 'Randal E. Bryant',
+            category: 'technology',
+            cover: 'images/book-06-188x246.jpg',
+            reason: '基于您对技术类图书的浏览偏好'
+          },
+          {
+            id: 11,
+            title: '人类简史',
+            author: '尤瓦尔·赫拉利',
+            category: 'social',
+            cover: 'images/book-07-188x246.jpg',
+            reason: '相似用户也喜欢这本书'
+          },
+          {
+            id: 12,
+            title: '设计心理学',
+            author: '唐纳德·诺曼',
+            category: 'business',
+            cover: 'images/book-08-188x246.jpg',
+            reason: '与您浏览的《领导力艺术》相关'
+          }
+        ];
+
+        const recommendationsHTML = recommendations.map(book => `
+          <div class="recommendation-item">
+            <img src="${book.cover}" alt="${book.title}" class="book-cover">
+            <div class="book-info">
+              <h6 class="book-title">
+                <a href="book-detail.html?id=${book.id}">${book.title}</a>
+              </h6>
+              <p class="book-author">${book.author}</p>
+              <p class="recommendation-reason">
+                <i class="mdi mdi-lightbulb"></i>
+                ${book.reason}
+              </p>
+              <a href="book-detail.html?id=${book.id}" class="btn btn-sm btn-primary">查看详情</a>
+            </div>
+          </div>
+        `).join('');
+
+        recommendationsList.innerHTML = recommendationsHTML;
+      }
+
+      // 分析用户偏好
+      function analyzeUserPreference() {
+        const categoryCount = {};
+        browsingHistory.forEach(item => {
+          categoryCount[item.category] = (categoryCount[item.category] || 0) + 1;
+        });
+
+        return Object.keys(categoryCount).sort((a, b) =>
+          categoryCount[b] - categoryCount[a]
+        );
+      }
+
+      // 删除历史记录项
+      function removeHistoryItem(itemId) {
+        if (confirm('确定要删除这条浏览记录吗？')) {
+          browsingHistory = browsingHistory.filter(item => item.id !== itemId);
+          saveBrowsingHistory();
+          displayHistory(document.getElementById('timeFilter').value);
+          showMessage('浏览记录已删除', 'info');
+        }
+      }
+
+      // 清空历史记录
+      function clearHistory() {
+        if (confirm('确定要清空所有浏览历史吗？此操作不可恢复。')) {
+          browsingHistory = [];
+          saveBrowsingHistory();
+          displayHistory();
+          showMessage('浏览历史已清空', 'info');
+        }
+      }
+
+      // 格式化日期时间
+      function formatDateTime(dateString) {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffTime = now - date;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 0) {
+          return '今天 ' + date.toLocaleTimeString('zh-CN', {hour: '2-digit', minute: '2-digit'});
+        } else if (diffDays === 1) {
+          return '昨天 ' + date.toLocaleTimeString('zh-CN', {hour: '2-digit', minute: '2-digit'});
+        } else if (diffDays < 7) {
+          return diffDays + '天前';
+        } else {
+          return date.toLocaleDateString('zh-CN');
+        }
+      }
+
+      // 格式化持续时间
+      function formatDuration(seconds) {
+        if (seconds < 60) {
+          return Math.round(seconds) + '秒';
+        } else if (seconds < 3600) {
+          return Math.round(seconds / 60) + '分钟';
+        } else {
+          return Math.round(seconds / 3600 * 10) / 10 + '小时';
+        }
+      }
+
+      // 显示消息
+      function showMessage(message, type = 'info') {
+        const output = document.getElementById('form-output-global');
+        const alertClass = type === 'success' ? 'alert-success' :
+                          type === 'error' ? 'alert-danger' : 'alert-info';
+
+        output.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+        output.style.display = 'block';
+
+        setTimeout(() => {
+          output.style.display = 'none';
+        }, 3000);
+      }
+
+      // 检查用户登录状态
+      function checkUserStatus() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+
+        if (!isLoggedIn) {
+          window.location.href = 'login-page.html';
+          return;
+        }
+
+        // 更新用户信息显示
+        document.getElementById('sidebarUsername').textContent = userInfo.username || '用户';
+        document.getElementById('sidebarUserEmail').textContent = userInfo.email || 'user@example.com';
+        document.getElementById('userDisplayName').textContent = userInfo.username || '用户';
+      }
+
+      // 注销功能
+      function logout() {
+        if (confirm('确定要退出登录吗？')) {
+          localStorage.removeItem('userInfo');
+          localStorage.removeItem('isLoggedIn');
+          window.location.href = 'index.html';
+        }
+      }
+
+      // 页面加载时初始化
+      window.addEventListener('load', function() {
+        checkUserStatus();
+        loadBrowsingHistory();
+        displayHistory();
+        generateRecommendations();
+
+        // 用户菜单点击事件
+        const userMenu = document.getElementById('userMenu');
+        const userDropdown = document.getElementById('userDropdown');
+
+        if (userMenu && userDropdown) {
+          userMenu.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // 切换下拉菜单显示状态
+            if (userDropdown.style.display === 'none' || userDropdown.style.display === '') {
+              userDropdown.style.display = 'block';
+            } else {
+              userDropdown.style.display = 'none';
+            }
+          });
+
+          // 点击页面其他地方关闭下拉菜单
+          document.addEventListener('click', function(e) {
+            if (!userMenu.contains(e.target) && !userDropdown.contains(e.target)) {
+              userDropdown.style.display = 'none';
+            }
+          });
+        }
+
+        // 绑定筛选事件
+        document.getElementById('timeFilter').addEventListener('change', function() {
+          displayHistory(this.value);
+        });
+      });
+
+      // 暴露添加浏览记录的函数给其他页面使用
+      window.addBrowsingRecord = addBrowsingRecord;
+    </script>
+
+    <!-- Browsing History Styles -->
+    <style>
+      .user-sidebar {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .user-nav .nav-link {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-bottom: 5px;
+        transition: all 0.3s;
+      }
+
+      .user-nav .nav-link:hover,
+      .user-nav .nav-link.active {
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+      }
+
+      .card {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .card-header {
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        padding: 20px;
+      }
+
+      .card-header h4, .card-header h5 {
+        margin: 0;
+        color: #333;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .history-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .button-group .btn {
+        flex: 0 0 auto;
+        min-width: 130px;
+        margin: 0;
+      }
+
+      .form-control {
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background: #007bff;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #0056b3;
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn-danger {
+        background: #dc3545;
+        color: white;
+      }
+
+      .btn-danger:hover {
+        background: #c82333;
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn-outline-danger {
+        background: transparent;
+        color: #dc3545;
+        border: 1px solid #dc3545;
+      }
+
+      .btn-outline-danger:hover {
+        background: #dc3545;
+        color: white;
+        text-decoration: none;
+      }
+
+      .btn-sm {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+
+      .history-stats {
+        margin-bottom: 20px;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+      }
+
+      .stat-number {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 5px;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .history-item {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        background: white;
+        transition: box-shadow 0.3s;
+      }
+
+      .history-item:hover {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      .history-book {
+        display: flex;
+        align-items: center;
+        flex: 1;
+      }
+
+      .book-cover {
+        width: 60px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 15px;
+      }
+
+      .book-info {
+        flex: 1;
+      }
+
+      .book-title {
+        margin: 0 0 5px 0;
+        font-size: 16px;
+      }
+
+      .book-title a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .book-title a:hover {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .book-author {
+        margin: 0 0 8px 0;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .book-meta {
+        display: flex;
+        gap: 10px;
+      }
+
+      .category-tag, .source-tag {
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .category-tag {
+        background: #e3f2fd;
+        color: #1976d2;
+      }
+
+      .source-tag {
+        background: #f3e5f5;
+        color: #7b1fa2;
+      }
+
+      .history-details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 8px;
+        min-width: 200px;
+      }
+
+      .view-time, .duration {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .history-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .recommendation-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        background: white;
+        transition: box-shadow 0.3s;
+      }
+
+      .recommendation-item:hover {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      .recommendation-item .book-cover {
+        width: 50px;
+        height: 65px;
+        margin-right: 15px;
+      }
+
+      .recommendation-reason {
+        color: #666;
+        font-size: 14px;
+        margin: 5px 0 10px 0;
+        font-style: italic;
+      }
+
+      .recommendation-reason i {
+        color: #ffc107;
+        margin-right: 5px;
+      }
+
+      .empty-history {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+      }
+
+      .empty-history i {
+        font-size: 48px;
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+
+      .empty-history h5 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .empty-history p {
+        margin-bottom: 20px;
+      }
+
+      .d-flex {
+        display: flex;
+      }
+
+      .justify-content-between {
+        justify-content: space-between;
+      }
+
+      .align-items-center {
+        align-items: center;
+      }
+
+      .mr-2 {
+        margin-right: 0.5rem;
+      }
+
+      .mb-4 {
+        margin-bottom: 1.5rem;
+      }
+
+      .mt-4 {
+        margin-top: 1.5rem;
+      }
+
+      .rounded-circle {
+        border-radius: 50%;
+      }
+
+      .text-muted {
+        color: #6c757d;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .list-unstyled {
+        list-style: none;
+        padding: 0;
+      }
+
+      @media (max-width: 768px) {
+        .history-item {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .history-details {
+          align-items: stretch;
+          margin-top: 15px;
+        }
+
+        .history-actions {
+          justify-content: center;
+        }
+
+        .history-controls {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+
+        .recommendation-item {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .recommendation-item .book-cover {
+          margin: 0 auto 15px auto;
+        }
+      }
+    </style>

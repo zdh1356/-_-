@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <title>读者论坛 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7CPoppins:400%7CTeko:300,400">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=business">商业管理</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="recommendations.html">为您推荐</a></li>
+                    <li class="active"><a href="forum.html">读者论坛</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/><img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/></a></div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人资料</a>
+                    <a href="order-history.html">我的订单</a>
+                    <a href="browsing-history.html">浏览历史</a>
+                    <a href="user-preferences.html">偏好设置</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon" id="cartIcon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Breadcrumbs-->
+      <section class="breadcrumbs-custom" style="background-image: url(images/breadcrumbs-bg.jpg)">
+        <div class="container">
+          <p class="breadcrumbs-custom-subtitle">交流分享</p>
+          <p class="heading-1 breadcrumbs-custom-title">读者论坛</p>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">首页</a></li>
+            <li class="active">读者论坛</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Forum Section -->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row">
+            <!-- Forum Categories Sidebar -->
+            <div class="col-lg-3">
+              <div class="forum-sidebar">
+                <h5>论坛分类</h5>
+                <ul class="forum-categories">
+                  <li><a href="#" class="category-link active" data-category="all">全部帖子</a></li>
+                  <li><a href="#" class="category-link" data-category="review">书评推荐</a></li>
+                  <li><a href="#" class="category-link" data-category="discussion">读书讨论</a></li>
+                  <li><a href="#" class="category-link" data-category="complaint">意见投诉</a></li>
+                  <li><a href="#" class="category-link" data-category="suggestion">建议反馈</a></li>
+                </ul>
+
+                <div class="forum-stats">
+                  <h6>论坛统计</h6>
+                  <div class="stat-item">
+                    <span class="stat-label">总帖子数：</span>
+                    <span class="stat-value" id="totalPosts">0</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">今日新帖：</span>
+                    <span class="stat-value" id="todayPosts">0</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">活跃用户：</span>
+                    <span class="stat-value">156</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Forum Content -->
+            <div class="col-lg-9">
+              <!-- New Post Form -->
+              <div class="card mb-4" id="newPostForm" style="display: none;">
+                <div class="card-header">
+                  <h5>发表新帖</h5>
+                </div>
+                <div class="card-body">
+                  <form id="postForm">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-wrap">
+                          <select class="form-input" id="postCategory" name="category" required>
+                            <option value="">选择分类</option>
+                            <option value="review">书评推荐</option>
+                            <option value="discussion">读书讨论</option>
+                            <option value="complaint">意见投诉</option>
+                            <option value="suggestion">建议反馈</option>
+                          </select>
+                          <label class="form-label" for="postCategory">帖子分类</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-wrap">
+                          <input class="form-input" id="postTitle" type="text" name="title" required>
+                          <label class="form-label" for="postTitle">帖子标题</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-wrap">
+                      <textarea class="form-input" id="postContent" name="content" rows="6" required></textarea>
+                      <label class="form-label" for="postContent">帖子内容</label>
+                    </div>
+                    <div class="form-actions">
+                      <button type="submit" class="button button-primary">发表帖子</button>
+                      <button type="button" class="button button-default" onclick="hideNewPostForm()">取消</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Forum Header -->
+              <div class="forum-header">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 id="forumTitle">全部帖子</h4>
+                  <button class="button button-primary" onclick="showNewPostForm()" id="newPostBtn">发表新帖</button>
+                </div>
+                <div class="forum-sort">
+                  <label>排序方式：</label>
+                  <select id="sortSelect" class="form-control">
+                    <option value="latest">最新发布</option>
+                    <option value="popular">最多回复</option>
+                    <option value="oldest">最早发布</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Posts List -->
+              <div id="postsList">
+                <!-- 帖子列表将在这里动态生成 -->
+              </div>
+
+              <!-- Pagination -->
+              <div class="pagination-wrap text-center mt-4" id="paginationWrap" style="display: none;">
+                <nav aria-label="Forum pagination">
+                  <ul class="pagination" id="pagination">
+                    <!-- 分页将在这里生成 -->
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Forum Scripts -->
+    <script>
+      // 邮件服务API配置
+      const EMAIL_API_BASE = 'http://127.0.0.1:5000/api/email';
+
+      // 模拟论坛帖子数据
+      let forumPosts = [
+        {
+          id: 1,
+          title: '《百年孤独》读后感 - 魔幻现实主义的魅力',
+          content: '刚刚读完《百年孤独》，被马尔克斯的魔幻现实主义深深震撼。布恩迪亚家族七代人的故事，既是个人命运的写照，也是拉丁美洲历史的缩影。书中的孤独感贯穿始终，让人深思...',
+          author: '文学爱好者',
+          category: 'review',
+          date: '2024-01-28',
+          replies: 12,
+          views: 156,
+          likes: 23
+        },
+        {
+          id: 2,
+          title: '关于网站图书分类的建议',
+          content: '希望网站能增加更多的图书分类，比如心理学、哲学等。现在的分类还不够细致，查找图书时不太方便。另外建议增加图书推荐功能，根据用户的购买历史推荐相关图书。',
+          author: '书虫小王',
+          category: 'suggestion',
+          date: '2024-01-27',
+          replies: 8,
+          views: 89,
+          likes: 15
+        },
+        {
+          id: 3,
+          title: '订单配送问题投诉',
+          content: '我的订单ORD001已经下单一周了，但是物流信息一直没有更新。客服也联系不上，希望能尽快处理。订单中的《领导力艺术》我很急需，请帮忙催促一下快递公司。',
+          author: '着急的读者',
+          category: 'complaint',
+          date: '2024-01-26',
+          replies: 5,
+          views: 67,
+          likes: 3
+        },
+        {
+          id: 4,
+          title: '推荐几本优秀的编程入门书籍',
+          content: '作为一名程序员，我想推荐几本非常适合初学者的编程书籍：1.《Python编程从入门到实践》2.《JavaScript高级程序设计》3.《算法导论》。这些书都很实用，适合不同阶段的学习者。',
+          author: '程序员小李',
+          category: 'review',
+          date: '2024-01-25',
+          replies: 18,
+          views: 234,
+          likes: 31
+        },
+        {
+          id: 5,
+          title: '关于《活着》这本书的讨论',
+          content: '最近在读余华的《活着》，感触很深。福贵的一生经历了太多苦难，但他依然坚强地活着。想和大家讨论一下，你们觉得这本书想要表达什么主题？生命的意义是什么？',
+          author: '思考者',
+          category: 'discussion',
+          date: '2024-01-24',
+          replies: 22,
+          views: 189,
+          likes: 28
+        },
+        {
+          id: 6,
+          title: '网站购物车功能有bug',
+          content: '发现网站购物车有个小问题，添加图书后数量显示不正确。刷新页面后就正常了。建议技术团队检查一下这个问题。另外希望能增加收藏夹功能，方便用户收藏感兴趣的图书。',
+          author: '细心用户',
+          category: 'complaint',
+          date: '2024-01-23',
+          replies: 3,
+          views: 45,
+          likes: 7
+        }
+      ];
+
+      let currentCategory = 'all';
+      let currentSort = 'latest';
+
+      // 分类文本映射
+      const categoryText = {
+        'all': '全部帖子',
+        'review': '书评推荐',
+        'discussion': '读书讨论',
+        'complaint': '意见投诉',
+        'suggestion': '建议反馈'
+      };
+
+      // 显示帖子列表
+      function displayPosts(posts = forumPosts) {
+        const postsList = document.getElementById('postsList');
+
+        if (posts.length === 0) {
+          postsList.innerHTML = `
+            <div class="empty-posts">
+              <i class="mdi mdi-forum"></i>
+              <h5>暂无帖子</h5>
+              <p>还没有相关帖子，快来发表第一个帖子吧！</p>
+              <button class="button button-primary" onclick="showNewPostForm()">发表新帖</button>
+            </div>
+          `;
+          return;
+        }
+
+        const postsHTML = posts.map(post => `
+          <div class="post-item">
+            <div class="post-header">
+              <div class="post-category category-${post.category}">
+                ${categoryText[post.category]}
+              </div>
+              <div class="post-meta">
+                <span class="post-author">
+                  <i class="mdi mdi-account"></i>
+                  ${post.author}
+                </span>
+                <span class="post-date">
+                  <i class="mdi mdi-clock"></i>
+                  ${post.date}
+                </span>
+              </div>
+            </div>
+            <div class="post-content">
+              <h5 class="post-title">
+                <a href="#" onclick="viewPost(${post.id})">${post.title}</a>
+              </h5>
+              <p class="post-excerpt">${post.content.substring(0, 150)}...</p>
+            </div>
+            <div class="post-footer">
+              <div class="post-stats">
+                <span class="stat-item">
+                  <i class="mdi mdi-eye"></i>
+                  ${post.views} 浏览
+                </span>
+                <span class="stat-item">
+                  <i class="mdi mdi-comment"></i>
+                  ${post.replies} 回复
+                </span>
+                <span class="stat-item">
+                  <i class="mdi mdi-heart"></i>
+                  ${post.likes} 点赞
+                </span>
+              </div>
+              <div class="post-actions">
+                <button class="btn-action" onclick="likePost(${post.id})">
+                  <i class="mdi mdi-heart-outline"></i>
+                  点赞
+                </button>
+                <button class="btn-action" onclick="replyPost(${post.id})">
+                  <i class="mdi mdi-reply"></i>
+                  回复
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        postsList.innerHTML = postsHTML;
+        updateForumStats();
+      }
+
+      // 筛选帖子
+      function filterPosts() {
+        let filteredPosts = forumPosts;
+
+        if (currentCategory !== 'all') {
+          filteredPosts = forumPosts.filter(post => post.category === currentCategory);
+        }
+
+        // 排序
+        switch(currentSort) {
+          case 'latest':
+            filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            break;
+          case 'popular':
+            filteredPosts.sort((a, b) => b.replies - a.replies);
+            break;
+          case 'oldest':
+            filteredPosts.sort((a, b) => new Date(a.date) - new Date(b.date));
+            break;
+        }
+
+        displayPosts(filteredPosts);
+      }
+
+      // 显示发帖表单
+      function showNewPostForm() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+          alert('请先登录后再发帖');
+          window.location.href = 'login-page.html';
+          return;
+        }
+
+        document.getElementById('newPostForm').style.display = 'block';
+        document.getElementById('newPostBtn').style.display = 'none';
+        document.getElementById('postTitle').focus();
+      }
+
+      // 隐藏发帖表单
+      function hideNewPostForm() {
+        document.getElementById('newPostForm').style.display = 'none';
+        document.getElementById('newPostBtn').style.display = 'inline-block';
+        document.getElementById('postForm').reset();
+      }
+
+      // 发表新帖
+      function submitPost(event) {
+        event.preventDefault();
+
+        const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+        const title = document.getElementById('postTitle').value;
+        const content = document.getElementById('postContent').value;
+        const category = document.getElementById('postCategory').value;
+
+        if (!title || !content || !category) {
+          showMessage('请填写完整的帖子信息', 'error');
+          return;
+        }
+
+        const newPost = {
+          id: forumPosts.length + 1,
+          title: title,
+          content: content,
+          author: userInfo.username || '匿名用户',
+          category: category,
+          date: new Date().toISOString().split('T')[0],
+          replies: 0,
+          views: 1,
+          likes: 0
+        };
+
+        forumPosts.unshift(newPost);
+        hideNewPostForm();
+        filterPosts();
+        showMessage('帖子发表成功！', 'success');
+      }
+
+      // 查看帖子详情
+      function viewPost(postId) {
+        const post = forumPosts.find(p => p.id === postId);
+        if (post) {
+          post.views++;
+          alert(`帖子详情\n\n标题：${post.title}\n作者：${post.author}\n发布时间：${post.date}\n分类：${categoryText[post.category]}\n\n内容：\n${post.content}\n\n浏览：${post.views} | 回复：${post.replies} | 点赞：${post.likes}`);
+          filterPosts(); // 更新浏览数
+        }
+      }
+
+      // 点赞帖子
+      function likePost(postId) {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+          alert('请先登录后再点赞');
+          return;
+        }
+
+        const post = forumPosts.find(p => p.id === postId);
+        if (post) {
+          post.likes++;
+          filterPosts();
+          showMessage('点赞成功！', 'success');
+        }
+      }
+
+      // 回复帖子
+      async function replyPost(postId) {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+          alert('请先登录后再回复');
+          return;
+        }
+
+        const reply = prompt('请输入回复内容：');
+        if (reply && reply.trim()) {
+          const post = forumPosts.find(p => p.id === postId);
+          if (post) {
+            post.replies++;
+            filterPosts();
+            showMessage('回复成功！', 'success');
+
+            // 发送回复通知邮件给帖子作者
+            try {
+              await sendForumReplyNotification(post, reply);
+            } catch (error) {
+              console.error('发送回复通知邮件失败:', error);
+              // 不影响回复功能，只是邮件通知失败
+            }
+          }
+        }
+      }
+
+      // 更新论坛统计
+      function updateForumStats() {
+        document.getElementById('totalPosts').textContent = forumPosts.length;
+
+        const today = new Date().toISOString().split('T')[0];
+        const todayPosts = forumPosts.filter(post => post.date === today).length;
+        document.getElementById('todayPosts').textContent = todayPosts;
+      }
+
+      // 发送论坛回复通知邮件
+      async function sendForumReplyNotification(post, replyContent) {
+        try {
+          // 获取当前用户信息
+          const currentUser = localStorage.getItem('username') || '匿名用户';
+
+          // 模拟获取帖子作者邮箱（实际应用中应该从用户数据库获取）
+          const authorEmail = getAuthorEmail(post.author);
+
+          if (!authorEmail) {
+            console.log('帖子作者邮箱未找到，跳过邮件通知');
+            return;
+          }
+
+          // 发送邮件
+          const response = await fetch(`${EMAIL_API_BASE}/send`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email: authorEmail,
+              email_type: 'forum_reply',
+              username: post.author,
+              user_id: null,
+              forum_data: {
+                post_title: post.title,
+                post_author: post.author,
+                reply_author: currentUser,
+                reply_content: replyContent,
+                post_url: `${window.location.origin}/forum.html#post-${post.id}`
+              }
+            })
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            console.log('✅ 论坛回复通知邮件发送成功');
+          } else {
+            throw new Error(result.error || '邮件发送失败');
+          }
+
+        } catch (error) {
+          console.error('❌ 发送论坛回复通知邮件时出错:', error);
+          throw error;
+        }
+      }
+
+      // 获取作者邮箱（模拟函数）
+      function getAuthorEmail(authorName) {
+        // 模拟作者邮箱映射（实际应用中应该从数据库获取）
+        const authorEmails = {
+          '读书爱好者': '1298934616@qq.com',
+          '书虫小王': '1298934616@qq.com',
+          '文学青年': '1298934616@qq.com',
+          '科技迷': '1298934616@qq.com',
+          '历史学者': '1298934616@qq.com'
+        };
+
+        return authorEmails[authorName] || null;
+      }
+
+      // 显示消息
+      function showMessage(message, type = 'info') {
+        const output = document.getElementById('form-output-global');
+        const alertClass = type === 'success' ? 'alert-success' :
+                          type === 'error' ? 'alert-danger' : 'alert-info';
+
+        output.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+        output.style.display = 'block';
+
+        setTimeout(() => {
+          output.style.display = 'none';
+        }, 3000);
+      }
+
+      // 检查用户登录状态
+      function checkUserStatus() {
+        console.log('🔍 检查用户状态 - 论坛页面');
+
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const userInfoStr = localStorage.getItem('userInfo');
+        const username = localStorage.getItem('username');
+
+        console.log('登录数据:', { authToken: !!authToken, isLoggedIn, userInfoStr: !!userInfoStr, username });
+
+        const userMenu = document.getElementById('userMenu');
+        const userDisplayName = document.getElementById('userDisplayName');
+        const userDropdown = document.getElementById('userDropdown');
+
+        if (!userMenu || !userDisplayName) {
+          console.error('❌ 用户菜单元素未找到');
+          return;
+        }
+
+        let userInfo = {};
+        if (userInfoStr) {
+          try {
+            userInfo = JSON.parse(userInfoStr);
+          } catch (error) {
+            console.error('❌ 解析用户信息失败:', error);
+          }
+        }
+
+        // 检查是否已登录（多重检查）
+        const hasValidLogin = (
+          (authToken && authToken !== 'null') &&
+          (isLoggedIn === 'true') &&
+          (userInfo.username || username)
+        );
+
+        console.log('登录状态判断:', hasValidLogin);
+
+        if (hasValidLogin) {
+          // 用户已登录
+          const displayName = userInfo.username || username || '用户';
+          console.log('✅ 用户已登录:', displayName);
+
+          userDisplayName.textContent = displayName;
+          userMenu.href = '#';
+
+          // 绑定下拉菜单事件
+          userMenu.onclick = function(e) {
+            e.preventDefault();
+            toggleUserDropdown();
+          };
+        } else {
+          // 用户未登录
+          console.log('❌ 用户未登录');
+          userDisplayName.textContent = '登录';
+          userMenu.href = 'login-page.html';
+          userMenu.onclick = null;
+
+          if (userDropdown) {
+            userDropdown.style.display = 'none';
+          }
+        }
+      }
+
+      // 切换用户下拉菜单
+      function toggleUserDropdown() {
+        const userDropdown = document.getElementById('userDropdown');
+        if (userDropdown.style.display === 'none' || !userDropdown.style.display) {
+          userDropdown.style.display = 'block';
+        } else {
+          userDropdown.style.display = 'none';
+        }
+      }
+
+      // 注销功能
+      function logout() {
+        if (confirm('确定要退出登录吗？')) {
+          localStorage.removeItem('userInfo');
+          localStorage.removeItem('isLoggedIn');
+          checkUserStatus();
+          showMessage('已成功退出登录', 'info');
+        }
+      }
+
+      // 页面加载时初始化
+      window.addEventListener('load', function() {
+        checkUserStatus();
+        displayPosts();
+
+        // 绑定事件
+        document.getElementById('postForm').addEventListener('submit', submitPost);
+
+        // 分类筛选
+        document.querySelectorAll('.category-link').forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // 移除所有active类
+            document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+            // 添加active类到当前链接
+            this.classList.add('active');
+
+            currentCategory = this.dataset.category;
+            document.getElementById('forumTitle').textContent = categoryText[currentCategory];
+            filterPosts();
+          });
+        });
+
+        // 排序筛选
+        document.getElementById('sortSelect').addEventListener('change', function() {
+          currentSort = this.value;
+          filterPosts();
+        });
+
+        // 点击页面其他地方关闭下拉菜单
+        document.addEventListener('click', function(e) {
+          const userDropdown = document.getElementById('userDropdown');
+          const userMenu = document.getElementById('userMenu');
+
+          if (!userMenu.contains(e.target) && !userDropdown.contains(e.target)) {
+            userDropdown.style.display = 'none';
+          }
+        });
+      });
+
+      // 更新购物车计数（全局函数）
+      window.updateCartCount = async function() {
+        console.log('🔍 读者论坛页面 - 开始更新购物车计数');
+
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        if (!authToken) {
+          console.log('❌ 未登录，显示0');
+          // 未登录时显示0
+          const cartCount = document.getElementById('cartCount');
+          if (cartCount) {
+            cartCount.textContent = '0';
+          }
+          return;
+        }
+
+        try {
+          console.log('🔌 调用购物车API');
+          const response = await fetch('http://1.94.203.175:5000/api/order/cart', {
+            headers: {
+              'Authorization': `Bearer ${authToken}`
+            }
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            const cartCount = document.getElementById('cartCount');
+            console.log('📦 API响应:', result);
+
+            if (cartCount && result.data && result.data.items) {
+              const totalItems = result.data.items.reduce((sum, item) => sum + item.quantity, 0);
+              cartCount.textContent = totalItems;
+              console.log('✅ 读者论坛页面购物车计数已更新:', totalItems);
+            } else if (cartCount) {
+              cartCount.textContent = '0';
+              console.log('📦 购物车为空，显示0');
+            }
+          } else {
+            console.log('⚠️ 获取购物车数据失败，状态码:', response.status);
+            const cartCount = document.getElementById('cartCount');
+            if (cartCount) {
+              cartCount.textContent = '0';
+            }
+          }
+        } catch (error) {
+          console.error('❌ 更新购物车计数失败:', error);
+          // 出错时也显示0
+          const cartCount = document.getElementById('cartCount');
+          if (cartCount) {
+            cartCount.textContent = '0';
+          }
+        }
+      };
+
+      // 页面加载时更新购物车计数
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 读者论坛页面DOM加载完成');
+        updateCartCount();
+      });
+
+      // 页面完全加载后更新
+      window.addEventListener('load', function() {
+        console.log('📄 读者论坛页面完全加载完成');
+        updateCartCount();
+      });
+
+      // 延迟更新购物车计数
+      setTimeout(() => {
+        console.log('⏰ 延迟2秒更新购物车计数');
+        updateCartCount();
+      }, 2000);
+
+      setTimeout(() => {
+        console.log('⏰ 延迟5秒更新购物车计数');
+        updateCartCount();
+      }, 5000);
+    </script>
+
+    <!-- Forum Styles -->
+    <style>
+      .forum-sidebar {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .forum-sidebar h5 {
+        margin-bottom: 15px;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .forum-categories {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+      }
+
+      .forum-categories li {
+        margin-bottom: 8px;
+      }
+
+      .category-link {
+        display: block;
+        padding: 10px 15px;
+        color: #666;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: all 0.3s;
+      }
+
+      .category-link:hover,
+      .category-link.active {
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+      }
+
+      .forum-stats {
+        border-top: 1px solid #dee2e6;
+        padding-top: 20px;
+      }
+
+      .forum-stats h6 {
+        margin-bottom: 15px;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .stat-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .stat-label {
+        color: #666;
+      }
+
+      .stat-value {
+        color: #007bff;
+        font-weight: 600;
+      }
+
+      .card {
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .card-header {
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+        padding: 20px;
+      }
+
+      .card-header h5 {
+        margin: 0;
+        color: #333;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .form-actions {
+        margin-top: 20px;
+        text-align: right;
+      }
+
+      .form-actions .button {
+        margin-left: 10px;
+      }
+
+      .forum-header {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .forum-header h4 {
+        margin: 0;
+        color: #333;
+      }
+
+      .forum-sort {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .forum-sort label {
+        margin-right: 10px;
+        color: #666;
+        font-size: 14px;
+      }
+
+      .forum-sort select {
+        padding: 6px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .post-item {
+        background: white;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+      }
+
+      .post-item:hover {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+
+      .post-header {
+        background: #f8f9fa;
+        padding: 15px 20px;
+        border-bottom: 1px solid #dee2e6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .post-category {
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .category-review {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .category-discussion {
+        background: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+
+      .category-complaint {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      .category-suggestion {
+        background: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeaa7;
+      }
+
+      .post-meta {
+        display: flex;
+        gap: 15px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .post-meta i {
+        margin-right: 5px;
+      }
+
+      .post-content {
+        padding: 20px;
+      }
+
+      .post-title {
+        margin-bottom: 10px;
+      }
+
+      .post-title a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .post-title a:hover {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .post-excerpt {
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .post-footer {
+        padding: 15px 20px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .post-stats {
+        display: flex;
+        gap: 20px;
+      }
+
+      .post-stats .stat-item {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .post-stats .stat-item i {
+        margin-right: 5px;
+      }
+
+      .post-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn-action {
+        background: none;
+        border: 1px solid #ddd;
+        padding: 6px 12px;
+        border-radius: 4px;
+        color: #666;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .btn-action:hover {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+      }
+
+      .empty-posts {
+        text-align: center;
+        padding: 60px 20px;
+        color: #666;
+      }
+
+      .empty-posts i {
+        font-size: 48px;
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+
+      .empty-posts h5 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .empty-posts p {
+        margin-bottom: 20px;
+      }
+
+      /* User dropdown styles */
+      .rd-navbar-user {
+        position: relative;
+      }
+
+      .user-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #333;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .user-icon:hover {
+        background: #f8f9fa;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .user-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        min-width: 150px;
+        z-index: 1000;
+      }
+
+      .user-dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        transition: background 0.3s;
+      }
+
+      .user-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      .user-dropdown a:hover {
+        background: #f8f9fa;
+        text-decoration: none;
+      }
+
+      /* Shopping cart styles */
+      .rd-navbar-cart {
+        margin-left: 15px;
+      }
+
+      .cart-icon {
+        position: relative;
+        color: #333;
+        text-decoration: none;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .cart-icon:hover {
+        background: #f8f9fa;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(50%, -50%);
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .forum-header {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .forum-header h4 {
+          margin-bottom: 15px;
+        }
+
+        .forum-sort {
+          justify-content: space-between;
+          margin-top: 0;
+        }
+
+        .post-header {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+
+        .post-footer {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 15px;
+        }
+
+        .post-stats {
+          justify-content: space-around;
+        }
+
+        .post-actions {
+          justify-content: center;
+        }
+      }
+    </style>

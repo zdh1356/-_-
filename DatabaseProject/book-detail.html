@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh-CN">
+  <head>
+    <!-- Site Title-->
+    <title>图书详情 - 华轩书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:700%7CLato:300,400,300italic,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="您正在使用过时的浏览器。为了获得更快更安全的浏览体验，请免费升级。"></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="active"><a href="#">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=business">商业管理</a></li>
+                        <li><a href="category.html?type=technology">科技计算机</a></li>
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=education">教育考试</a></li>
+                        <li><a href="category.html?type=children">少儿读物</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                        <li><a href="category.html?type=social">社会科学</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="recommendations.html">为您推荐</a></li>
+                    <li><a href="forum.html">读者论坛</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-161x57.png" alt="华轩书店" width="161" height="57"/><img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="华轩书店" width="161" height="57"/></a></div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索图书...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="keyword" autocomplete="off">
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="user-profile.html">个人资料</a>
+                    <a href="order-history.html">我的订单</a>
+                    <a href="browsing-history.html">浏览历史</a>
+                    <a href="user-preferences.html">偏好设置</a>
+                    <a href="change-password.html">修改密码</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon" id="cartIcon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- Breadcrumbs-->
+      <section class="breadcrumbs-custom" style="background-image: url(images/breadcrumbs-bg.jpg)">
+        <div class="container">
+          <p class="breadcrumbs-custom-subtitle">图书详情</p>
+          <p class="heading-1 breadcrumbs-custom-title" id="bookTitle">加载中...</p>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="category.html">图书分类</a></li>
+            <li class="active">图书详情</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Book Details-->
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="row row-70">
+            <div class="col-lg-5">
+              <!-- Book Gallery-->
+              <div class="product-gallery">
+                <div class="product-gallery-main">
+                  <img id="bookCover" src="images/books/default.jpg" alt="" width="470" height="600"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="product-info">
+                <h3 class="product-title" id="bookTitle2">加载中...</h3>
+                <div class="product-meta">
+                  <p>作者：<span id="bookAuthor">加载中...</span></p>
+                  <p>出版社：<span id="bookPublisher">加载中...</span></p>
+                  <p>ISBN：<span id="bookISBN">加载中...</span></p>
+                  <p>出版日期：<span id="bookPublishDate">加载中...</span></p>
+                </div>
+                <div class="product-price-wrap">
+                  <div class="product-price">
+                    <div class="product-price-old">定价：￥<span id="bookOriginalPrice">0.00</span></div>
+                    <div class="product-price-new">折后价：￥<span id="bookPrice">0.00</span></div>
+                  </div>
+                  <div class="product-stock">
+                    <span class="stock-label">库存状态：</span>
+                    <span class="stock-status" id="bookStock">加载中...</span>
+                  </div>
+                </div>
+                <div class="product-actions">
+                  <div class="form-wrap">
+                    <input class="form-input" id="quantity" type="number" name="quantity" value="1" min="1">
+                    <label class="form-label" for="quantity">数量</label>
+                  </div>
+                  <button class="button button-lg button-primary" id="addToCart">加入购物车</button>
+                  <button class="button button-lg button-secondary" id="addToFavorites">收藏</button>
+                </div>
+              </div>
+              <!-- Book Tabs-->
+              <div class="tabs-custom tabs-horizontal tabs-corporate" id="tabs-1">
+                <!-- Nav tabs-->
+                <ul class="nav nav-tabs">
+                  <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">图书简介</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-2" data-toggle="tab">目录</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-1-3" data-toggle="tab">读者评论</a></li>
+                </ul>
+                <!-- Tab panes-->
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="tabs-1-1">
+                    <p id="bookDescription">加载中...</p>
+                  </div>
+                  <div class="tab-pane fade" id="tabs-1-2">
+                    <div id="bookContents">加载中...</div>
+                  </div>
+                  <div class="tab-pane fade" id="tabs-1-3">
+                    <!-- Comments-->
+                    <div class="comment-list" id="commentList">
+                      <!-- Comments will be loaded here -->
+                    </div>
+                    <!-- Comment Form-->
+                    <div class="comment-form">
+                      <h4>发表评论</h4>
+                      <form id="commentForm">
+                        <div class="form-wrap">
+                          <label class="form-label" for="commentRating">评分</label>
+                          <select class="form-input" id="commentRating" name="rating">
+                            <option value="5">5星</option>
+                            <option value="4">4星</option>
+                            <option value="3">3星</option>
+                            <option value="2">2星</option>
+                            <option value="1">1星</option>
+                          </select>
+                        </div>
+                        <div class="form-wrap">
+                          <label class="form-label" for="commentContent">评论内容</label>
+                          <textarea class="form-input" id="commentContent" name="content" rows="4"></textarea>
+                        </div>
+                        <button class="button button-primary" type="submit">提交评论</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Books-->
+      <section class="section section-lg bg-gray-lighter">
+        <div class="container">
+          <h3>相关推荐</h3>
+          <div class="row row-30" id="relatedBooks">
+            <!-- Related books will be loaded here -->
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+
+    <!-- 自定义成功弹窗 -->
+    <div class="success-modal" id="successModal">
+      <div class="success-modal-content">
+        <div class="success-icon">🎉</div>
+        <div class="success-title">添加成功！</div>
+        <div class="success-message" id="successMessage">
+          图书已成功添加到购物车！
+        </div>
+        <div class="success-buttons">
+          <button class="success-btn success-btn-primary" onclick="goToCart()">查看购物车</button>
+          <button class="success-btn success-btn-secondary" onclick="closeSuccessModal()">继续浏览</button>
+        </div>
+      </div>
+    </div>
+    <!-- Book Detail Styles -->
+    <style>
+      /* 库存状态样式 */
+      .product-stock {
+        margin: 15px 0;
+        padding: 10px 0;
+        border-top: 1px solid #eee;
+      }
+
+      .stock-label {
+        font-weight: 600;
+        color: #333;
+        margin-right: 8px;
+      }
+
+      .stock-status {
+        font-weight: 500;
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 14px;
+      }
+
+      .stock-status.in-stock {
+        color: #28a745;
+        background: rgba(40, 167, 69, 0.1);
+        border: 1px solid rgba(40, 167, 69, 0.3);
+      }
+
+      .stock-status.out-of-stock {
+        color: #dc3545;
+        background: rgba(220, 53, 69, 0.1);
+        border: 1px solid rgba(220, 53, 69, 0.3);
+      }
+
+      /* 相关推荐产品样式 */
+      .product.novi-background {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product.novi-background:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+      }
+
+      .product.novi-background .product-image {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product.novi-background .product-image img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .product.novi-background:hover .product-image img {
+        transform: scale(1.05);
+      }
+
+      .product.novi-background .product-title {
+        padding: 15px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product.novi-background .product-title h5 {
+        margin-bottom: 8px;
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      .product.novi-background .product-title h5 a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .product.novi-background .product-title h5 a:hover {
+        color: #007bff;
+      }
+
+      .product.novi-background .product-author {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 4px;
+      }
+
+      .product.novi-background .product-price {
+        padding: 0 15px 15px 15px;
+        margin-top: auto;
+      }
+
+      .product.novi-background .product-price-new {
+        font-size: 18px;
+        color: #e74c3c;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .product.novi-background .product-stock {
+        font-size: 12px;
+        font-weight: 500;
+        padding: 3px 8px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .product.novi-background .product-stock.in-stock {
+        color: #28a745;
+        background: rgba(40, 167, 69, 0.1);
+        border: 1px solid rgba(40, 167, 69, 0.3);
+      }
+
+      .product.novi-background .product-stock.out-of-stock {
+        color: #dc3545;
+        background: rgba(220, 53, 69, 0.1);
+        border: 1px solid rgba(220, 53, 69, 0.3);
+      }
+
+      /* 自定义成功弹窗样式 */
+      .success-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .success-modal.show {
+        opacity: 1;
+      }
+
+      .success-modal-content {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+      }
+
+      .success-modal.show .success-modal-content {
+        transform: scale(1);
+      }
+
+      .success-icon {
+        font-size: 60px;
+        color: #28a745;
+        margin-bottom: 20px;
+        animation: bounce 0.6s ease;
+      }
+
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .success-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .success-message {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 25px;
+        line-height: 1.5;
+      }
+
+      .success-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .success-btn {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .success-btn-primary {
+        background: #007bff;
+        color: white;
+      }
+
+      .success-btn-primary:hover {
+        background: #0056b3;
+        transform: translateY(-2px);
+      }
+
+      .success-btn-secondary {
+        background: #6c757d;
+        color: white;
+      }
+
+      .success-btn-secondary:hover {
+        background: #545b62;
+        transform: translateY(-2px);
+      }
+
+      /* 购物车和用户图标对齐调整 */
+      .rd-navbar-user,
+      .rd-navbar-cart {
+        display: flex;
+        align-items: center;
+      }
+
+      .rd-navbar-cart .cart-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        position: relative;
+      }
+
+      .rd-navbar-cart .cart-icon:hover {
+        background-color: #f5f5f5;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .cart-count {
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        font-weight: bold;
+        min-width: 18px;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      /* 图标大小调整 */
+      .rd-navbar-user .mdi,
+      .rd-navbar-cart .mdi {
+        font-size: 20px;
+        line-height: 1;
+      }
+    </style>
+
+    <!-- Javascript-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- Book detail specific scripts -->
+    <script>
+      // 图书数据库
+      const booksDatabase = {
+        1: {
+          id: 1,
+          title: '领导力艺术',
+          author: '乔安妮·舒尔茨',
+          publisher: '商务印书馆',
+          isbn: '978-7-100-12345-6',
+          publishDate: '2023-01-15',
+          originalPrice: 35.00,
+          price: 25.00,
+          stock: 50,
+          cover: 'images/book-02-188x246.jpg',
+          category: 'business',
+          description: '这是一本关于领导力发展的经典著作，作者通过丰富的案例和深入的分析，为读者提供了实用的领导技巧和管理智慧。无论你是初入职场的新人，还是经验丰富的管理者，都能从中获得启发。',
+          contents: '第一章：领导力的本质\n第二章：建立信任与威信\n第三章：有效沟通技巧\n第四章：团队建设与激励\n第五章：决策制定艺术\n第六章：变革管理\n第七章：危机处理\n第八章：持续学习与成长'
+        },
+        2: {
+          id: 2,
+          title: '网页设计基础',
+          author: '张明华',
+          publisher: '电子工业出版社',
+          isbn: '978-7-121-23456-7',
+          publishDate: '2023-03-20',
+          originalPrice: 28.00,
+          price: 21.00,
+          stock: 30,
+          cover: 'images/book-03-188x246.jpg',
+          category: 'technology',
+          description: '本书系统介绍了网页设计的基础知识，包括HTML、CSS、JavaScript等核心技术，以及响应式设计、用户体验等现代网页设计理念。适合初学者和有一定基础的开发者。',
+          contents: '第一章：网页设计概述\n第二章：HTML基础\n第三章：CSS样式设计\n第四章：JavaScript交互\n第五章：响应式设计\n第六章：用户体验设计\n第七章：网页优化\n第八章：项目实战'
+        },
+        3: {
+          id: 3,
+          title: '网页设计中的网格系统',
+          author: '李小红',
+          publisher: '人民邮电出版社',
+          isbn: '978-7-115-34567-8',
+          publishDate: '2023-02-10',
+          originalPrice: 38.00,
+          price: 29.00,
+          stock: 25,
+          cover: 'images/book-04-188x246.jpg',
+          category: 'technology',
+          description: '深入探讨网格系统在网页设计中的应用，从基础概念到高级技巧，帮助设计师创建更加规范和美观的网页布局。包含大量实例和最佳实践。',
+          contents: '第一章：网格系统基础\n第二章：Bootstrap网格\n第三章：CSS Grid布局\n第四章：Flexbox布局\n第五章：响应式网格\n第六章：网格设计原则\n第七章：实战案例\n第八章：未来趋势'
+        },
+        4: {
+          id: 4,
+          title: '揭示用户放弃网站原因的工具',
+          author: '王大伟',
+          publisher: '清华大学出版社',
+          isbn: '978-7-302-45678-9',
+          publishDate: '2023-04-05',
+          originalPrice: 32.00,
+          price: 25.00,
+          stock: 40,
+          cover: 'images/book-05-188x246.jpg',
+          category: 'technology',
+          description: '通过数据分析和用户行为研究，揭示用户离开网站的真正原因，并提供相应的解决方案。对于网站运营者和产品经理来说是一本必读的实用指南。',
+          contents: '第一章：用户行为分析\n第二章：数据收集工具\n第三章：热力图分析\n第四章：转化率优化\n第五章：A/B测试\n第六章：用户反馈收集\n第七章：改进策略\n第八章：案例研究'
+        },
+        5: {
+          id: 5,
+          title: '糟糕客户服务的危险副作用',
+          author: '陈美丽',
+          publisher: '机械工业出版社',
+          isbn: '978-7-111-56789-0',
+          publishDate: '2023-05-12',
+          originalPrice: 26.00,
+          price: 21.00,
+          stock: 35,
+          cover: 'images/book-06-188x246.jpg',
+          category: 'business',
+          description: '分析糟糕客户服务对企业造成的长远影响，提供改善客户服务质量的具体方法和策略。通过真实案例展示优质客户服务的重要性。',
+          contents: '第一章：客户服务的重要性\n第二章：常见服务问题\n第三章：客户投诉处理\n第四章：服务质量评估\n第五章：员工培训\n第六章：服务流程优化\n第七章：客户关系管理\n第八章：成功案例分析'
+        },
+        6: {
+          id: 6,
+          title: '网页设计师UX评审入门指南',
+          author: '刘志强',
+          publisher: '中国青年出版社',
+          isbn: '978-7-515-67890-1',
+          publishDate: '2023-06-18',
+          originalPrice: 35.00,
+          price: 29.00,
+          stock: 20,
+          cover: 'images/book-07-188x246.jpg',
+          category: 'technology',
+          description: '为网页设计师提供全面的UX评审指导，从基础理论到实践技巧，帮助设计师提升用户体验设计能力。包含丰富的评审模板和工具。',
+          contents: '第一章：UX评审概述\n第二章：用户研究方法\n第三章：可用性测试\n第四章：界面评审标准\n第五章：评审工具使用\n第六章：报告撰写\n第七章：改进建议\n第八章：团队协作'
+        },
+        7: {
+          id: 7,
+          title: '如何创建网页设计风格指南',
+          author: '赵小芳',
+          publisher: '北京大学出版社',
+          isbn: '978-7-301-78901-2',
+          publishDate: '2023-07-25',
+          originalPrice: 33.00,
+          price: 29.00,
+          stock: 28,
+          cover: 'images/book-08-188x246.jpg',
+          category: 'technology',
+          description: '详细介绍如何创建和维护网页设计风格指南，确保设计的一致性和专业性。适合设计团队和个人设计师使用。',
+          contents: '第一章：风格指南的作用\n第二章：色彩系统设计\n第三章：字体规范\n第四章：组件库建设\n第五章：布局规则\n第六章：交互规范\n第七章：维护更新\n第八章：团队实施'
+        },
+        8: {
+          id: 8,
+          title: '市场营销原理',
+          author: '菲利普·科特勒',
+          publisher: '中国人民大学出版社',
+          isbn: '978-7-300-12345-8',
+          publishDate: '2023-01-10',
+          originalPrice: 35.00,
+          price: 27.00,
+          stock: 45,
+          cover: 'images/books/book-1.jpg',
+          category: 'business',
+          description: '这是一本经典的市场营销教材，由营销学之父菲利普·科特勒撰写。本书系统地介绍了市场营销的基本理论、方法和实践，涵盖了市场分析、消费者行为、产品策略、定价策略、渠道管理、促销策略等核心内容。无论是营销专业学生还是企业管理者，都能从中获得宝贵的营销智慧。',
+          contents: '第一章：营销概述\n第二章：市场环境分析\n第三章：消费者行为研究\n第四章：市场细分与定位\n第五章：产品策略\n第六章：定价策略\n第七章：渠道管理\n第八章：促销策略\n第九章：数字营销\n第十章：营销控制与评估'
+        },
+        // 文学艺术类
+        9: {
+          id: 9,
+          title: '百年孤独',
+          author: '加西亚·马尔克斯',
+          publisher: '南海出版公司',
+          isbn: '978-7-544-25896-3',
+          publishDate: '2023-03-15',
+          originalPrice: 45.00,
+          price: 32.00,
+          stock: 38,
+          cover: 'images/book-02-188x246.jpg',
+          category: 'literature',
+          description: '《百年孤独》是魔幻现实主义文学的代表作，讲述了布恩迪亚家族七代人的传奇故事。作者以独特的叙事手法，将现实与幻想巧妙结合，展现了拉丁美洲的历史变迁和文化特色。这部作品获得了诺贝尔文学奖，被誉为20世纪最重要的小说之一。',
+          contents: '第一章：何塞·阿尔卡蒂奥·布恩迪亚\n第二章：乌尔苏拉的预言\n第三章：马孔多的建立\n第四章：战争与和平\n第五章：爱情与孤独\n第六章：时间的轮回\n第七章：家族的终结'
+        },
+        10: {
+          id: 10,
+          title: '活着',
+          author: '余华',
+          publisher: '作家出版社',
+          isbn: '978-7-506-36547-2',
+          publishDate: '2023-02-20',
+          originalPrice: 28.00,
+          price: 22.00,
+          stock: 52,
+          cover: 'images/book-03-188x246.jpg',
+          category: 'literature',
+          description: '《活着》是余华的代表作，讲述了福贵一生的悲欢离合。小说以朴实的语言，深刻地反映了中国农村在历史变迁中的苦难与坚韧。通过福贵的人生经历，作者探讨了生命的意义和人性的光辉，是一部震撼人心的现实主义力作。',
+          contents: '第一章：少爷福贵\n第二章：赌博败家\n第三章：战争岁月\n第四章：土改风波\n第五章：大跃进\n第六章：文革浩劫\n第七章：孤独终老'
+        },
+        11: {
+          id: 11,
+          title: '诗经选读',
+          author: '孔子编',
+          publisher: '中华书局',
+          isbn: '978-7-101-12345-6',
+          publishDate: '2023-04-10',
+          originalPrice: 32.00,
+          price: 25.00,
+          stock: 30,
+          cover: 'images/book-04-188x246.jpg',
+          category: 'literature',
+          description: '《诗经》是中国最早的诗歌总集，收录了西周初年至春秋中叶的诗歌305篇。本书精选其中的经典篇目，配以详细的注释和赏析，帮助读者理解古代诗歌的艺术魅力和文化内涵。是学习中国古典文学的必读之作。',
+          contents: '风篇：国风选读\n雅篇：大雅小雅\n颂篇：周颂鲁颂\n附录：诗经研究\n注释：字词解释\n赏析：艺术特色\n背景：历史文化'
+        },
+        // 教育考试类
+        12: {
+          id: 12,
+          title: '高等数学',
+          author: '同济大学数学系',
+          publisher: '高等教育出版社',
+          isbn: '978-7-040-39670-1',
+          publishDate: '2023-01-05',
+          originalPrice: 58.00,
+          price: 45.00,
+          stock: 120,
+          cover: 'images/book-05-188x246.jpg',
+          category: 'education',
+          description: '本书是高等院校理工科专业的数学基础课教材，内容包括函数与极限、导数与微分、积分学、无穷级数、常微分方程等。教材注重理论与实践相结合，例题丰富，习题配置合理，是学习高等数学的经典教材。',
+          contents: '第一章：函数与极限\n第二章：导数与微分\n第三章：微分中值定理\n第四章：不定积分\n第五章：定积分\n第六章：定积分的应用\n第七章：微分方程\n第八章：无穷级数'
+        },
+        13: {
+          id: 13,
+          title: '英语四级真题详解',
+          author: '王长喜',
+          publisher: '外语教学与研究出版社',
+          isbn: '978-7-560-12345-8',
+          publishDate: '2023-06-01',
+          originalPrice: 42.00,
+          price: 33.00,
+          stock: 85,
+          cover: 'images/book-06-188x246.jpg',
+          category: 'education',
+          description: '本书收录了最新的大学英语四级考试真题，并提供详细的答案解析和应试技巧。内容涵盖听力、阅读、翻译、写作四个部分，帮助考生全面提升英语水平，顺利通过四级考试。',
+          contents: '第一部分：听力理解\n第二部分：阅读理解\n第三部分：完型填空\n第四部分：翻译技巧\n第五部分：写作指导\n第六部分：真题演练\n第七部分：模拟测试\n附录：词汇表'
+        },
+        14: {
+          id: 14,
+          title: '考研政治核心考点',
+          author: '肖秀荣',
+          publisher: '国家行政学院出版社',
+          isbn: '978-7-515-01234-5',
+          publishDate: '2023-07-15',
+          originalPrice: 48.00,
+          price: 38.00,
+          stock: 95,
+          cover: 'images/book-07-188x246.jpg',
+          category: 'education',
+          description: '本书是考研政治复习的权威教材，涵盖马克思主义基本原理、毛泽东思想、中国特色社会主义理论体系、思想道德修养与法律基础、形势与政策等内容。重点突出，条理清晰，是考研学子的必备参考书。',
+          contents: '第一章：马克思主义基本原理\n第二章：毛泽东思想概论\n第三章：中国特色社会主义\n第四章：思想道德修养\n第五章：法律基础\n第六章：形势与政策\n第七章：真题解析\n第八章：模拟试题'
+        },
+        // 少儿读物类
+        15: {
+          id: 15,
+          title: '小王子',
+          author: '安托万·德·圣埃克苏佩里',
+          publisher: '人民文学出版社',
+          isbn: '978-7-020-12345-9',
+          publishDate: '2023-05-20',
+          originalPrice: 25.00,
+          price: 18.00,
+          stock: 68,
+          cover: 'images/book-08-188x246.jpg',
+          category: 'children',
+          description: '《小王子》是法国作家圣埃克苏佩里创作的经典童话。故事讲述了小王子从自己的星球出发，在宇宙中旅行的奇妙经历。通过小王子的视角，作者探讨了友谊、爱情、责任等人生主题，语言简洁优美，寓意深刻，适合各个年龄段的读者。',
+          contents: '第一章：飞行员的回忆\n第二章：小王子的星球\n第三章：猴面包树\n第四章：玫瑰花\n第五章：旅行的开始\n第六章：各个星球的见闻\n第七章：地球上的相遇\n第八章：狐狸的秘密'
+        },
+        16: {
+          id: 16,
+          title: '安徒生童话选集',
+          author: '汉斯·克里斯蒂安·安徒生',
+          publisher: '译林出版社',
+          isbn: '978-7-544-76543-2',
+          publishDate: '2023-03-25',
+          originalPrice: 32.00,
+          price: 24.00,
+          stock: 45,
+          cover: 'images/books/book-1.jpg',
+          category: 'children',
+          description: '本书精选了安徒生最著名的童话故事，包括《卖火柴的小女孩》、《丑小鸭》、《海的女儿》等经典作品。这些故事不仅想象丰富，情节生动，更蕴含着深刻的人生哲理，是培养儿童想象力和品格的优秀读物。',
+          contents: '卖火柴的小女孩\n丑小鸭\n海的女儿\n拇指姑娘\n坚定的锡兵\n雪女王\n野天鹅\n豌豆公主'
+        },
+        17: {
+          id: 17,
+          title: '十万个为什么（少儿版）',
+          author: '叶永烈',
+          publisher: '少年儿童出版社',
+          isbn: '978-7-532-49876-5',
+          publishDate: '2023-04-15',
+          originalPrice: 38.00,
+          price: 28.00,
+          stock: 72,
+          cover: 'images/book-02-188x246.jpg',
+          category: 'children',
+          description: '《十万个为什么》是中国最著名的科普读物之一，本书专为少年儿童编写，用通俗易懂的语言回答了孩子们最感兴趣的科学问题。内容涵盖天文、地理、生物、物理、化学等多个领域，配有精美插图，是启发儿童科学兴趣的优秀读物。',
+          contents: '天文篇：宇宙的奥秘\n地理篇：地球的秘密\n生物篇：动植物世界\n物理篇：身边的科学\n化学篇：神奇的变化\n人体篇：我们的身体\n科技篇：现代发明\n环保篇：保护地球'
+        },
+        // 生活休闲类
+        18: {
+          id: 18,
+          title: '美食制作大全',
+          author: '王刚',
+          publisher: '中国轻工业出版社',
+          isbn: '978-7-518-12345-7',
+          publishDate: '2023-06-10',
+          originalPrice: 48.00,
+          price: 36.00,
+          stock: 55,
+          cover: 'images/book-03-188x246.jpg',
+          category: 'life',
+          description: '本书收录了500多道经典家常菜的制作方法，从简单的家常小炒到精致的宴客大菜，应有尽有。每道菜都配有详细的步骤图解和营养分析，让您轻松掌握烹饪技巧，为家人制作美味佳肴。',
+          contents: '第一章：基础烹饪技巧\n第二章：家常热菜\n第三章：凉菜小食\n第四章：汤羹类\n第五章：主食面点\n第六章：甜品饮品\n第七章：节日特色菜\n第八章：营养搭配指南'
+        },
+        19: {
+          id: 19,
+          title: '瑜伽入门指南',
+          author: '张蕙兰',
+          publisher: '人民体育出版社',
+          isbn: '978-7-500-95432-1',
+          publishDate: '2023-05-05',
+          originalPrice: 42.00,
+          price: 32.00,
+          stock: 40,
+          cover: 'images/book-04-188x246.jpg',
+          category: 'life',
+          description: '本书是瑜伽初学者的完美指南，详细介绍了瑜伽的基本理念、呼吸方法和各种体式。配有清晰的动作图解和注意事项，帮助读者安全有效地练习瑜伽，改善身体健康，提升生活质量。',
+          contents: '第一章：瑜伽的起源与哲学\n第二章：呼吸与冥想\n第三章：基础体式练习\n第四章：进阶体式\n第五章：瑜伽与健康\n第六章：日常练习计划\n第七章：瑜伽饮食\n第八章：常见问题解答'
+        },
+        20: {
+          id: 20,
+          title: '家居装修设计',
+          author: '梁志天',
+          publisher: '中国建筑工业出版社',
+          isbn: '978-7-112-23456-8',
+          publishDate: '2023-07-01',
+          originalPrice: 68.00,
+          price: 52.00,
+          stock: 35,
+          cover: 'images/book-05-188x246.jpg',
+          category: 'life',
+          description: '本书由著名室内设计师梁志天编写，介绍了现代家居装修的设计理念和实用技巧。从空间规划到色彩搭配，从材料选择到施工要点，全面指导读者打造理想的居住环境。',
+          contents: '第一章：设计理念与风格\n第二章：空间规划原则\n第三章：色彩与光线\n第四章：材料与工艺\n第五章：客厅设计\n第六章：卧室设计\n第七章：厨房与卫生间\n第八章：预算与施工'
+        },
+        // 社会科学类
+        21: {
+          id: 21,
+          title: '社会心理学',
+          author: '戴维·迈尔斯',
+          publisher: '人民邮电出版社',
+          isbn: '978-7-115-54321-9',
+          publishDate: '2023-02-28',
+          originalPrice: 78.00,
+          price: 58.00,
+          stock: 42,
+          cover: 'images/book-06-188x246.jpg',
+          category: 'social',
+          description: '本书是社会心理学领域的经典教材，系统介绍了社会心理学的基本理论和研究方法。内容涵盖社会认知、态度与说服、群体行为、人际关系等核心主题，理论与实践相结合，是心理学专业学生和相关从业者的重要参考书。',
+          contents: '第一章：社会心理学导论\n第二章：社会认知\n第三章：自我概念\n第四章：态度与态度改变\n第五章：说服与影响\n第六章：群体心理\n第七章：人际吸引\n第八章：助人行为与攻击'
+        },
+        22: {
+          id: 22,
+          title: '经济学原理',
+          author: '曼昆',
+          publisher: '北京大学出版社',
+          isbn: '978-7-301-98765-4',
+          publishDate: '2023-01-20',
+          originalPrice: 88.00,
+          price: 68.00,
+          stock: 38,
+          cover: 'images/book-07-188x246.jpg',
+          category: 'social',
+          description: '本书是经济学入门的经典教材，以通俗易懂的语言介绍了微观经济学和宏观经济学的基本原理。作者曼昆以其独特的教学风格，将复杂的经济理论变得生动有趣，是学习经济学的首选教材。',
+          contents: '第一部分：导言\n第二部分：市场如何运行\n第三部分：市场和福利\n第四部分：公共部门经济学\n第五部分：企业行为与产业组织\n第六部分：劳动市场经济学\n第七部分：深入研究的论题\n第八部分：宏观经济学的数据'
+        },
+        23: {
+          id: 23,
+          title: '法理学概论',
+          author: '张文显',
+          publisher: '法律出版社',
+          isbn: '978-7-511-87654-3',
+          publishDate: '2023-03-10',
+          originalPrice: 56.00,
+          price: 42.00,
+          stock: 48,
+          cover: 'images/book-08-188x246.jpg',
+          category: 'social',
+          description: '本书是法学专业的基础教材，系统阐述了法理学的基本概念、基本原理和基本方法。内容包括法的本质、法的价值、法的运行、法与社会等核心问题，为法学学习奠定坚实的理论基础。',
+          contents: '第一章：法理学的研究对象\n第二章：法的概念\n第三章：法的本质\n第四章：法的价值\n第五章：法的要素\n第六章：法的渊源\n第七章：法的运行\n第八章：法与社会'
+        }
+      };
+
+      // 获取URL参数中的图书ID
+      const urlParams = new URLSearchParams(window.location.search);
+      const bookId = urlParams.get('id');
+
+      // 加载图书详情
+      function loadBookDetails(bookId) {
+        const book = booksDatabase[bookId];
+        if (!book) {
+          const output = document.getElementById('form-output-global');
+          output.innerHTML = '<div class="alert alert-danger">图书不存在</div>';
+          output.style.display = 'block';
+          return;
+        }
+
+        // 更新页面标题
+        document.title = `${book.title} - 华轩书店`;
+        document.getElementById('bookTitle').textContent = book.title;
+        document.getElementById('bookTitle2').textContent = book.title;
+
+        // 更新图书信息
+        document.getElementById('bookCover').src = book.cover;
+        document.getElementById('bookAuthor').textContent = book.author;
+        document.getElementById('bookPublisher').textContent = book.publisher;
+        document.getElementById('bookISBN').textContent = book.isbn;
+        document.getElementById('bookPublishDate').textContent = book.publishDate;
+        document.getElementById('bookOriginalPrice').textContent = book.originalPrice.toFixed(2);
+        document.getElementById('bookPrice').textContent = book.price.toFixed(2);
+        // 更新库存状态
+        const stockElement = document.getElementById('bookStock');
+        if (book.stock > 0) {
+          stockElement.textContent = `有货 (${book.stock}本)`;
+          stockElement.className = 'stock-status in-stock';
+        } else {
+          stockElement.textContent = '暂时缺货';
+          stockElement.className = 'stock-status out-of-stock';
+        }
+        document.getElementById('bookDescription').textContent = book.description;
+        document.getElementById('bookContents').innerHTML = book.contents.replace(/\n/g, '<br>');
+
+        // 更新相关推荐
+        loadRelatedBooks(book.category);
+      }
+
+      // 加载相关推荐
+      function loadRelatedBooks(category) {
+        // 从本地数据库中筛选相关图书
+        const relatedBooks = Object.values(booksDatabase)
+          .filter(book => book.category === category && book.id != bookId)
+          .slice(0, 4); // 最多显示4本相关图书
+
+        const container = document.getElementById('relatedBooks');
+        container.innerHTML = relatedBooks.map(book => `
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="product novi-background">
+              <div class="product-image">
+                <a href="book-detail.html?id=${book.id}"><img src="${book.cover}" alt="${book.title}" width="220" height="280"/></a>
+              </div>
+              <div class="product-title">
+                <h5><a href="book-detail.html?id=${book.id}">${book.title}</a></h5>
+                <p class="product-author">${book.author} 著</p>
+              </div>
+              <div class="product-price">
+                <div class="product-price-new">￥${book.price.toFixed(2)}</div>
+                <div class="product-stock ${book.stock > 0 ? 'in-stock' : 'out-of-stock'}">
+                  ${book.stock > 0 ? `库存：${book.stock}本` : '暂时缺货'}
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // 加载评论（模拟数据）
+      function loadComments(bookId) {
+        // 模拟评论数据
+        const sampleComments = [
+          {
+            username: '读者小王',
+            createdAt: '2023-08-15',
+            rating: 5,
+            content: '这本书非常实用，内容详实，推荐给大家！'
+          },
+          {
+            username: '书虫小李',
+            createdAt: '2023-08-10',
+            rating: 4,
+            content: '作者的观点很有见地，值得一读。'
+          }
+        ];
+
+        const container = document.getElementById('commentList');
+        if (container) {
+          container.innerHTML = sampleComments.map(comment => `
+            <div class="comment" style="border-bottom: 1px solid #eee; padding: 15px 0;">
+              <div class="comment-header" style="margin-bottom: 10px;">
+                <span class="comment-author" style="font-weight: bold;">${comment.username}</span>
+                <span class="comment-date" style="color: #666; margin-left: 15px;">${comment.createdAt}</span>
+                <span class="comment-rating" style="color: #ffa500; margin-left: 15px;">
+                  ${'★'.repeat(comment.rating)}${'☆'.repeat(5 - comment.rating)}
+                </span>
+              </div>
+              <div class="comment-content">${comment.content}</div>
+            </div>
+          `).join('');
+        }
+      }
+
+      // 真正的购物车功能
+      async function addToCart() {
+        console.log('🛒 添加到购物车');
+
+        // 检查登录状态
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        if (!authToken) {
+          alert('请先登录后再添加商品到购物车');
+          return false;
+        }
+
+        // 获取当前图书ID
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookId = urlParams.get('id') || '1';
+
+        // 获取数量（从页面元素或默认为1）
+        const quantityInput = document.querySelector('input[name="quantity"]');
+        const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+
+        const output = document.getElementById('form-output-global');
+
+        try {
+          // 显示加载状态
+          output.innerHTML = '<div class="alert alert-info">正在添加到购物车...</div>';
+          output.style.display = 'block';
+
+          const response = await fetch('http://1.94.203.175:5000/api/order/cart/add', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${authToken}`
+            },
+            body: JSON.stringify({
+              bookId: parseInt(bookId),
+              quantity: quantity
+            })
+          });
+
+          const result = await response.json();
+          console.log('购物车响应:', result);
+
+          if (response.ok && result.success) {
+            // 获取图书信息用于显示
+            const book = booksDatabase[bookId];
+            const bookTitle = book ? book.title : `图书${bookId}`;
+
+            // 显示页面提示
+            output.innerHTML = `<div class="alert alert-success">《${bookTitle}》已成功添加到购物车！</div>`;
+
+            // 显示美观的成功弹窗
+            showSuccessModal(bookTitle, quantity);
+
+            // 更新购物车计数
+            updateCartCount();
+
+            setTimeout(() => {
+              output.style.display = 'none';
+            }, 3000);
+
+            return true;
+          } else {
+            output.innerHTML = `<div class="alert alert-danger">添加失败: ${result.message || '未知错误'}</div>`;
+            setTimeout(() => {
+              output.style.display = 'none';
+            }, 3000);
+            return false;
+          }
+        } catch (error) {
+          console.error('添加到购物车失败:', error);
+          output.innerHTML = `<div class="alert alert-danger">添加失败: ${error.message}</div>`;
+          setTimeout(() => {
+            output.style.display = 'none';
+          }, 3000);
+          return false;
+        }
+      }
+
+      // 更新购物车计数
+      async function updateCartCount() {
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        if (!authToken) return;
+
+        try {
+          const response = await fetch('http://localhost:5000/api/order/cart', {
+            headers: {
+              'Authorization': `Bearer ${authToken}`
+            }
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            const cartCount = document.getElementById('cartCount');
+            if (cartCount && result.data && result.data.items) {
+              const totalItems = result.data.items.reduce((sum, item) => sum + item.quantity, 0);
+              cartCount.textContent = totalItems;
+            }
+          }
+        } catch (error) {
+          console.error('更新购物车计数失败:', error);
+        }
+      }
+
+      // 添加收藏（简化版）
+      function addToFavorites() {
+        const output = document.getElementById('form-output-global');
+        output.innerHTML = '<div class="alert alert-success">已添加到收藏！</div>';
+        output.style.display = 'block';
+        setTimeout(() => {
+          output.style.display = 'none';
+        }, 3000);
+      }
+
+      // 初始加载
+      if (bookId) {
+        loadBookDetails(bookId);
+        loadComments(bookId);
+      } else {
+        // 如果没有ID参数，显示默认图书（ID=1）
+        loadBookDetails('1');
+        loadComments('1');
+      }
+
+      // 用户状态管理
+      function checkUserStatus() {
+        console.log('🔍 检查用户状态');
+
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const userInfoStr = localStorage.getItem('userInfo');
+        const username = localStorage.getItem('username');
+
+        console.log('登录数据:', { authToken: !!authToken, isLoggedIn, userInfoStr: !!userInfoStr, username });
+
+        const userMenu = document.getElementById('userMenu');
+        const userDisplayName = document.getElementById('userDisplayName');
+        const userDropdown = document.getElementById('userDropdown');
+
+        if (!userMenu || !userDisplayName) {
+          console.error('❌ 用户菜单元素未找到');
+          return;
+        }
+
+        let userInfo = {};
+        if (userInfoStr) {
+          try {
+            userInfo = JSON.parse(userInfoStr);
+          } catch (error) {
+            console.error('❌ 解析用户信息失败:', error);
+          }
+        }
+
+        // 检查是否已登录（多重检查）
+        const hasValidLogin = (
+          (authToken && authToken !== 'null') &&
+          (isLoggedIn === 'true') &&
+          (userInfo.username || username)
+        );
+
+        console.log('登录状态判断:', hasValidLogin);
+
+        if (hasValidLogin) {
+          // 用户已登录
+          const displayName = userInfo.username || username || '用户';
+          console.log('✅ 用户已登录:', displayName);
+
+          userDisplayName.textContent = displayName;
+          userMenu.href = '#';
+
+          // 绑定下拉菜单事件
+          userMenu.onclick = function(e) {
+            e.preventDefault();
+            if (userDropdown) {
+              const isHidden = userDropdown.style.display === 'none' || !userDropdown.style.display;
+              userDropdown.style.display = isHidden ? 'block' : 'none';
+            }
+          };
+        } else {
+          // 用户未登录
+          console.log('❌ 用户未登录');
+          userDisplayName.textContent = '登录';
+          userMenu.href = 'login-page.html';
+          userMenu.onclick = null;
+
+          if (userDropdown) {
+            userDropdown.style.display = 'none';
+          }
+        }
+      }
+
+      // 退出登录函数
+      function logout() {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('token');
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userInfo');
+        localStorage.removeItem('username');
+        localStorage.removeItem('userEmail');
+
+        alert('已退出登录');
+        checkUserStatus();
+        window.location.href = 'login-page.html';
+      }
+
+      // 页面加载时检查用户状态和绑定事件
+      document.addEventListener('DOMContentLoaded', function() {
+        checkUserStatus();
+        bindCartEvents();
+      });
+
+      // 绑定购物车相关事件
+      function bindCartEvents() {
+        console.log('🔗 绑定购物车事件');
+
+        // 绑定加入购物车按钮
+        const addToCartBtn = document.getElementById('addToCart');
+        if (addToCartBtn) {
+          addToCartBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('🛒 购物车按钮被点击');
+            addToCart();
+          });
+          console.log('✅ 购物车按钮事件已绑定');
+        } else {
+          console.error('❌ 购物车按钮未找到');
+        }
+
+        // 绑定收藏按钮
+        const addToFavoritesBtn = document.getElementById('addToFavorites');
+        if (addToFavoritesBtn) {
+          addToFavoritesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('❤️ 收藏按钮被点击');
+            addToFavorites();
+          });
+          console.log('✅ 收藏按钮事件已绑定');
+        }
+      }
+
+      // 收藏功能
+      function addToFavorites() {
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        if (!authToken) {
+          alert('请先登录后再收藏图书');
+          return;
+        }
+
+        const output = document.getElementById('form-output-global');
+        output.innerHTML = '<div class="alert alert-info">收藏功能开发中...</div>';
+        output.style.display = 'block';
+        setTimeout(() => {
+          output.style.display = 'none';
+        }, 3000);
+      }
+
+      // 显示成功弹窗
+      function showSuccessModal(bookTitle, quantity = 1) {
+        const modal = document.getElementById('successModal');
+        const message = document.getElementById('successMessage');
+
+        if (modal && message) {
+          message.innerHTML = `《${bookTitle}》已成功添加到购物车！<br><small>数量：${quantity} 本</small>`;
+
+          // 显示弹窗
+          modal.style.display = 'flex';
+          setTimeout(() => {
+            modal.classList.add('show');
+          }, 10);
+
+          // 3秒后自动关闭
+          setTimeout(() => {
+            closeSuccessModal();
+          }, 3000);
+        }
+      }
+
+      // 关闭成功弹窗
+      function closeSuccessModal() {
+        const modal = document.getElementById('successModal');
+        if (modal) {
+          modal.classList.remove('show');
+          setTimeout(() => {
+            modal.style.display = 'none';
+          }, 300);
+        }
+      }
+
+      // 前往购物车
+      function goToCart() {
+        closeSuccessModal();
+        window.location.href = 'shopping-cart.html';
+      }
+
+      // 点击弹窗外部关闭
+      document.addEventListener('click', function(e) {
+        const modal = document.getElementById('successModal');
+        if (e.target === modal) {
+          closeSuccessModal();
+        }
+      });
+
+      // 延迟检查用户状态
+      setTimeout(checkUserStatus, 1000);
+      setTimeout(checkUserStatus, 3000);
+
+      // 延迟绑定事件（确保DOM完全加载）
+      setTimeout(bindCartEvents, 2000);
+    </script>
+  </body>
+</html>

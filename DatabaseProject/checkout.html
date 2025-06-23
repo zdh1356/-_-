@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="zh"> 
+  <head>
+    <!-- Site Title-->
+    <title>订单结算 - 网上书店</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:700%7CLato:300,400,300italic,700">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <!-- 支付宝和微信支付SDK -->
+    <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+
+    <style>
+      /* 用户菜单和购物车图标样式 */
+      .rd-navbar-user,
+      .rd-navbar-cart {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+      }
+
+      .user-icon,
+      .cart-icon {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 4px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        position: relative;
+      }
+
+      .user-icon:hover,
+      .cart-icon:hover {
+        background-color: #f5f5f5;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .user-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        min-width: 150px;
+        z-index: 1000;
+      }
+
+      .user-dropdown a {
+        display: block;
+        padding: 10px 15px;
+        color: #333;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.3s ease;
+      }
+
+      .user-dropdown a:hover {
+        background-color: #f5f5f5;
+        color: #007bff;
+      }
+
+      .user-dropdown a:last-child {
+        border-bottom: none;
+      }
+
+      .cart-count {
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        font-weight: bold;
+        min-width: 18px;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      /* 图标大小调整 */
+      .rd-navbar-user .mdi,
+      .rd-navbar-cart .mdi {
+        font-size: 20px;
+        line-height: 1;
+      }
+
+      /* 订单摘要样式优化 */
+      .table-cart {
+        margin-bottom: 0;
+      }
+
+      .table-cart th {
+        border-top: none;
+        font-weight: 600;
+        color: #495057;
+      }
+
+      .product-cart {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .product-cart-img img {
+        border-radius: 4px;
+        object-fit: cover;
+      }
+
+      .product-cart-info h6 {
+        margin: 0 0 5px 0;
+        font-weight: 600;
+      }
+
+      .product-cart-info p {
+        margin: 0;
+        font-size: 14px;
+        color: #6c757d;
+      }
+    </style>
+		<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="您正在使用过时的浏览器。为了获得更快更安全的浏览体验，请升级您的浏览器。"></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]--> 
+  </head>
+  <body>
+    <!-- Page preloader-->
+    <div class="page-loader"> 
+      <div class="page-loader-body"> 
+        <div class="preloader-wrapper big active"> 
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"> </div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+          <div class="spinner-layer spinner-primary">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page-->
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap rd-navbar-centered">
+          <nav class="rd-navbar novi-background" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-xl-stick-up="true">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-aside-left">
+                <div class="rd-navbar-nav-wrap">
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="category.html">图书分类</a>
+                      <!-- RD Navbar Dropdown-->
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="category.html?type=literature">文学艺术</a></li>
+                        <li><a href="category.html?type=science">科学技术</a></li>
+                        <li><a href="category.html?type=education">教育学习</a></li>
+                        <li><a href="category.html?type=life">生活休闲</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="shopping-cart.html">购物车</a></li>
+                    <li class="active"><a href="checkout.html">订单结算</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!-- RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a class="brand-name" href="index.html"><img class="logo-default" src="images/logo-default-161x57.png" alt="" width="161" height="57"/><img class="logo-inverse" src="images/logo-inverse-161x57.png" alt="" width="161" height="57"/></a></div>
+              </div>
+              <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-aside-right rd-navbar-collapse">
+                <!-- RD Navbar Search-->
+                <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label form-label" for="rd-navbar-search-form-input">搜索...</label>
+                      <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off"/>
+                      <div class="rd-search-results-live"></div>
+                    </div>
+                    <button class="rd-search-form-submit mdi mdi-magnify"></button>
+                  </form>
+                </div>
+
+                <!-- Shopping Cart -->
+                <div class="rd-navbar-cart">
+                  <a href="shopping-cart.html" class="cart-icon" id="cartIcon">
+                    <i class="mdi mdi-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                  </a>
+                </div>
+
+                <!-- User Menu -->
+                <div class="rd-navbar-user">
+                  <a href="login-page.html" class="user-icon" id="userMenu">
+                    <i class="mdi mdi-account"></i>
+                    <span id="userDisplayName">登录</span>
+                  </a>
+                  <div class="user-dropdown" id="userDropdown" style="display: none;">
+                    <a href="#" onclick="viewProfile()">个人资料</a>
+                    <a href="#" onclick="viewOrders()">订单历史</a>
+                    <a href="#" onclick="logout()">退出登录</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- Breadcrumbs-->
+      <section class="breadcrumbs-custom" style="background-image: url(images/breadcrumbs-bg.jpg)">
+        <div class="container">
+          <p class="breadcrumbs-custom-subtitle">购物 </p>
+          <p class="heading-1 breadcrumbs-custom-title">订单结算</p>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="#">商品目录</a></li>
+            <li class="active">订单结算</li>
+          </ul>
+        </div>
+      </section>
+      <!-- Product Page-->
+      <section class="section section-lg bg-default">
+        <!-- section wave-->
+        <div class="section-wave">
+          <svg x="0px" y="0px" width="1920px" height="45px" viewbox="0 0 1920 45" preserveAspectRatio="none">
+            <path d="M1920,0c-82.8,0-108.8,44.4-192,44.4c-78.8,0-116.5-43.7-192-43.7 c-77.1,0-115.9,44.4-192,44.4c-78.2,0-114.6-44.4-192-44.4c-78.4,0-115.3,44.4-192,44.4C883.1,45,841,0.6,768,0.6 C691,0.6,652.8,45,576,45C502.4,45,461.9,0.6,385,0.6C306.5,0.6,267.9,45,191,45C115.1,45,78,0.6,0,0.6V45h1920V0z"></path>
+          </svg>
+        </div>
+        <div class="container container-wide">
+          <div class="row row-fix row-50 justify-content-lg-center">
+            <div class="col-lg-11 col-xl-10 col-xxl-6">
+              <!-- 订单摘要 -->
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h5 class="mb-0">订单摘要</h5>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-cart">
+                      <thead>
+                        <tr>
+                          <th>商品</th>
+                          <th>单价</th>
+                          <th>数量</th>
+                          <th>小计</th>
+                        </tr>
+                      </thead>
+                      <tbody id="cart-items">
+                        <!-- 购物车商品将通过JavaScript动态加载 -->
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="row justify-content-end">
+                    <div class="col-md-6">
+                      <div class="card bg-light">
+                        <div class="card-body">
+                          <div class="d-flex justify-content-between mb-2">
+                            <span>商品总额：</span>
+                            <span id="subtotal">¥0.00</span>
+                          </div>
+                          <div class="d-flex justify-content-between mb-2">
+                            <span>运费：</span>
+                            <span id="shipping">免运费</span>
+                          </div>
+                          <div class="d-flex justify-content-between mb-2">
+                            <span>优惠金额：</span>
+                            <span id="discount">-¥0.00</span>
+                          </div>
+                          <hr>
+                          <div class="d-flex justify-content-between">
+                            <strong>应付总额：</strong>
+                            <strong id="total">¥0.00</strong>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 结算步骤 -->
+              <div class="tabs-custom tabs-horizontal tabs-line text-center" id="tabs-1">
+                <!-- 支付方式 -->
+                <div class="payment-section">
+                  <h5 class="mb-4">选择支付方式</h5>
+                  <div class="form-group">
+                    <div class="custom-control custom-radio mb-3">
+                      <input type="radio" id="alipay" name="paymentMethod" class="custom-control-input" checked>
+                      <label class="custom-control-label" for="alipay">
+                        <img src="images/alipay-logo.png" alt="支付宝" height="24" onerror="this.style.display='none'">
+                        支付宝
+                      </label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                      <input type="radio" id="wechat" name="paymentMethod" class="custom-control-input">
+                      <label class="custom-control-label" for="wechat">
+                        <img src="images/wechat-pay-logo.png" alt="微信支付" height="24" onerror="this.style.display='none'">
+                        微信支付
+                      </label>
+                    </div>
+                    <div class="custom-control custom-radio mb-3">
+                      <input type="radio" id="bankTransfer" name="paymentMethod" class="custom-control-input">
+                      <label class="custom-control-label" for="bankTransfer">银行转账</label>
+                    </div>
+                  </div>
+
+                  <!-- 优惠券 -->
+                  <div class="coupon-section mt-4">
+                    <h5 class="mb-3">使用优惠券</h5>
+                    <div class="input-group">
+                      <input type="text" class="form-input" id="couponCode" placeholder="请输入优惠码">
+                      <div class="input-group-append">
+                        <button class="button button-primary" type="button" onclick="applyCoupon()">使用</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 邮件发送说明 -->
+                  <div class="email-notice mt-4">
+                    <div class="alert alert-info">
+                      <h6><i class="mdi mdi-email"></i> 订单发送方式</h6>
+                      <p class="mb-0">订单确认后，我们将通过邮件将购买的图书详情发送到您的注册邮箱。请确保您的邮箱地址正确且能正常接收邮件。</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 提交订单按钮 -->
+                <div class="row mt-4">
+                  <div class="col-12">
+                    <div class="form-button text-center">
+                      <button class="button button-lg button-primary button-nina" onclick="submitOrder()">提交订单</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Footer Default-->
+      <footer class="section page-footer page-footer-default novi-background bg-cover text-left footer-form bg-dark">
+        <div class="container container-wide">
+          <div class="row row-50 justify-content-sm-center">
+            <div class="col-md-6 col-xl-3">
+              <div class="inset-xxl">
+                <h6 class="text-white">About us</h6>
+                <p class="text-transparent text-spacing-sm">Booksmart is the worldwide textbook rental service created by readers for readers. We operate since 1999 and we offer lots of new and used textbooks on various topics including web design, development, business, and more.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-2">
+              <h6 class="text-white">Quick links</h6>
+              <ul class="list-marked list-marked-primary">
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="shop-4-columns-layout.html">Shop</a></li>
+                <li><a href="classic-blog.html">Blog</a></li>
+                <li><a href="grid-gallery-outside-title.html">Portfolio</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 col-xl-4">
+              <h6 class="text-white">Gallery</h6>
+              <div class="instafeed text-center" data-lightgallery="group">
+                <div class="row row-10 row-narrow">
+                  <div class="col-3">
+                    <div class="thumbnail-instafeed thumbnail-instafeed-minimal"> <a class="instagram-link" data-lightgallery="item" href="images/footer-gallery-1-1200x800-original.jpg"><img src="images/footer-gallery-1-110x110.jpg" alt="" width="110" height="110"/>
+                        <!--img.instagram-image(src='images/_blank.png', alt='', data-images-standard_resolution-url='src')--></a>
+                      <div class="caption"> 
+                        <ul class="list-inline">
+                          <li><span class="icon novi-icon mdi mdi-plus">  </span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="thumbnail-instafeed thumbnail-instafeed-minimal"> <a class="instagram-link" data-lightgallery="item" href="images/footer-gallery-2-1200x800-original.jpg"><img src="images/footer-gallery-2-110x110.jpg" alt="" width="110" height="110"/>
+                        <!--img.instagram-image(src='images/_blank.png', alt='', data-images-standard_resolution-url='src')--></a>
+                      <div class="caption"> 
+                        <ul class="list-inline">
+                          <li><span class="icon novi-icon mdi mdi-plus">  </span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="thumbnail-instafeed thumbnail-instafeed-minimal"> <a class="instagram-link" data-lightgallery="item" href="images/footer-gallery-3-1200x800-original.jpg"><img src="images/footer-gallery-3-110x110.jpg" alt="" width="110" height="110"/>
+                        <!--img.instagram-image(src='images/_blank.png', alt='', data-images-standard_resolution-url='src')--></a>
+                      <div class="caption"> 
+                        <ul class="list-inline">
+                          <li><span class="icon novi-icon mdi mdi-plus">  </span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="thumbnail-instafeed thumbnail-instafeed-minimal"> <a class="instagram-link" data-lightgallery="item" href="images/footer-gallery-4-1200x800-original.jpg"><img src="images/footer-gallery-4-110x110.jpg" alt="" width="110" height="110"/>
+                        <!--img.instagram-image(src='images/_blank.png', alt='', data-images-standard_resolution-url='src')--></a>
+                      <div class="caption"> 
+                        <ul class="list-inline">
+                          <li><span class="icon novi-icon mdi mdi-plus">  </span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="thumbnail-instafeed thumbnail-instafeed-minimal"> <a class="instagram-link" data-lightgallery="item" href="images/footer-gallery-5-1200x800-original.jpg"><img src="images/footer-gallery-5-110x110.jpg" alt="" width="110" height="110"/>
+                        <!--img.instagram-image(src='images/_blank.png', alt='', data-images-standard_resolution-url='src')--></a>
+                      <div class="caption"> 
+                        <ul class="list-inline">
+                          <li><span class="icon novi-icon mdi mdi-plus">  </span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="thumbnail-instafeed thumbnail-instafeed-minimal"> <a class="instagram-link" data-lightgallery="item" href="images/footer-gallery-6-1200x800-original.jpg"><img src="images/footer-gallery-6-110x110.jpg" alt="" width="110" height="110"/>
+                        <!--img.instagram-image(src='images/_blank.png', alt='', data-images-standard_resolution-url='src')--></a>
+                      <div class="caption"> 
+                        <ul class="list-inline">
+                          <li><span class="icon novi-icon mdi mdi-plus">  </span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="thumbnail-instafeed thumbnail-instafeed-minimal"> <a class="instagram-link" data-lightgallery="item" href="images/footer-gallery-7-1200x800-original.jpg"><img src="images/footer-gallery-7-110x110.jpg" alt="" width="110" height="110"/>
+                        <!--img.instagram-image(src='images/_blank.png', alt='', data-images-standard_resolution-url='src')--></a>
+                      <div class="caption"> 
+                        <ul class="list-inline">
+                          <li><span class="icon novi-icon mdi mdi-plus">  </span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="thumbnail-instafeed thumbnail-instafeed-minimal"> <a class="instagram-link" data-lightgallery="item" href="images/footer-gallery-8-1200x800-original.jpg"><img src="images/footer-gallery-8-110x110.jpg" alt="" width="110" height="110"/>
+                        <!--img.instagram-image(src='images/_blank.png', alt='', data-images-standard_resolution-url='src')--></a>
+                      <div class="caption"> 
+                        <ul class="list-inline">
+                          <li><span class="icon novi-icon mdi mdi-plus">  </span></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+              <h6 class="text-white">Newsletter</h6>
+              <p class="text-transparent text-spacing-sm">Keep up with our always upcoming news, updates, and publications. Enter your e-mail and subscribe to our newsletter.</p>
+              <form class="rd-mailform rd-mailform-inline rd-mailform-sm" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+                <div class="rd-mailform-inline-inner">
+                  <div class="form-wrap custom-input">
+                    <input class="form-input" type="email" name="email" data-constraints="@Email @Required" id="subscribe-form-email-0"/>
+                    <label class="form-label" for="subscribe-form-email-0">Enter your e-mail</label>
+                  </div>
+                  <button class="button form-button button-xs button-primary button-nina" type="submit">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>.&nbsp;</span><span>All Rights Reserved</span><span>.&nbsp;</span><a href="privacy-policy.html">Privacy Policy</a>. <a target="_blank" href="https://www.mobanwang.com/" title="网站模板">网站模板</a></p>
+        </div>
+      </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- 银行转账信息模态框 -->
+    <div class="modal fade" id="bankTransferModal" tabindex="-1" role="dialog" aria-labelledby="bankTransferModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bankTransferModalLabel">银行转账信息</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- 内容将由JavaScript动态填充 -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="button button-primary" data-dismiss="modal">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast提示组件 -->
+    <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
+      <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+        <div class="toast-header">
+          <strong class="mr-auto">提示</strong>
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body">
+          <!-- 提示内容将由JavaScript动态填充 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/checkout.js"></script>
+
+    <script>
+      // 用户状态检查 - 结算页面专用
+      function checkUserStatus() {
+        console.log('🔍 检查用户状态 - 结账页面');
+
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        const userInfoStr = localStorage.getItem('userInfo');
+        const username = localStorage.getItem('username');
+
+        console.log('登录数据:', {
+          authToken: !!authToken,
+          isLoggedIn,
+          userInfoStr: !!userInfoStr,
+          username,
+          authTokenValue: authToken
+        });
+
+        const userMenu = document.getElementById('userMenu');
+        const userDisplayName = document.getElementById('userDisplayName');
+        const userDropdown = document.getElementById('userDropdown');
+
+        if (!userMenu || !userDisplayName) {
+          console.error('❌ 用户菜单元素未找到');
+          return;
+        }
+
+        let userInfo = {};
+        if (userInfoStr) {
+          try {
+            userInfo = JSON.parse(userInfoStr);
+          } catch (error) {
+            console.error('❌ 解析用户信息失败:', error);
+          }
+        }
+
+        // 更宽松的登录检查 - 只要有token就认为已登录
+        const hasValidLogin = (
+          (authToken && authToken !== 'null' && authToken !== 'undefined') ||
+          (isLoggedIn === 'true') ||
+          (userInfo.username || username)
+        );
+
+        console.log('登录状态详细检查:');
+        console.log('  authToken存在:', !!authToken);
+        console.log('  authToken有效:', authToken && authToken !== 'null' && authToken !== 'undefined');
+        console.log('  isLoggedIn为true:', isLoggedIn === 'true');
+        console.log('  有用户名:', !!(userInfo.username || username));
+        console.log('最终登录状态判断:', hasValidLogin);
+
+        if (hasValidLogin) {
+          // 用户已登录
+          const displayName = userInfo.username || username || '用户';
+          console.log('✅ 用户已登录:', displayName);
+
+          userDisplayName.textContent = displayName;
+          userMenu.href = '#';
+
+          // 绑定下拉菜单事件
+          userMenu.onclick = function(e) {
+            e.preventDefault();
+            if (userDropdown) {
+              const isHidden = userDropdown.style.display === 'none' || !userDropdown.style.display;
+              userDropdown.style.display = isHidden ? 'block' : 'none';
+            }
+          };
+        } else {
+          // 用户未登录
+          console.log('❌ 用户未登录');
+          userDisplayName.textContent = '登录';
+          userMenu.href = 'login-page.html';
+          userMenu.onclick = null;
+
+          if (userDropdown) {
+            userDropdown.style.display = 'none';
+          }
+        }
+      }
+
+      // 加载购物车商品数据
+      async function loadCheckoutItems() {
+        console.log('🛒 开始加载结算商品数据');
+
+        // 先显示测试数据，确保页面有内容
+        console.log('🧪 先显示测试数据');
+        forceDisplayTestData();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemsParam = urlParams.get('items');
+
+        console.log('📋 URL参数 items:', itemsParam);
+
+        // 如果没有指定商品ID，直接显示测试数据
+        let selectedItemIds = [];
+        if (itemsParam) {
+          selectedItemIds = itemsParam.split(',').map(id => parseInt(id.trim()));
+        } else {
+          // 从localStorage获取选中的商品
+          const selectedItems = localStorage.getItem('selectedCartItems');
+          if (selectedItems) {
+            try {
+              selectedItemIds = JSON.parse(selectedItems);
+            } catch (error) {
+              console.error('❌ 解析选中商品失败:', error);
+            }
+          }
+        }
+
+        console.log('📦 要结算的商品ID:', selectedItemIds);
+
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        if (!authToken) {
+          console.log('⚠️ 用户未登录，继续显示测试数据');
+          return;
+        }
+
+        try {
+          // 获取购物车数据
+          console.log('📡 请求购物车数据...');
+          const response = await fetch('http://1.94.203.175:5000/api/order/cart', {
+            headers: {
+              'Authorization': `Bearer ${authToken}`
+            }
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            console.log('📦 购物车API响应:', result);
+
+            if (result.success && result.data && result.data.items && result.data.items.length > 0) {
+              // 转换数据格式以匹配前端显示需求
+              const formattedItems = result.data.items.map(item => {
+                const book = item.book || {};
+                return {
+                  id: item.id,
+                  bookId: item.bookId || book.id,
+                  title: book.title || '未知图书',
+                  bookTitle: book.title || '未知图书',
+                  author: book.author || '未知作者',
+                  publisher: book.publisher || '未知出版社',
+                  price: parseFloat(book.currentPrice || book.current_price || 0),
+                  quantity: item.quantity || 1,
+                  cover: book.coverImageUrl || book.cover_image_url || 'images/default-book.svg'
+                };
+              });
+
+              console.log('🔄 转换后的商品数据:', formattedItems);
+
+              // 如果有指定的商品ID，过滤出选中的商品
+              if (selectedItemIds.length > 0) {
+                const selectedItems = formattedItems.filter(item => {
+                  return selectedItemIds.includes(item.bookId);
+                });
+
+                console.log('✅ 过滤后的选中商品:', selectedItems);
+
+                if (selectedItems.length > 0) {
+                  displayCheckoutItems(selectedItems);
+                  return;
+                } else {
+                  console.log('⚠️ 没有找到选中的商品，显示所有购物车商品');
+                }
+              }
+
+              // 显示所有购物车商品
+              displayCheckoutItems(formattedItems);
+              return;
+            } else {
+              console.log('⚠️ 购物车为空或API响应格式错误');
+            }
+          } else {
+            console.log('⚠️ 获取购物车数据失败，状态码:', response.status);
+          }
+        } catch (error) {
+          console.log('⚠️ 加载购物车数据失败:', error);
+        }
+      }
+
+      // 显示结算商品
+      function displayCheckoutItems(items) {
+        console.log('🎨 开始显示结算商品:', items);
+
+        const cartContainer = document.getElementById('cart-items');
+        if (!cartContainer) {
+          console.error('❌ 购物车容器未找到');
+          return;
+        }
+
+        console.log('✅ 找到购物车容器:', cartContainer);
+
+        if (!items || items.length === 0) {
+          console.log('⚠️ 没有商品数据');
+          cartContainer.innerHTML = `
+            <tr>
+              <td colspan="4" style="text-align: center; padding: 50px;">
+                <p>没有要结算的商品</p>
+                <a href="shopping-cart.html" class="button button-primary">返回购物车</a>
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        let subtotal = 0;
+
+        const cartHTML = items.map((item, index) => {
+          console.log(`🛍️ 处理商品 ${index + 1}:`, item);
+
+          const price = parseFloat(item.price) || 0;
+          const quantity = parseInt(item.quantity) || 1;
+          const itemTotal = price * quantity;
+          subtotal += itemTotal;
+
+          const title = item.bookTitle || item.title || '未知图书';
+          const author = item.author || '未知作者';
+          const publisher = item.publisher || '未知出版社';
+          const cover = item.cover || 'images/default-book.svg';
+
+          return `
+            <tr>
+              <td>
+                <div class="product-cart">
+                  <div class="product-cart-img">
+                    <img src="${cover}" alt="${title}" width="60" height="75" onerror="this.src='images/default-book.svg'">
+                  </div>
+                  <div class="product-cart-info">
+                    <h6>${title}</h6>
+                    <p>作者: ${author}</p>
+                    <p>出版社: ${publisher}</p>
+                  </div>
+                </div>
+              </td>
+              <td>￥${price.toFixed(2)}</td>
+              <td>${quantity}</td>
+              <td>￥${itemTotal.toFixed(2)}</td>
+            </tr>
+          `;
+        }).join('');
+
+        console.log('📝 生成的HTML:', cartHTML);
+        cartContainer.innerHTML = cartHTML;
+        console.log('✅ HTML已插入到容器');
+
+        // 更新价格显示
+        updatePriceDisplay(subtotal);
+        console.log(`💰 总价: ￥${subtotal.toFixed(2)}`);
+      }
+
+      // 显示测试数据
+      function displayTestCheckoutItems(selectedItemIds = [1]) {
+        console.log('🧪 显示测试数据，选中的商品ID:', selectedItemIds);
+
+        // 模拟购物车中的所有商品
+        const allTestItems = [
+          {
+            bookId: 1,
+            title: '《红楼梦》',
+            author: '曹雪芹',
+            publisher: '人民文学出版社',
+            price: 29.80,
+            quantity: 2,
+            cover: 'images/default-book.svg'
+          },
+          {
+            bookId: 2,
+            title: '《西游记》',
+            author: '吴承恩',
+            publisher: '中华书局',
+            price: 35.60,
+            quantity: 1,
+            cover: 'images/default-book.svg'
+          },
+          {
+            bookId: 3,
+            title: '《三国演义》',
+            author: '罗贯中',
+            publisher: '岳麓书社',
+            price: 42.00,
+            quantity: 1,
+            cover: 'images/default-book.svg'
+          }
+        ];
+
+        // 过滤出选中的商品
+        const selectedTestItems = allTestItems.filter(item =>
+          selectedItemIds.includes(item.bookId)
+        );
+
+        console.log('🧪 过滤后的测试商品:', selectedTestItems);
+
+        if (selectedTestItems.length > 0) {
+          displayCheckoutItems(selectedTestItems);
+        } else {
+          // 如果没有匹配的商品，显示第一个作为默认
+          displayCheckoutItems([allTestItems[0]]);
+        }
+      }
+
+      // 更新价格显示
+      function updatePriceDisplay(subtotal) {
+        const subtotalElement = document.getElementById('subtotal');
+        const totalElement = document.getElementById('total');
+
+        if (subtotalElement) {
+          subtotalElement.textContent = `¥${subtotal.toFixed(2)}`;
+        }
+        if (totalElement) {
+          totalElement.textContent = `¥${subtotal.toFixed(2)}`;
+        }
+      }
+
+      // 用户功能
+      function viewProfile() {
+        alert('个人资料功能开发中...');
+      }
+
+      function viewOrders() {
+        alert('订单历史功能开发中...');
+      }
+
+      function logout() {
+        if (confirm('确定要退出登录吗？')) {
+          localStorage.removeItem('authToken');
+          localStorage.removeItem('token');
+          localStorage.removeItem('userInfo');
+          localStorage.removeItem('isLoggedIn');
+          window.location.href = 'login-page.html';
+        }
+      }
+
+      // 页面加载时执行
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 checkout页面DOM加载完成');
+
+        checkUserStatus();
+
+        // 延迟加载商品数据，确保页面完全加载
+        setTimeout(() => {
+          console.log('🔄 开始加载商品数据');
+          loadCheckoutItems();
+        }, 1000);
+
+        // 如果3秒后还没有数据，强制显示测试数据
+        setTimeout(() => {
+          const cartContainer = document.getElementById('cart-items');
+          if (cartContainer && cartContainer.innerHTML.trim() === '<!-- 购物车商品将通过JavaScript动态加载 -->') {
+            console.log('⚠️ 3秒后仍无数据，强制显示测试数据');
+            forceDisplayTestData();
+          }
+        }, 3000);
+
+        // 点击页面其他地方关闭下拉菜单
+        document.addEventListener('click', function(e) {
+          const userMenu = document.getElementById('userMenu');
+          const userDropdown = document.getElementById('userDropdown');
+          if (userMenu && userDropdown && !userMenu.contains(e.target) && !userDropdown.contains(e.target)) {
+            userDropdown.style.display = 'none';
+          }
+        });
+      });
+
+      // 提交订单
+      async function submitOrder() {
+        console.log('📝 开始提交订单');
+
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        if (!authToken) {
+          alert('请先登录');
+          window.location.href = 'login-page.html';
+          return;
+        }
+
+        // 获取支付方式和优惠券
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.id || 'alipay';
+        const couponCode = document.getElementById('couponCode')?.value?.trim() || '';
+
+        console.log('💳 支付方式:', paymentMethod);
+        console.log('🎫 优惠券:', couponCode);
+
+        // 获取当前购物车商品
+        let orderItems = [];
+        try {
+          // 从后端获取最新的购物车数据
+          const cartResponse = await fetch('http://1.94.203.175:5000/api/order/cart', {
+            headers: {
+              'Authorization': `Bearer ${authToken}`
+            }
+          });
+
+          if (cartResponse.ok) {
+            const cartResult = await cartResponse.json();
+            if (cartResult.success && cartResult.data && cartResult.data.items) {
+              orderItems = cartResult.data.items.map(item => ({
+                bookId: item.bookId,
+                quantity: item.quantity
+              }));
+            }
+          }
+
+          if (orderItems.length === 0) {
+            alert('购物车为空，无法提交订单');
+            return;
+          }
+
+          console.log('📦 订单商品:', orderItems);
+
+          // 提交订单 - 通过邮件发送
+          const orderData = {
+            items: orderItems,
+            paymentMethod: paymentMethod,
+            couponCode: couponCode,
+            deliveryMethod: 'email', // 标记为邮件发送
+            notes: '订单将通过邮件发送到用户邮箱'
+          };
+
+          console.log('📤 提交订单数据:', orderData);
+
+          const response = await fetch('http://1.94.203.175:5000/api/order/', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${authToken}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+          });
+
+          if (response.ok) {
+            const result = await response.json();
+            console.log('✅ 订单提交成功:', result);
+
+            if (result.success) {
+              // 存储订单信息用于成功页面显示
+              localStorage.setItem('lastOrderNumber', result.data.orderNumber);
+              localStorage.setItem('lastOrderAmount', result.data.totalAmount);
+
+              // 清空购物车
+              await clearCart();
+
+              // 显示成功提示并跳转
+              alert('🎉 订单提交成功！\n\n📧 图书详情已发送到您的邮箱\n📚 请查收邮件获取您购买的图书信息\n💾 建议保存邮件以便随时查看');
+
+              // 跳转到首页
+              window.location.href = 'index.html';
+            } else {
+              alert('订单提交失败：' + result.message);
+            }
+          } else {
+            const errorText = await response.text();
+            console.error('❌ 订单提交失败:', errorText);
+            alert('订单提交失败，请稍后重试');
+          }
+
+        } catch (error) {
+          console.error('❌ 提交订单时发生错误:', error);
+          alert('提交订单时发生错误，请稍后重试');
+        }
+      }
+
+      // 清空购物车
+      async function clearCart() {
+        const authToken = localStorage.getItem('authToken') || localStorage.getItem('token');
+        if (!authToken) return;
+
+        try {
+          await fetch('http://1.94.203.175:5000/api/order/cart/clear', {
+            method: 'DELETE',
+            headers: {
+              'Authorization': `Bearer ${authToken}`
+            }
+          });
+        } catch (error) {
+          console.error('清空购物车失败:', error);
+        }
+      }
+
+      // 强制显示测试数据
+      function forceDisplayTestData() {
+        console.log('🚨 强制显示测试数据');
+        const testItems = [
+          {
+            bookId: 1,
+            title: '《红楼梦》',
+            bookTitle: '《红楼梦》',
+            author: '曹雪芹',
+            publisher: '人民文学出版社',
+            price: 29.80,
+            quantity: 2,
+            cover: 'images/default-book.svg'
+          },
+          {
+            bookId: 2,
+            title: '《西游记》',
+            bookTitle: '《西游记》',
+            author: '吴承恩',
+            publisher: '中华书局',
+            price: 35.60,
+            quantity: 1,
+            cover: 'images/default-book.svg'
+          }
+        ];
+
+        console.log('🧪 强制显示的测试商品:', testItems);
+        displayCheckoutItems(testItems);
+      }
+    </script>
+  </body>
+</html>

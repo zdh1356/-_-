@@ -1,0 +1,385 @@
+/**
+ * 实时数据系统UI样式
+ * 包含加载动画、消息提示、状态指示器等
+ */
+
+/* ==================== 全局加载器 ==================== */
+
+#global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+}
+
+.loader-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+}
+
+.loader-content p {
+    margin: 15px 0 0 0;
+    color: #666;
+    font-size: 14px;
+}
+
+/* ==================== 旋转加载动画 ==================== */
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==================== 消息提示动画 ==================== */
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* ==================== 消息容器样式 ==================== */
+
+#message-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    max-width: 350px;
+}
+
+#message-container .alert {
+    margin-bottom: 10px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    border: none;
+    font-size: 14px;
+    line-height: 1.4;
+    position: relative;
+    overflow: hidden;
+}
+
+#message-container .alert::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: currentColor;
+}
+
+#message-container .alert-success {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+#message-container .alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+#message-container .alert-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+#message-container .alert-warning {
+    background: #fff3cd;
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+/* ==================== 在线状态指示器 ==================== */
+
+.online-status {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.online-status.online {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.online-status.offline {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.online-status::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    background: currentColor;
+}
+
+/* ==================== 加载状态覆盖层 ==================== */
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.loading-overlay .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+}
+
+/* ==================== 数据刷新指示器 ==================== */
+
+.refresh-indicator {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.refresh-indicator.show {
+    opacity: 1;
+}
+
+.refresh-indicator .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ==================== 购物车数量徽章 ==================== */
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    padding: 0 4px;
+    animation: pulse 0.3s ease;
+}
+
+.cart-count:empty {
+    display: none;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ==================== 数据同步状态 ==================== */
+
+.sync-status {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+    margin-left: 10px;
+}
+
+.sync-status .sync-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    border: 2px solid #ccc;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.sync-status.synced .sync-icon {
+    border: 2px solid #28a745;
+    border-top: 2px solid #28a745;
+    animation: none;
+}
+
+.sync-status.error .sync-icon {
+    border: 2px solid #dc3545;
+    border-top: 2px solid #dc3545;
+    animation: none;
+}
+
+/* ==================== 响应式设计 ==================== */
+
+@media (max-width: 768px) {
+    #message-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+
+    .loader-content {
+        margin: 0 20px;
+        padding: 20px;
+        min-width: auto;
+    }
+
+    .online-status {
+        bottom: 10px;
+        left: 10px;
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .refresh-indicator {
+        top: 5px;
+        left: 10px;
+        right: 10px;
+        transform: none;
+        text-align: center;
+    }
+}
+
+/* ==================== 暗色主题支持 ==================== */
+
+@media (prefers-color-scheme: dark) {
+    .loader-content {
+        background: #2d3748;
+        color: #e2e8f0;
+    }
+
+    .loading-overlay {
+        background: rgba(45, 55, 72, 0.8);
+    }
+
+    #message-container .alert-success {
+        background: #2d5a3d;
+        color: #9ae6b4;
+    }
+
+    #message-container .alert-danger {
+        background: #5a2d2d;
+        color: #feb2b2;
+    }
+
+    #message-container .alert-info {
+        background: #2d4a5a;
+        color: #90cdf4;
+    }
+
+    #message-container .alert-warning {
+        background: #5a4d2d;
+        color: #faf089;
+    }
+}
+
+/* ==================== 无障碍支持 ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .spinner,
+    .sync-status .sync-icon {
+        animation: none;
+    }
+
+    #message-container .alert {
+        animation: none;
+    }
+
+    .cart-count {
+        animation: none;
+    }
+}
+
+/* ==================== 打印样式 ==================== */
+
+@media print {
+    #global-loader,
+    #message-container,
+    .online-status,
+    .refresh-indicator,
+    .loading-overlay {
+        display: none !important;
+    }
+}
